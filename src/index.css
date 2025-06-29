@@ -1,1 +1,52 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-background: #4e342e;
+  --color-gold: #d4af37;
+  --font-serif: 'Cardo', serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-gold);
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .bg-background {
+    background-color: var(--color-background);
+  }
+
+  .text-gold {
+    color: var(--color-gold);
+  }
+
+  .font-cardo {
+    font-family: var(--font-serif);
+  }
+
+  .font-charmonman {
+    font-family: 'Charmonman', cursive;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease forwards;
+}
+
+html {
+  scroll-behavior: smooth;
+}
