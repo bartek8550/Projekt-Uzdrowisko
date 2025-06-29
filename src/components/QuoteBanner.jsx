@@ -13,7 +13,7 @@ export default function QuoteBanner({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasShown) {
-          setHasShown(true); // pokazujemy raz i zostawiamy
+          setHasShown(true);
         }
       },
       { threshold: 0.2 }
@@ -29,16 +29,22 @@ export default function QuoteBanner({
     <div
       ref={ref}
       className={`
-        text-center py-6 px-4 border-y 
+        text-center py-12 px-4 border-y 
         border-[rgba(212,175,55,0.2)] 
-        font-charmonman text-xl md:text-2xl italic
-        transition-all duration-1000 ease-out
-        ${hasShown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+        font-charmonman text-2xl md:text-3xl italic
+        bg-opacity-100
         ${className}
       `}
       style={{ backgroundColor: background, color: textColor }}
     >
-      {text}
+      <span
+        className={`
+          inline-block transition-all duration-1000 ease-out
+          ${hasShown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+        `}
+      >
+        {text}
+      </span>
     </div>
   );
 }

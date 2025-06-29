@@ -73,7 +73,7 @@ export default function Navbar() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="relative inline-block after:block after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full after:mt-1"
+                className="relative inline-block after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
               >
                 {item.label}
               </a>
