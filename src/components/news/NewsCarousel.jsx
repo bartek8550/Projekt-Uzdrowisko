@@ -34,57 +34,66 @@ export default function NewsCarousel() {
   return (
     <section
       id="aktualnosci"
-      className="py-32 bg-[#CCA291] text-[#3E3E3E] text-center scroll-mt-24"
+      className="relative py-32 bg-[#CCA291] text-[#3E3E3E] text-center scroll-mt-24 overflow-hidden"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-20">
-        Aktualności – Co nowego w Uzdrowisku?
-      </h2>
+      {/* Tło obrazkowe */}
+      <img
+        src="/cennikTlo.png"
+        alt="Tło dekoracyjne"
+        className="absolute inset-0 w-full h-full object-cover opacity-8 pointer-events-none select-none z-0"
+      />
 
-      <div className="relative w-full max-w-[1440px] mx-auto">
-        {/* Lewa strzałka */}
-        <button
-          onClick={scrollPrev}
-          disabled={!canScrollPrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E8C2AE] rounded-full p-2 text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10"
-        >
-          <ChevronLeft size={32} />
-        </button>
+      <div className="relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-20">
+          Aktualności – Co nowego w Uzdrowisku?
+        </h2>
 
-        {/* Karuzela */}
-        <div className="overflow-hidden px-12" ref={emblaRef}>
-          <div className="flex gap-6">
-            {newsList.map((news, index) => (
-              <div
-                key={news.id}
-                className={`flex-shrink-0 w-[440px] transition-transform duration-300 ${
-                  selectedIndex === index
-                    ? 'scale-100 z-10'
-                    : 'scale-90 opacity-90'
-                }`}
-              >
-                <NewsCard news={news} />
-              </div>
-            ))}
+        <div className="relative w-full max-w-[1440px] mx-auto">
+          {/* Lewa strzałka */}
+          <button
+            onClick={scrollPrev}
+            disabled={!canScrollPrev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E8C2AE] rounded-full p-2 text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10"
+          >
+            <ChevronLeft size={32} />
+          </button>
+
+          {/* Karuzela */}
+          <div className="overflow-hidden px-12" ref={emblaRef}>
+            <div className="flex gap-6">
+              {newsList.map((news, index) => (
+                <div
+                  key={news.id}
+                  className={`flex-shrink-0 w-[440px] transition-transform duration-300 ${
+                    selectedIndex === index
+                      ? 'scale-100 z-10'
+                      : 'scale-90 opacity-90'
+                  }`}
+                >
+                  <NewsCard news={news} />
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* Prawa strzałka */}
+          <button
+            onClick={scrollNext}
+            disabled={!canScrollNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E8C2AE] rounded-full p-2 text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10"
+          >
+            <ChevronRight size={32} />
+          </button>
         </div>
 
-        {/* Prawa strzałka */}
-        <button
-          onClick={scrollNext}
-          disabled={!canScrollNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E8C2AE] rounded-full p-2 text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10"
-        >
-          <ChevronRight size={32} />
-        </button>
-      </div>
-
-      <div className="mt-24">
-        <a
-          href="/aktualnosci"
-          className="bg-[#8D6E62] text-[#CCA291] px-8 py-3 rounded-md hover:scale-105 transition inline-block"
-        >
-          Przejdź do aktualności
-        </a>
+        <div className="mt-24">
+          <a
+            href="/aktualnosci"
+            className="bg-[#8D6E62] text-[#CCA291] px-8 py-3 rounded-md hover:scale-105 transition inline-block"
+          >
+            Przejdź do aktualności
+          </a>
+        </div>
       </div>
     </section>
   );

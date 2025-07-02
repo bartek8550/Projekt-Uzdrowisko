@@ -1,7 +1,18 @@
 export default function About() {
   return (
-    <section id="onas" className="bg-[#CCA291] py-16 px-4 scroll-mt-24">
-      <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
+    <section
+      id="onas"
+      className="relative bg-[#CCA291] py-16 px-4 scroll-mt-24 overflow-hidden"
+    >
+      {/* Tło z papieru */}
+      <img
+        src="/papier.webp"
+        alt="Papier"
+        className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
+      />
+
+      {/* Treść sekcji */}
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
         {/* Tekst */}
         <div className="text-center md:text-left md:w-1/2 space-y-6 text-[#3E3E3E]">
           <h2 className="text-3xl md:text-4xl font-bold font-cardo">

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function QuoteBanner({
   text = '„Równowaga ciała to początek harmonii w całym życiu.”',
-  background = '#4E342E',
+  background = '#4e2a23',
   textColor = '#D4AF37',
   className = '',
 }) {
