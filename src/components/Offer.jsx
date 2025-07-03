@@ -1,44 +1,44 @@
 export default function Offer() {
   const services = [
     {
-      title: 'Masaż leczniczy pleców',
-      time: '60 minut',
-      price: '150 zł',
-      desc: 'Skuteczny masaż leczniczy pleców, który łagodzi napięcia mięśniowe, redukuje ból i przywraca swobodę ruchu. Idealny przy pracy siedzącej, stresie i przeciążeniach kręgosłupa.',
-      img: '/offer/masowanie plecow.jpg',
+      title: "Masaż leczniczy pleców",
+      time: "60 minut",
+      price: "150 zł",
+      desc: "Skuteczny masaż leczniczy pleców, który łagodzi napięcia mięśniowe, redukuje ból i przywraca swobodę ruchu. Idealny przy pracy siedzącej, stresie i przeciążeniach kręgosłupa.",
+      img: "/offer/masowanie plecow.jpg",
       reverse: false,
     },
     {
-      title: 'Terapia powięziowa',
-      time: '60 minut',
-      price: '190 zł',
-      desc: 'Delikatna, ale głęboko działająca metoda, która poprawia elastyczność tkanek i zmniejsza przewlekłe napięcia. Polecana przy bólach mięśniowo-powięziowych i ograniczeniach ruchomości.',
-      img: '/offer/terapia powieziowa.png',
+      title: "Terapia powięziowa",
+      time: "60 minut",
+      price: "190 zł",
+      desc: "Delikatna, ale głęboko działająca metoda, która poprawia elastyczność tkanek i zmniejsza przewlekłe napięcia. Polecana przy bólach mięśniowo-powięziowych i ograniczeniach ruchomości.",
+      img: "/offer/terapia powieziowa.png",
       reverse: true,
     },
     {
-      title: 'Terapia manualna',
-      time: '60 minut',
-      price: '180 zł',
-      desc: 'Indywidualna praca fizjoterapeuty z ciałem pacjenta, mająca na celu przywrócenie prawidłowej pracy stawów i mięśni. Sprawdza się przy bólach kręgosłupa, stawów i w stanach przeciążeniowych.',
-      img: '/offer/terapia manualna.png',
+      title: "Terapia manualna",
+      time: "60 minut",
+      price: "180 zł",
+      desc: "Indywidualna praca fizjoterapeuty z ciałem pacjenta, mająca na celu przywrócenie prawidłowej pracy stawów i mięśni. Sprawdza się przy bólach kręgosłupa, stawów i w stanach przeciążeniowych.",
+      img: "/offer/terapia manualna.png",
       reverse: false,
     },
     {
-      title: 'Rehabilitacja',
-      time: '60 minut',
-      price: '190 zł',
-      desc: 'Ćwiczenia oraz techniki manualne dopasowane do potrzeb pacjenta, wspierające powrót do sprawności po urazach, operacjach lub w przewlekłych schorzeniach.',
-      img: '/offer/rehabilitacja.png',
+      title: "Rehabilitacja",
+      time: "60 minut",
+      price: "190 zł",
+      desc: "Ćwiczenia oraz techniki manualne dopasowane do potrzeb pacjenta, wspierające powrót do sprawności po urazach, operacjach lub w przewlekłych schorzeniach.",
+      img: "/offer/rehabilitacja.png",
       reverse: true,
     },
   ];
 
   return (
-    <section
-      id="oferta"
-      className="bg-[#CCA291] py-20 px-4 text-[#3E3E3E] text-center relative overflow-hidden"
-    >
+    <section className="bg-[#CCA291] py-20 px-4 text-[#3E3E3E] text-center relative overflow-hidden">
+      {/* Niewidoczny punkt kotwicy dla scrolla */}
+      <div id="oferta" className="absolute -top-28" aria-hidden="true"></div>
+
       {/* Tło obrazkowe */}
       <img
         src="/tlooferta.png"
@@ -49,7 +49,7 @@ export default function Offer() {
       {/* Cała zawartość sekcji */}
       <div className="relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-16 font-cardo">
-          Popularne usługi
+          Popularne usługi w Uzdrowisku
         </h2>
 
         <div className="space-y-10 max-w-6xl mx-auto">
@@ -57,7 +57,7 @@ export default function Offer() {
             <div
               key={index}
               className={`flex flex-col ${
-                item.reverse ? 'md:flex-row-reverse' : 'md:flex-row'
+                item.reverse ? "md:flex-row-reverse" : "md:flex-row"
               } bg-white rounded-lg overflow-hidden shadow-md`}
             >
               {/* Obraz z overlayem */}

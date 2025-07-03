@@ -2,26 +2,11 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
+import PriceList from "./pages/PriceList";
+import NewsPage from "./pages/NewsPage";
+import ThatNewsPage from "./pages/ThatNewsPage";
 import ScrollToTop from "./components/ScrollToTop";
-// Komponent-wrapping do obsługi scrollowania do #haszów
-function ScrollToHashOnNavigate() {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === "/" && location.hash) {
-      const hash = location.hash.replace("#", "");
-      const el = document.getElementById(hash);
-      if (el) {
-        // Scroll z lekkim opóźnieniem, żeby DOM zdążył się załadować
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    }
-  }, [location]);
-
-  return null;
-}
+import ScrollToHashOnNavigate from "./components/ScroolToHashOnNavigate";
 
 function App() {
   return (
@@ -31,6 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/onas" element={<AboutUs />} />
+        <Route path="/cennik" element={<PriceList />} />
+        <Route path="/aktualnosci" element={<NewsPage />} />
+        <Route path="/aktualnosci/:id" element={<ThatNewsPage />} />
       </Routes>
     </BrowserRouter>
   );

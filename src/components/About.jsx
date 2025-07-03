@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 
 export default function About() {
   return (
-    <section
-      id="onas"
-      className="relative bg-[#CCA291] py-16 px-4 scroll-mt-24 overflow-hidden"
-    >
+    <section className="relative bg-[#CCA291] py-16 px-4 overflow-hidden">
+      {/* Niewidoczny punkt kotwicy dla scrolla */}
+      <div id="onas" className="absolute -top-28" aria-hidden="true"></div>
+
+      {/* Tło dekoracyjne */}
       <img
         src="/papier.webp"
         alt="Papier"

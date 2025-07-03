@@ -1,12 +1,12 @@
 export default function WhyUs() {
   return (
-    <section
-      id="whyus"
-      className="bg-[#4E2A23] text-[#D4AF37] py-24 px-6 text-center relative overflow-hidden"
-    >
-      {/* Tło ilustracyjne (opcjonalnie, np. kwiaty/czaszka jako subtelne tło) */}
+    <section className="bg-[#4E2A23] text-[#D4AF37] py-24 px-6 text-center relative overflow-hidden">
+      {/* Niewidoczny punkt kotwicy dla scrolla */}
+      <div id="whyus" className="absolute -top-28" aria-hidden="true"></div>
+
+      {/* Tło ilustracyjne */}
       <img
-        src="/piasek.png" // własny plik z grafiką tła (np. kwiaty + czaszka)
+        src="/piasek.png"
         alt="Tło dekoracyjne"
         className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none select-none"
       />
@@ -14,14 +14,13 @@ export default function WhyUs() {
       {/* Treść */}
       <div className="relative z-10 max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-16">
-          Kiedy warto Nas odwiedzić?
+          Kiedy warto odwiedzić Uzdrowisko?
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           {/* Kafelek 1 */}
           <div className="flex flex-col items-center space-y-4">
             <img src="/icons/Kregoslup.png" alt="Kręgosłup" className="h-36" />
-
             <p className="text-xl md:text-2xl leading-snug font-medium">
               Walczysz z bólem
               <br />
@@ -32,7 +31,6 @@ export default function WhyUs() {
           {/* Kafelek 2 */}
           <div className="flex flex-col items-center space-y-4">
             <img src="/icons/ludzik.png" alt="Rehabilitacja" className="h-36" />
-
             <p className="text-xl md:text-2xl leading-snug font-medium">
               Potrzebujesz
               <br />
@@ -43,7 +41,6 @@ export default function WhyUs() {
           {/* Kafelek 3 */}
           <div className="flex flex-col items-center space-y-4">
             <img src="/icons/serce.png" alt="Relaks" className="h-36" />
-
             <p className="text-xl md:text-2xl leading-snug font-medium">
               Chcesz się
               <br />
@@ -54,7 +51,6 @@ export default function WhyUs() {
           {/* Kafelek 4 */}
           <div className="flex flex-col items-center space-y-4">
             <img src="/icons/macica.png" alt="Wsparcie" className="h-36" />
-
             <p className="text-xl md:text-2xl leading-snug font-medium">
               Szukasz wsparcia
               <br />

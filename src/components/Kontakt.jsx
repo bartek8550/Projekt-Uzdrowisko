@@ -1,11 +1,11 @@
-import { MapPin, Phone, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock } from "lucide-react";
 
 export default function Kontakt() {
   return (
-    <section
-      id="kontakt"
-      className="relative bg-[#D6A996] py-24 px-4 scroll-mt-24 overflow-hidden"
-    >
+    <section className="relative bg-[#D6A996] py-24 px-4 overflow-hidden">
+      {/* Niewidoczny punkt scrolla */}
+      <div id="kontakt" className="absolute -top-28" aria-hidden="true"></div>
+
       {/* Tło dekoracyjne */}
       <img
         src="/kosciZdjecie2.png"

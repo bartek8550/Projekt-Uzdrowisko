@@ -1,24 +1,24 @@
 export default function Opinions() {
   const testimonials = [
     {
-      text: 'Ból pleców zniknął po kilku zabiegach. Profesjonalne podejście i świetna atmosfera!',
-      author: 'Anna K.',
+      text: "Ból pleców zniknął po kilku zabiegach. Profesjonalne podejście i świetna atmosfera!",
+      author: "Anna K.",
     },
     {
-      text: 'Zdecydowanie polecam terapię manualną – pełen profesjonalizm i wyraźna poprawa.',
-      author: 'Agnieszka C.',
+      text: "Zdecydowanie polecam terapię manualną – pełen profesjonalizm i wyraźna poprawa.",
+      author: "Agnieszka C.",
     },
     {
-      text: 'Indywidualne podejście, cierpliwość i efektywność. Dziękuję za wsparcie po urazie.',
-      author: 'Michał T.',
+      text: "Indywidualne podejście, cierpliwość i efektywność. Dziękuję za wsparcie po urazie.",
+      author: "Michał T.",
     },
   ];
 
   return (
-    <section
-      id="opinie"
-      className="bg-[#4E2A23] text-center py-24 px-4 text-[#D4AF37] relative overflow-hidden"
-    >
+    <section className="bg-[#4E2A23] text-center py-24 px-4 text-[#D4AF37] relative overflow-hidden">
+      {/* Niewidoczny punkt kotwicy dla scrolla */}
+      <div id="opinie" className="absolute -top-28" aria-hidden="true"></div>
+
       {/* Tło dekoracyjne */}
       <img
         src="/opinionstlo.png"
@@ -28,7 +28,7 @@ export default function Opinions() {
 
       <div className="relative z-10">
         <h2 className="text-2xl md:text-3xl font-semibold mb-16 font-cardo">
-          Opinie naszych podopiecznych
+          Opinie podopiecznych Uzdrowiska
         </h2>
 
         <div className="flex flex-col md:flex-row justify-center items-stretch gap-10 max-w-6xl mx-auto">

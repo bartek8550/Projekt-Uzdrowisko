@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, matchPath } from "react-router-dom";
 
 const HeaderOther = () => {
   const location = useLocation();
@@ -7,12 +7,18 @@ const HeaderOther = () => {
     "/onas": "O nas",
     "/aktualnosci": "Aktualności",
     "/kontakt": "Kontakt",
-    "/oferta": "Oferta",
+    "/cennik": "Cennik",
     "/opinie": "Opinie",
     "/dlaczego": "Dlaczego my?",
   };
 
-  const title = pathTitles[location.pathname] || "Strona";
+  // Szukamy czy to dynamiczna podstrona z newsem
+  const isNewsDetail = matchPath("/aktualnosci/:id", location.pathname);
+
+  const title =
+    isNewsDetail?.pathname === location.pathname
+      ? "Aktualności"
+      : pathTitles[location.pathname] || "Strona";
 
   return (
     <header className="pt-36 pb-16 bg-background text-gold shadow-md animate-fade-in">

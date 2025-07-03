@@ -1,13 +1,13 @@
-import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect, useCallback, useState } from 'react';
-import { newsList } from './newsData';
-import NewsCard from './NewsCard';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import useEmblaCarousel from "embla-carousel-react";
+import { useEffect, useCallback, useState } from "react";
+import { newsList } from "./newsData";
+import NewsCard from "./NewsCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function NewsCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     slidesToScroll: 1,
-    containScroll: 'trimSnaps',
+    containScroll: "trimSnaps",
     loop: false,
   });
 
@@ -27,15 +27,19 @@ export default function NewsCarousel() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    emblaApi.on('select', onSelect);
+    emblaApi.on("select", onSelect);
     onSelect();
   }, [emblaApi, onSelect]);
 
   return (
-    <section
-      id="aktualnosci"
-      className="relative py-32 bg-[#CCA291] text-[#3E3E3E] text-center scroll-mt-24 overflow-hidden"
-    >
+    <section className="relative py-32 bg-[#CCA291] text-[#3E3E3E] text-center overflow-hidden">
+      {/* Ukryty anchor dla poprawnego scrolla */}
+      <div
+        id="aktualnosci"
+        className="absolute -top-28"
+        aria-hidden="true"
+      ></div>
+
       {/* Tło obrazkowe */}
       <img
         src="/cennikTlo.png"
@@ -66,8 +70,8 @@ export default function NewsCarousel() {
                   key={news.id}
                   className={`flex-shrink-0 w-[440px] transition-transform duration-300 ${
                     selectedIndex === index
-                      ? 'scale-100 z-10'
-                      : 'scale-90 opacity-90'
+                      ? "scale-100 z-10"
+                      : "scale-90 opacity-90"
                   }`}
                 >
                   <NewsCard news={news} />
