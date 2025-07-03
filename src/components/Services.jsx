@@ -2,51 +2,51 @@ export default function Services() {
     const services = [
       {
         text: "Masaż leczniczy",
-        icon: "/whyus/Uslugikonki/512x512/masazleczniczy.png",
+        icon: "/whyus/UslugiIkonki/512x512/masazleczniczy.png",
       },
       {
         text: "Rehabilitacja sportowców",
-        icon: "/whyus/Uslugikonki/512x512/sportowcow.png",
+        icon: "/whyus/UslugiIkonki/512x512/sportowcow.png",
       },
       {
         text: "Drenaż limfatyczny",
-        icon: "/whyus/Uslugikonki/512x512/drenazlimfatyczny.png",
+        icon: "/whyus/UslugiIkonki/512x512/drenazlimfatyczny2.png",
       },
       {
         text: "Rehabilitacja onkologiczna",
-        icon: "/whyus/Uslugikonki/512x512/rehabilitacjaonkologiczna.png",
+        icon: "/whyus/UslugiIkonki/512x512/rehabilitacjaonkologiczna.png",
       },
       {
         text: "Korekcja wady postawy u dzieci powyżej 10 roku życia",
-        icon: "/whyus/Uslugikonki/512x512/dziecipowyzej10r.png",
+        icon: "/whyus/UslugiIkonki/512x512/dziecipowyzej10r.png",
       },
       {
         text: "Rehabilitacja kobiet po ciąży",
-        icon: "/whyus/Uslugikonki/512x512/rehabilitacjakobietpociazy.png",
+        icon: "/whyus/UslugiIkonki/512x512/rehabilitacjakobietpociazy.png",
       },
       {
         text: "Rehabilitacja kardiologiczna",
-        icon: "/whyus/Uslugikonki/512x512/kardiologiczne.png",
+        icon: "/whyus/UslugiIkonki/512x512/kardiologiczne.png",
       },
       {
         text: "Terapie specjalistyczne",
-        icon: "/whyus/Uslugikonki/512x512/terapiespecjalistyczne.png",
+        icon: "/whyus/UslugiIkonki/512x512/terapiespecjalistyczne.png",
       },
       {
         text: "Rehabilitacja kobiet w ciąży",
-        icon: "/whyus/Uslugikonki/512x512/kobietywciazy.png",
+        icon: "/whyus/UslugiIkonki/512x512/kobietywciazy.png",
       },
       {
         text: "Rehabilitacja traumatologiczna",
-        icon: "/whyus/Uslugikonki/512x512/traumatologiczna.png",
+        icon: "/whyus/UslugiIkonki/512x512/traumatologiczna.png",
       },
       {
         text: "Masaż sportowy",
-        icon: "/whyus/Uslugikonki/512x512/masazsportowy.png",
+        icon: "/whyus/UslugiIkonki/512x512/masazsportowy.png",
       },
       {
         text: "Fizjoterapia uroginekologiczna",
-        icon: "/whyus/Uslugikonki/512x512/uroginekologiczna.png",
+        icon: "/whyus/UslugiIkonki/512x512/uroginekologiczna.png",
       },
     ];
       
