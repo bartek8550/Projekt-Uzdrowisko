@@ -1,20 +1,32 @@
-// src/components/AboutUsContent.jsx
+import { motion } from "framer-motion";
 
 export default function AboutUsContent() {
   return (
-    <section className="bg-[#CCA291] py-16 px-4">
+    <section className="bg-[#CCA291] py-16 px-4 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Zdjęcie założycielki */}
-        <div className="md:w-1/3 flex justify-center">
+        <motion.div
+          className="md:w-1/3 flex justify-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <img
-            src="/Hanna.jpg" // Upewnij się, że obrazek istnieje w public/
+            src="/Hanna.jpg"
             alt="Założycielka Uzdrowiska"
             className="rounded-lg shadow-lg max-w-xs w-full"
           />
-        </div>
+        </motion.div>
 
         {/* Tekst */}
-        <div className="md:w-2/3 space-y-6 text-[#3E3E3E]">
+        <motion.div
+          className="md:w-2/3 space-y-6 text-[#3E3E3E]"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="text-2xl md:text-3xl font-bold font-cardo">
             Założycielka Uzdrowiska | Hanna Nowotczyńska
           </h2>
@@ -38,10 +50,14 @@ export default function AboutUsContent() {
             solidnej wiedzy i uważności na człowieka.
           </p>
 
-          <button className="bg-[#4E342E] text-[#D4AF37] px-6 py-2 rounded-md hover:scale-105 transition">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-[#4E342E] text-[#D4AF37] px-6 py-2 rounded-md transition"
+          >
             Zobacz dyplomy i certyfikaty
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 
 export default function Services() {
@@ -53,14 +54,29 @@ export default function Services() {
   ];
 
   return (
-    <section className="bg-[#CCA291] py-24 px-6 text-[#3E3E3E]">
+    <motion.section
+      className="bg-[#CCA291] py-24 px-6 text-[#3E3E3E]"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: { staggerChildren: 0.1 },
+        },
+      }}
+    >
       <div className="max-w-6xl mx-auto">
         {/* Grid usług */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
               className="flex items-center gap-4 bg-[#F5D5C5] rounded-lg px-4 py-3 shadow-sm"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              viewport={{ once: true }}
             >
               <img
                 src={service.icon}
@@ -68,12 +84,18 @@ export default function Services() {
                 className="h-8 w-8 object-contain"
               />
               <p className="text-lg font-medium">{service.text}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Sekcja kontaktowa */}
-        <div className="mt-20 text-center">
+        <motion.div
+          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <p className="text-lg md:text-xl font-medium mb-2">
             Po więcej informacji zapraszamy do kontaktu pod numerem telefonu
           </p>
@@ -83,8 +105,8 @@ export default function Services() {
               +48 510 783 269
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
