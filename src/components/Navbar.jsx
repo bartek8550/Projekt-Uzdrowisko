@@ -1,31 +1,48 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const links = [
+    { label: "O nas", hash: "onas" },
+    { label: "Aktualności", hash: "aktualnosci" },
+    { label: "Dlaczego my?", hash: "whyus" },
+    { label: "Oferta", hash: "oferta" },
+    { label: "Opinie", hash: "opinie" },
+    { label: "Kontakt", hash: "kontakt" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const links = [
-    { label: 'O nas', href: '#onas' },
-    { label: 'Aktualności', href: '#aktualnosci' },
-    { label: 'Dlaczego my?', href: '#whyus' },
-    { label: 'Oferta', href: '#oferta' },
-    { label: 'Opinie', href: '#opinie' },
-    { label: 'Kontakt', href: '#kontakt' },
-  ];
+  const handleLinkClick = (hash) => {
+    setIsOpen(false);
+    if (location.pathname !== "/") {
+      // jeśli jesteśmy na innej stronie — wróć na główną i scrolluj po nawigacji
+      navigate(`/#${hash}`);
+    } else {
+      // jeśli już jesteśmy na głównej, scrolluj natychmiast
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <nav
       className={`fixed w-full top-0 z-50 transition-colors duration-500 ${
-        scrolled ? 'bg-background' : 'bg-transparent'
+        scrolled ? "bg-background" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 py-2 flex justify-between items-center text-gold">
@@ -38,8 +55,7 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Hamburger Icon with animation */}
-        {/* Hamburger Icon – animowana zamiana */}
+        {/* Hamburger menu */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -49,8 +65,8 @@ export default function Navbar() {
             <span
               className={`absolute transition-all duration-300 ease-in-out ${
                 isOpen
-                  ? 'opacity-0 scale-75 rotate-45'
-                  : 'opacity-100 scale-100'
+                  ? "opacity-0 scale-75 rotate-45"
+                  : "opacity-100 scale-100"
               }`}
             >
               <Menu size={28} />
@@ -58,8 +74,8 @@ export default function Navbar() {
             <span
               className={`absolute transition-all duration-300 ease-in-out ${
                 isOpen
-                  ? 'opacity-100 scale-100 rotate-0'
-                  : 'opacity-0 scale-75 -rotate-45'
+                  ? "opacity-100 scale-100 rotate-0"
+                  : "opacity-0 scale-75 -rotate-45"
               }`}
             >
               <X size={28} />
@@ -70,36 +86,35 @@ export default function Navbar() {
         {/* Desktop menu */}
         <ul className="hidden md:flex space-x-6 font-light text-xl">
           {links.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
+            <li key={item.hash}>
+              <button
+                onClick={() => handleLinkClick(item.hash)}
                 className="relative inline-block after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
               >
                 {item.label}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Animated Mobile menu */}
+      {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         } bg-background px-6 sm:px-8 text-gold`}
       >
         <div className="py-4 space-y-3 transition-opacity duration-500 delay-100">
           {links.map((item, i) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              className={`block border-b border-gold pb-2 opacity-0 animate-fade-in animation-delay-${
+            <button
+              key={item.hash}
+              onClick={() => handleLinkClick(item.hash)}
+              className={`block border-b border-gold pb-2 text-left w-full opacity-0 animate-fade-in animation-delay-${
                 i * 75
               }`}
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </div>
       </div>
