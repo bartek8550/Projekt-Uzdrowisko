@@ -1,5 +1,5 @@
-import { MapPin, Phone, Clock } from "lucide-react";
-import { motion } from "framer-motion";
+import { MapPin, Phone, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Kontakt() {
   return (
@@ -15,7 +15,7 @@ export default function Kontakt() {
       />
 
       <motion.div
-        className="relative z-10 max-w-4xl mx-auto bg-[#FAF4EF] rounded-xl shadow-md p-8 flex flex-col md:flex-row items-stretch gap-3 min-h-[450px]"
+        className="relative z-10 max-w-4xl mx-auto bg-[#FBF0EF] rounded-xl shadow-md p-8 flex flex-col md:flex-row items-stretch gap-3 min-h-[450px]"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -32,7 +32,7 @@ export default function Kontakt() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-cardo text-left">
             Skontaktuj się z nami

@@ -1,6 +1,6 @@
-import { useParams, Link } from "react-router-dom";
-import { newsList } from "./newsData";
-import { motion } from "framer-motion";
+import { useParams, Link } from 'react-router-dom';
+import { newsList } from './newsData';
+import { motion } from 'framer-motion';
 
 export default function NewsDetails() {
   const { id } = useParams();
@@ -13,10 +13,9 @@ export default function NewsDetails() {
 
   return (
     <motion.section
-      className="bg-[#D6A996] min-h-screen py-20 px-6 text-[#3E1F1B]"
+      className="relative bg-[#D6A996] min-h-screen py-20 px-6 text-[#3E1F1B] overflow-hidden"
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      animate="visible"
       variants={{
         hidden: {},
         visible: {
@@ -24,45 +23,53 @@ export default function NewsDetails() {
         },
       }}
     >
-      <div className="max-w-4xl mx-auto space-y-6">
+      {/* TŁO: dlonkwiat.webp */}
+      <div className="absolute inset-0 z-0 opacity-8 pointer-events-none select-none">
+        <img
+          src="/dlonkwiat.webp"
+          alt="Dekoracyjne tło z dłonią i roślinami"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* TREŚĆ */}
+      <div className="relative z-10 max-w-4xl mx-auto space-y-6">
         {/* Obrazek */}
         <motion.img
           src={news.image}
           alt={news.title}
           className="w-full max-h-[400px] object-cover rounded-md shadow-md"
           initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         />
 
-        {/* Tytuł i treść */}
+        {/* Tytuł */}
         <motion.h1
           className="text-3xl font-bold"
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           {news.title}
         </motion.h1>
 
+        {/* Data */}
         <motion.p
           className="italic text-sm"
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          viewport={{ once: true }}
         >
           {news.date}
         </motion.p>
 
+        {/* Treść */}
         <motion.div
           className="whitespace-pre-line leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
         >
           {news.content}
         </motion.div>
@@ -71,9 +78,8 @@ export default function NewsDetails() {
         <motion.div
           className="pt-10"
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
         >
           <Link
             to="/aktualnosci"

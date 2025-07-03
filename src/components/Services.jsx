@@ -1,61 +1,61 @@
-import { motion } from "framer-motion";
-import { Phone } from "lucide-react";
+import { motion } from 'framer-motion';
+import { Phone } from 'lucide-react';
 
 export default function Services() {
   const services = [
     {
-      text: "Masaż leczniczy",
-      icon: "/whyus/UslugiIkonki/512x512/masazleczniczy.png",
+      text: 'Masaż leczniczy',
+      icon: '/whyus/UslugiIkonki/512x512/masazleczniczy.png',
     },
     {
-      text: "Rehabilitacja sportowców",
-      icon: "/whyus/UslugiIkonki/512x512/sportowcow.png",
+      text: 'Rehabilitacja sportowców',
+      icon: '/whyus/UslugiIkonki/512x512/sportowcow.png',
     },
     {
-      text: "Drenaż limfatyczny",
-      icon: "/whyus/UslugiIkonki/512x512/drenazlimfatyczny2.png",
+      text: 'Drenaż limfatyczny',
+      icon: '/whyus/UslugiIkonki/512x512/drenazlimfatyczny.png',
     },
     {
-      text: "Rehabilitacja onkologiczna",
-      icon: "/whyus/UslugiIkonki/512x512/rehabilitacjaonkologiczna.png",
+      text: 'Rehabilitacja onkologiczna',
+      icon: '/whyus/UslugiIkonki/512x512/rehabilitacjaonkologiczna.png',
     },
     {
-      text: "Korekcja wady postawy u dzieci powyżej 10 roku życia",
-      icon: "/whyus/UslugiIkonki/512x512/dziecipowyzej10r.png",
+      text: 'Korekcja wad postawy u dzieci powyżej 10 roku życia',
+      icon: '/whyus/UslugiIkonki/512x512/dziecipowyzej10r2.png',
     },
     {
-      text: "Rehabilitacja kobiet po ciąży",
-      icon: "/whyus/UslugiIkonki/512x512/rehabilitacjakobietpociazy.png",
+      text: 'Rehabilitacja kobiet po ciąży',
+      icon: '/whyus/UslugiIkonki/512x512/rehabilitacjakobietpociazy.png',
     },
     {
-      text: "Rehabilitacja kardiologiczna",
-      icon: "/whyus/UslugiIkonki/512x512/kardiologiczne.png",
+      text: 'Rehabilitacja kardiologiczna',
+      icon: '/whyus/UslugiIkonki/512x512/kardiologiczne.png',
     },
     {
-      text: "Terapie specjalistyczne",
-      icon: "/whyus/UslugiIkonki/512x512/terapiespecjalistyczne.png",
+      text: 'Terapie specjalistyczne',
+      icon: '/whyus/UslugiIkonki/512x512/terapiespecjalistyczne.png',
     },
     {
-      text: "Rehabilitacja kobiet w ciąży",
-      icon: "/whyus/UslugiIkonki/512x512/kobietywciazy.png",
+      text: 'Rehabilitacja kobiet w ciąży',
+      icon: '/whyus/UslugiIkonki/512x512/kobietywciazy.png',
     },
     {
-      text: "Rehabilitacja traumatologiczna",
-      icon: "/whyus/UslugiIkonki/512x512/traumatologiczna.png",
+      text: 'Rehabilitacja traumatologiczna',
+      icon: '/whyus/UslugiIkonki/512x512/traumatologiczna.png',
     },
     {
-      text: "Masaż sportowy",
-      icon: "/whyus/UslugiIkonki/512x512/masazsportowy.png",
+      text: 'Masaż sportowy',
+      icon: '/whyus/UslugiIkonki/512x512/masazsportowy.png',
     },
     {
-      text: "Fizjoterapia uroginekologiczna",
-      icon: "/whyus/UslugiIkonki/512x512/uroginekologiczna.png",
+      text: 'Fizjoterapia uroginekologiczna',
+      icon: '/whyus/UslugiIkonki/512x512/uroginekologiczna.png',
     },
   ];
 
   return (
     <motion.section
-      className="bg-[#CCA291] py-24 px-6 text-[#3E3E3E]"
+      className="relative py-24 px-6 text-[#3E3E3E] bg-[#CCA291] overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -66,7 +66,21 @@ export default function Services() {
         },
       }}
     >
-      <div className="max-w-6xl mx-auto">
+      {/* TŁO Z OBRAZEM */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        <img
+          src="/koscimiedkreg.webp"
+          alt="Tło kości i kwiatów"
+          className="w-full h-full object-cover opacity-50"
+          style={{
+            objectPosition: 'left center, right center',
+            transform: 'scale(1)', // przesunięcie elementów poza centrum
+          }}
+        />
+      </div>
+
+      {/* ZAWARTOŚĆ */}
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Grid usług */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (

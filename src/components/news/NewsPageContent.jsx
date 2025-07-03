@@ -1,14 +1,13 @@
-import { newsList } from "./newsData";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { newsList } from './newsData';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export default function NewsPage() {
   return (
     <motion.section
-      className="bg-[#CCA291] min-h-screen py-24 px-6 text-[#3E3E3E]"
+      className="relative bg-[#CCA291] min-h-screen py-24 px-6 text-[#3E3E3E] overflow-hidden"
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      animate="visible"
       variants={{
         hidden: {},
         visible: {
@@ -16,23 +15,31 @@ export default function NewsPage() {
         },
       }}
     >
-      <div className="max-w-6xl mx-auto space-y-20">
+      {/* TŁO ZDEFINIOWANE Z OBRAZU */}
+      <div className="absolute inset-0 z-0 opacity-25 pointer-events-none select-none">
+        <img
+          src="/recekwiaty.webp"
+          alt="Dekoracyjne tło z rękami i kwiatami"
+          className="w-full h-full object-cover mx-auto"
+        />
+      </div>
+
+      {/* TREŚĆ */}
+      <div className="relative z-10 max-w-6xl mx-auto space-y-20">
         {newsList.map((news, index) => (
           <motion.div
             key={news.id}
             className="flex flex-col md:flex-row gap-10 items-center"
             initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
           >
             {/* Obrazek */}
             <motion.div
               className="w-full md:w-1/2"
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.1 }}
-              viewport={{ once: true }}
             >
               <img
                 src={news.image}
@@ -45,9 +52,8 @@ export default function NewsPage() {
             <motion.div
               className="w-full md:w-1/2 space-y-4"
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-              viewport={{ once: true }}
             >
               <p className="text-sm">{news.date}</p>
               <h2 className="text-2xl font-bold">{news.title}</h2>

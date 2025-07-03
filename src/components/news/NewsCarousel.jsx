@@ -1,9 +1,9 @@
-import { useEffect, useCallback, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import { newsList } from "./newsData";
-import NewsCard from "./NewsCard";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { useEffect, useCallback, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { newsList } from './newsData';
+import NewsCard from './NewsCard';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -13,7 +13,7 @@ const fadeInUp = {
     transition: {
       delay: i * 0.15,
       duration: 0.6,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   }),
 };
@@ -21,7 +21,7 @@ const fadeInUp = {
 export default function NewsCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     slidesToScroll: 1,
-    containScroll: "trimSnaps",
+    containScroll: 'trimSnaps',
     loop: false,
   });
 
@@ -41,7 +41,7 @@ export default function NewsCarousel() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    emblaApi.on("select", onSelect);
+    emblaApi.on('select', onSelect);
     onSelect();
   }, [emblaApi, onSelect]);
 
@@ -92,8 +92,8 @@ export default function NewsCarousel() {
                   key={news.id}
                   className={`flex-shrink-0 w-[90vw] sm:w-[440px] transition-transform duration-300 ${
                     selectedIndex === index
-                      ? "scale-100 z-10"
-                      : "scale-95 opacity-90"
+                      ? 'scale-95 z-10'
+                      : 'scale-90 opacity-90'
                   }`}
                   variants={fadeInUp}
                   custom={index + 1}

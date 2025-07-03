@@ -1,16 +1,34 @@
-import { motion } from "framer-motion";
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function AboutUsContent() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const total = 12;
+
+  const next = () => setCurrent((prev) => (prev + 1) % total);
+  const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
+
   return (
-    <section className="bg-[#CCA291] py-16 px-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+    <section className="relative bg-[#CCA291] py-32 px-4 overflow-hidden">
+      {/* Tło sekcji */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none select-none">
+        <img
+          src="/aboutusphoto.webp"
+          alt="Dekoracyjne tło"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Zawartość górna: zdjęcie + tekst */}
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-10">
         {/* Zdjęcie założycielki */}
         <motion.div
           className="md:w-1/3 flex justify-center"
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: true, amount: 0.3 }}
         >
           <img
             src="/Hanna.jpg"
@@ -23,9 +41,8 @@ export default function AboutUsContent() {
         <motion.div
           className="md:w-2/3 space-y-6 text-[#3E3E3E]"
           initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          viewport={{ once: true, amount: 0.3 }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-cardo">
             Założycielka Uzdrowiska | Hanna Nowotczyńska
@@ -49,16 +66,88 @@ export default function AboutUsContent() {
             i kursach doskonalących – wierzę, że skuteczna pomoc zaczyna się od
             solidnej wiedzy i uważności na człowieka.
           </p>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="bg-[#4E342E] text-[#D4AF37] px-6 py-2 rounded-md transition"
-          >
-            Zobacz dyplomy i certyfikaty
-          </motion.button>
         </motion.div>
       </div>
+
+      {/* Galeria – dyplomy */}
+      <div className="relative z-10 max-w-7xl mx-auto mt-20 px-2">
+        <h3 className="text-xl md:text-2xl font-semibold mb-6 text-[#3E3E3E]">
+          Moje dyplomy i certyfikaty
+        </h3>
+        <div className="flex flex-wrap justify-start gap-4">
+          {Array.from({ length: total }, (_, i) => (
+            <motion.div
+              key={i}
+              className="w-44 h-32 bg-[#F5E9E2] rounded-md shadow-md p-2 cursor-pointer hover:scale-105 transition"
+              whileHover={{ scale: 1.05 }}
+              onClick={() => {
+                setCurrent(i);
+                setIsOpen(true);
+              }}
+            >
+              <img
+                src={`/HannaNow/zdj${i + 1}.webp`}
+                alt={`Certyfikat ${i + 1}`}
+                className="w-full h-full object-cover rounded"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal z karuzelą */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black bg-opacity-70 flex justify-center items-center px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="relative bg-white rounded-lg max-w-4xl w-full p-4"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+            >
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-3 right-3 text-gray-600 hover:text-black"
+              >
+                <X size={24} />
+              </button>
+
+              <div className="flex flex-col items-center">
+                <img
+                  src={`/HannaNow/zdj${current + 1}.webp`}
+                  alt={`Certyfikat ${current + 1}`}
+                  className="max-h-[70vh] object-contain rounded shadow"
+                />
+                <p className="mt-2 text-sm text-gray-600">
+                  {current + 1} / {total}
+                </p>
+              </div>
+
+              <div className="absolute top-1/2 left-2 -translate-y-1/2">
+                <button
+                  onClick={prev}
+                  className="text-gray-700 hover:text-black"
+                >
+                  <ChevronLeft size={32} />
+                </button>
+              </div>
+              <div className="absolute top-1/2 right-2 -translate-y-1/2">
+                <button
+                  onClick={next}
+                  className="text-gray-700 hover:text-black"
+                >
+                  <ChevronRight size={32} />
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

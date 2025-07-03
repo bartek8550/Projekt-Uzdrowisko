@@ -1,37 +1,37 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export default function Offer() {
   const services = [
     {
-      title: "Masaż leczniczy pleców",
-      time: "60 minut",
-      price: "150 zł",
-      desc: "Skuteczny masaż leczniczy pleców, który łagodzi napięcia mięśniowe, redukuje ból i przywraca swobodę ruchu. Idealny przy pracy siedzącej, stresie i przeciążeniach kręgosłupa.",
-      img: "/offer/masowanie plecow.jpg",
+      title: 'Masaż leczniczy pleców',
+      time: '60 minut',
+      price: '150 zł',
+      desc: 'Skuteczny masaż leczniczy pleców, który łagodzi napięcia mięśniowe, redukuje ból i przywraca swobodę ruchu. Idealny przy pracy siedzącej, stresie i przeciążeniach kręgosłupa.',
+      img: '/offer/masowanie plecow.jpg',
       reverse: false,
     },
     {
-      title: "Terapia powięziowa",
-      time: "60 minut",
-      price: "190 zł",
-      desc: "Delikatna, ale głęboko działająca metoda, która poprawia elastyczność tkanek i zmniejsza przewlekłe napięcia. Polecana przy bólach mięśniowo-powięziowych i ograniczeniach ruchomości.",
-      img: "/offer/terapia powieziowa.png",
+      title: 'Terapia powięziowa',
+      time: '60 minut',
+      price: '190 zł',
+      desc: 'Delikatna, ale głęboko działająca metoda, która poprawia elastyczność tkanek i zmniejsza przewlekłe napięcia. Polecana przy bólach mięśniowo-powięziowych i ograniczeniach ruchomości.',
+      img: '/offer/terapia powieziowa.png',
       reverse: true,
     },
     {
-      title: "Terapia manualna",
-      time: "60 minut",
-      price: "180 zł",
-      desc: "Indywidualna praca fizjoterapeuty z ciałem pacjenta, mająca na celu przywrócenie prawidłowej pracy stawów i mięśni. Sprawdza się przy bólach kręgosłupa, stawów i w stanach przeciążeniowych.",
-      img: "/offer/terapia manualna.png",
+      title: 'Terapia manualna',
+      time: '60 minut',
+      price: '180 zł',
+      desc: 'Indywidualna praca fizjoterapeuty z ciałem pacjenta, mająca na celu przywrócenie prawidłowej pracy stawów i mięśni. Sprawdza się przy bólach kręgosłupa, stawów i w stanach przeciążeniowych.',
+      img: '/offer/terapia manualna.png',
       reverse: false,
     },
     {
-      title: "Rehabilitacja",
-      time: "60 minut",
-      price: "190 zł",
-      desc: "Ćwiczenia oraz techniki manualne dopasowane do potrzeb pacjenta, wspierające powrót do sprawności po urazach, operacjach lub w przewlekłych schorzeniach.",
-      img: "/offer/rehabilitacja.png",
+      title: 'Rehabilitacja',
+      time: '60 minut',
+      price: '190 zł',
+      desc: 'Ćwiczenia oraz techniki manualne dopasowane do potrzeb pacjenta, wspierające powrót do sprawności po urazach, operacjach lub w przewlekłych schorzeniach.',
+      img: '/offer/rehabilitacja.png',
       reverse: true,
     },
   ];
@@ -62,7 +62,7 @@ export default function Offer() {
             <motion.div
               key={index}
               className={`flex flex-col ${
-                item.reverse ? "md:flex-row-reverse" : "md:flex-row"
+                item.reverse ? 'md:flex-row-reverse' : 'md:flex-row'
               } bg-white rounded-lg overflow-hidden shadow-md`}
               initial={{
                 opacity: 0,
@@ -78,7 +78,7 @@ export default function Offer() {
               transition={{
                 duration: 0.6,
                 delay: index * 0.2,
-                ease: "easeOut",
+                ease: 'easeOut',
               }}
             >
               <div className="md:w-1/2 relative h-60">
@@ -113,7 +113,7 @@ export default function Offer() {
         >
           <a
             href="/cennik"
-            className="bg-[#4E342E] text-[#D4AF37] px-10 py-3 rounded-md hover:scale-105 transition inline-block"
+            className="inline-block px-10 py-3 text-lg font-semibold text-[#D4AF37] bg-[#4E342E] rounded-xl shadow-md transition-transform transition-shadow duration-300 hover:shadow-xl hover:scale-103 focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/40"
           >
             Cennik
           </a>

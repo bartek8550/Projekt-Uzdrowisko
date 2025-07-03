@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -9,7 +9,7 @@ const fadeInUp = {
     transition: {
       delay: i * 0.2,
       duration: 0.6,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   }),
 };
@@ -53,10 +53,10 @@ export default function WhyUs() {
               <img
                 src={
                   [
-                    "/icons/Kregoslup.png",
-                    "/icons/ludzik.png",
-                    "/icons/serce.png",
-                    "/icons/macica.png",
+                    '/icons/Kregoslup.png',
+                    '/icons/ludzik.png',
+                    '/icons/serce.png',
+                    '/icons/macica.png',
                   ][i]
                 }
                 alt="Ikona"
@@ -114,7 +114,7 @@ export default function WhyUs() {
             to="/dlaczego"
             className="inline-block border border-[#D4AF37] text-[#D4AF37] px-6 py-3 rounded-md hover:bg-[#D4AF37] hover:text-[#4E2A23] transition"
           >
-            Zobacz więcej
+            Sprawdź usługi
           </Link>
         </motion.div>
       </motion.div>
