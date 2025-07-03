@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -48,11 +48,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 py-2 flex justify-between items-center text-gold">
         {/* Logo */}
         <div className="flex items-center">
-          <img
-            src="/logoLepsze.webp"
-            alt="Logo Uzdrowiska"
-            className="h-22 w-auto"
-          />
+          <Link to="/" className="block">
+            <img
+              src="/logoLepsze.webp"
+              alt="Logo Uzdrowiska"
+              className="h-22 w-auto"
+            />
+          </Link>
         </div>
 
         {/* Hamburger menu */}

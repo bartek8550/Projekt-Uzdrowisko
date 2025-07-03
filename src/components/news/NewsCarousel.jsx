@@ -63,15 +63,15 @@ export default function NewsCarousel() {
           </button>
 
           {/* Karuzela */}
-          <div className="overflow-hidden px-12" ref={emblaRef}>
+          <div className="overflow-hidden px-4 sm:px-12" ref={emblaRef}>
             <div className="flex gap-6">
               {newsList.map((news, index) => (
                 <div
                   key={news.id}
-                  className={`flex-shrink-0 w-[440px] transition-transform duration-300 ${
+                  className={`flex-shrink-0 w-[90vw] sm:w-[440px] transition-transform duration-300 ${
                     selectedIndex === index
                       ? "scale-100 z-10"
-                      : "scale-90 opacity-90"
+                      : "scale-95 opacity-90"
                   }`}
                 >
                   <NewsCard news={news} />

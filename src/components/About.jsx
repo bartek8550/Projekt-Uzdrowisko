@@ -40,7 +40,7 @@ export default function About() {
           </Link>
         </div>
 
-        <div className="md:w-1/2 flex justify-center">
+        <div className="md:w-1/2 hidden md:flex justify-center">
           <img
             src="/kosc.webp"
             alt="Kość z kwiatami"
