@@ -9,7 +9,7 @@ const HeaderOther = () => {
     "/kontakt": "Kontakt",
     "/cennik": "Cennik",
     "/opinie": "Opinie",
-    "/dlaczego": "Dlaczego my?",
+    "/dlaczego": "Usługi",
   };
 
   // Szukamy czy to dynamiczna podstrona z newsem

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function WhyUs() {
   return (
     <section className="bg-[#4E2A23] text-[#D4AF37] py-24 px-6 text-center relative overflow-hidden">
@@ -68,12 +70,12 @@ export default function WhyUs() {
         </p>
 
         {/* CTA */}
-        <a
-          href="#kontakt"
+        <Link
+          to="/dlaczego"
           className="inline-block border border-[#D4AF37] text-[#D4AF37] px-6 py-3 rounded-md hover:bg-[#D4AF37] hover:text-[#4E2A23] transition"
         >
           Zobacz więcej
-        </a>
+        </Link>
       </div>
     </section>
   );
