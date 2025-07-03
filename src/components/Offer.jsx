@@ -111,12 +111,12 @@ export default function Offer() {
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          <a
-            href="/cennik"
+          <Link
+            to="/cennik"
             className="inline-block px-10 py-3 text-lg font-semibold text-[#D4AF37] bg-[#4E342E] rounded-xl shadow-md transition-transform transition-shadow duration-300 hover:shadow-xl hover:scale-103 focus:outline-none focus:ring-4 focus:ring-[#D4AF37]/40"
           >
             Cennik
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
