@@ -16,7 +16,7 @@ export default function Navbar() {
   const links = [
     { label: 'O nas', href: '#onas' },
     { label: 'Aktualności', href: '#aktualnosci' },
-    { label: 'Dlaczego my?', href: '#dlaczego' },
+    { label: 'Dlaczego my?', href: '#whyus' },
     { label: 'Oferta', href: '#oferta' },
     { label: 'Opinie', href: '#opinie' },
     { label: 'Kontakt', href: '#kontakt' },

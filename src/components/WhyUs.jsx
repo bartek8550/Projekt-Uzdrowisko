@@ -1,6 +1,9 @@
 export default function WhyUs() {
   return (
-    <section className="bg-[#4E2A23] text-[#D4AF37] py-24 px-6 text-center relative overflow-hidden">
+    <section
+      id="whyus"
+      className="bg-[#4E2A23] text-[#D4AF37] py-24 px-6 text-center relative overflow-hidden"
+    >
       {/* Tło ilustracyjne (opcjonalnie, np. kwiaty/czaszka jako subtelne tło) */}
       <img
         src="/piasek.png" // własny plik z grafiką tła (np. kwiaty + czaszka)
