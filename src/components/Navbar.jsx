@@ -91,7 +91,7 @@ export default function Navbar() {
             <li key={item.hash}>
               <button
                 onClick={() => handleLinkClick(item.hash)}
-                className="relative inline-block after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
+                className="relative inline-block cursor-pointer after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
               >
                 {item.label}
               </button>
@@ -111,7 +111,7 @@ export default function Navbar() {
             <button
               key={item.hash}
               onClick={() => handleLinkClick(item.hash)}
-              className={`block border-b border-gold pb-2 text-left w-full opacity-0 animate-fade-in animation-delay-${
+              className={`block border-b border-gold pb-2 text-left w-full cursor-pointer opacity-0 animate-fade-in animation-delay-${
                 i * 75
               }`}
             >

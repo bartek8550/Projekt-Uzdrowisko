@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function Offer() {
   const services = [
     {
@@ -36,31 +38,49 @@ export default function Offer() {
 
   return (
     <section className="bg-[#CCA291] py-20 px-4 text-[#3E3E3E] text-center relative overflow-hidden">
-      {/* Niewidoczny punkt kotwicy dla scrolla */}
       <div id="oferta" className="absolute -top-28" aria-hidden="true"></div>
 
-      {/* Tło obrazkowe */}
       <img
         src="/tlooferta.png"
         alt="Tło dekoracyjne"
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none z-0"
       />
 
-      {/* Cała zawartość sekcji */}
       <div className="relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16 font-cardo">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold mb-16 font-cardo"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           Popularne usługi w Uzdrowisku
-        </h2>
+        </motion.h2>
 
         <div className="space-y-10 max-w-6xl mx-auto">
           {services.map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className={`flex flex-col ${
                 item.reverse ? "md:flex-row-reverse" : "md:flex-row"
               } bg-white rounded-lg overflow-hidden shadow-md`}
+              initial={{
+                opacity: 0,
+                x: item.reverse ? 100 : -100,
+                scale: 0.95,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+                scale: 1,
+              }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.2,
+                ease: "easeOut",
+              }}
             >
-              {/* Obraz z overlayem */}
               <div className="md:w-1/2 relative h-60">
                 <img
                   src={item.img}
@@ -80,18 +100,24 @@ export default function Offer() {
               <div className="md:w-1/2 flex items-center justify-center p-6 text-left">
                 <p className="text-lg leading-relaxed">{item.desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="mt-12">
+        <motion.div
+          className="mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
           <a
             href="/cennik"
             className="bg-[#4E342E] text-[#D4AF37] px-10 py-3 rounded-md hover:scale-105 transition inline-block"
           >
             Cennik
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
