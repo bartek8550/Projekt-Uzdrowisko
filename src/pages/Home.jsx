@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import Preloader from '../components/Preloader';
+
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import About from '../components/About';
@@ -11,66 +13,66 @@ import Kontakt from '../components/Kontakt';
 import Footer from '../components/Footer';
 
 function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    const images = document.images;
+    const imageUrls = [
+      '/gabinet.webp',
+      '/papier.webp',
+      '/kosc.webp',
+      '/icons/Kregoslup.png',
+      '/icons/ludzik.png',
+      '/offer/masowanie plecow.jpg',
+      '/offer/rehabilitacja.png',
+    ]; // ← tylko kluczowe obrazy
+
     let loaded = 0;
 
-    if (images.length === 0) {
-      setIsLoading(false);
-      return;
-    }
+    imageUrls.forEach((src) => {
+      const img = new Image();
+      img.src = src;
 
-    for (let i = 0; i < images.length; i++) {
-      if (images[i].complete) {
+      const update = () => {
         loaded++;
-      } else {
-        images[i].addEventListener('load', () => {
-          loaded++;
-          if (loaded === images.length) {
-            setIsLoading(false);
-          }
-        });
-        images[i].addEventListener('error', () => {
-          loaded++;
-          if (loaded === images.length) {
-            setIsLoading(false);
-          }
-        });
-      }
-    }
+        const percent = Math.round((loaded / imageUrls.length) * 100);
+        setProgress(percent);
 
-    if (loaded === images.length) {
-      setIsLoading(false);
-    }
+        if (loaded === imageUrls.length) {
+          setTimeout(() => setIsDone(true), 300); // delay fade-out
+        }
+      };
+
+      img.onload = update;
+      img.onerror = update;
+    });
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-white text-gold text-xl">
-        Ładowanie zdjęć...
-      </div>
-    );
-  }
-
   return (
-    <div className="bg-background text-gold font-cardo">
-      <Navbar />
-      <Header />
-      <About />
-      <QuoteBanner
-        text="„Równowaga ciała to początek harmonii w całym życiu.”"
-        background="#4E342E"
-        textColor="#D4AF37"
-      />
-      <NewsCarousel />
-      <WhyUs />
-      <Offer />
-      <Opinions />
-      <Kontakt />
-      <Footer />
-    </div>
+    <>
+      {!isDone && <Preloader progress={progress} isDone={isDone} />}
+
+      <div
+        className={`bg-background text-gold font-cardo ${
+          !isDone ? 'invisible' : 'visible'
+        }`}
+      >
+        <Navbar />
+        <Header />
+        <About />
+        <QuoteBanner
+          text="„Równowaga ciała to początek harmonii w całym życiu.”"
+          background="#4E342E"
+          textColor="#D4AF37"
+        />
+        <NewsCarousel />
+        <WhyUs />
+        <Offer />
+        <Opinions />
+        <Kontakt />
+        <Footer />
+      </div>
+    </>
   );
 }
 
