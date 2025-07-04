@@ -79,12 +79,12 @@ export default function Kontakt() {
           viewport={{ once: true }}
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2437.974154451407!2d21.108808477754486!3d52.33461497201319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecf7239ae1475%3A0x8ae4d8abb99f69f2!2sMa%C5%82achowskiego%204%2F11%2C%2005-270%20Marki!5e0!3m2!1spl!2spl!4v1751483242423!5m2!1spl!2spl"
+            src="https://www.google.com/maps/embed?pb=..."
             width="100%"
-            className="rounded-md border-0 w-full h-[250px] sm:h-[300px] md:h-[400px]"
-            allowFullScreen=""
+            class="rounded-md border-0 w-full h-[250px] sm:h-[300px] md:h-[400px]"
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa lokalizacji gabinetu fizjoterapii"
           ></iframe>
         </motion.div>
       </motion.div>

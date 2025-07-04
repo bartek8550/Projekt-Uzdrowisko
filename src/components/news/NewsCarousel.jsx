@@ -77,6 +77,7 @@ export default function NewsCarousel() {
           <motion.button
             onClick={scrollPrev}
             disabled={!canScrollPrev}
+            aria-label="Poprzedni slajd"
             className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E8C2AE] rounded-full p-2 text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10"
             variants={fadeInUp}
             custom={0.1}
@@ -110,6 +111,7 @@ export default function NewsCarousel() {
           <motion.button
             onClick={scrollNext}
             disabled={!canScrollNext}
+            aria-label="Następny slajd"
             className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E8C2AE] rounded-full p-2 text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10"
             variants={fadeInUp}
             custom={0.2}
