@@ -1,17 +1,84 @@
-import HeaderOther from "../components/HeaderOther";
-import Navbar from "../components/Navbar";
+import { useEffect, useState } from 'react';
+import Preloader from '../components/Preloader';
 
-import Footer from "../components/Footer";
-import Services from "../components/Services";
+import HeaderOther from '../components/HeaderOther';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Services from '../components/Services';
 
 function NewsPage() {
+  const [progress, setProgress] = useState(0);
+  const [isDone, setIsDone] = useState(false);
+  const [skipPreloader, setSkipPreloader] = useState(false);
+
+  useEffect(() => {
+    const hasSeen = sessionStorage.getItem('seen-preloader-news');
+
+    if (hasSeen) {
+      setSkipPreloader(true);
+      setIsDone(true);
+      return;
+    }
+
+    const fileNames = [
+      'drenazlimfatyczny.png',
+      'drenazlimfatyczny2.png',
+      'dziecipowyzej10r.png',
+      'dziecipowyzej10r2.png',
+      'kardiologiczne.png',
+      'kobietywciazy.png',
+      'masazleczniczy.png',
+      'masazsportowy.png',
+      'rehabilitacjakobietpociazy.png',
+      'rehabilitacjaonkologiczna.png',
+      'sportowcow.png',
+      'sportowcow2.png',
+      'terapiespecjalistyczne.png',
+      'traumatologiczna.png',
+      'uroginekologiczna.png',
+    ];
+
+    const imageUrls = [
+      ...fileNames.map((name) => `/whyus/UslugiIkonki/512x512/${name}`),
+      '/koscimiedkreg.webp',
+    ];
+
+    let loaded = 0;
+
+    imageUrls.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+
+      const update = () => {
+        loaded++;
+        const percent = Math.round((loaded / imageUrls.length) * 100);
+        setProgress(percent);
+
+        if (loaded === imageUrls.length) {
+          sessionStorage.setItem('seen-preloader-news', 'true');
+          setTimeout(() => setIsDone(true), 300);
+        }
+      };
+
+      img.onload = update;
+      img.onerror = update;
+    });
+  }, []);
+
   return (
-    <div className="bg-background text-gold font-cardo">
-      <Navbar />
-      <HeaderOther />
-      <Services />
-      <Footer />
-    </div>
+    <>
+      {!skipPreloader && <Preloader progress={progress} isDone={isDone} />}
+      <div
+        className={`bg-background text-gold font-cardo ${
+          !isDone ? 'invisible' : 'visible'
+        }`}
+      >
+        <Navbar />
+        <HeaderOther />
+        <Services />
+        <Footer />
+      </div>
+    </>
   );
 }
 

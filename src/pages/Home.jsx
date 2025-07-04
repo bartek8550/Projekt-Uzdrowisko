@@ -15,8 +15,18 @@ import Footer from '../components/Footer';
 function Home() {
   const [progress, setProgress] = useState(0);
   const [isDone, setIsDone] = useState(false);
+  const [skipPreloader, setSkipPreloader] = useState(false);
 
   useEffect(() => {
+    const hasSeen = sessionStorage.getItem('seen-preloader');
+
+    if (hasSeen) {
+      // Jeśli użytkownik już widział preloader w tej sesji
+      setSkipPreloader(true);
+      setIsDone(true);
+      return;
+    }
+
     const imageUrls = [
       '/gabinet.webp',
       '/papier.webp',
@@ -25,7 +35,7 @@ function Home() {
       '/icons/ludzik.png',
       '/offer/masowanie plecow.jpg',
       '/offer/rehabilitacja.png',
-    ]; // ← tylko kluczowe obrazy
+    ];
 
     let loaded = 0;
 
@@ -39,7 +49,8 @@ function Home() {
         setProgress(percent);
 
         if (loaded === imageUrls.length) {
-          setTimeout(() => setIsDone(true), 300); // delay fade-out
+          sessionStorage.setItem('seen-preloader', 'true');
+          setTimeout(() => setIsDone(true), 300);
         }
       };
 
@@ -50,8 +61,7 @@ function Home() {
 
   return (
     <>
-      {!isDone && <Preloader progress={progress} isDone={isDone} />}
-
+      {!skipPreloader && <Preloader progress={progress} isDone={isDone} />}
       <div
         className={`bg-background text-gold font-cardo ${
           !isDone ? 'invisible' : 'visible'
