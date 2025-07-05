@@ -15,15 +15,14 @@ import Footer from '../components/Footer';
 function Home() {
   const [progress, setProgress] = useState(0);
   const [isDone, setIsDone] = useState(false);
-  const [skipPreloader, setSkipPreloader] = useState(false);
+  const [hidePreloader, setHidePreloader] = useState(false);
 
   useEffect(() => {
     const hasSeen = sessionStorage.getItem('seen-preloader');
 
     if (hasSeen) {
-      // Jeśli użytkownik już widział preloader w tej sesji
-      setSkipPreloader(true);
       setIsDone(true);
+      setHidePreloader(true);
       return;
     }
 
@@ -50,7 +49,10 @@ function Home() {
 
         if (loaded === imageUrls.length) {
           sessionStorage.setItem('seen-preloader', 'true');
-          setTimeout(() => setIsDone(true), 300);
+          setTimeout(() => {
+            setIsDone(true);
+            setTimeout(() => setHidePreloader(true), 800); // uwzględnia fadeout
+          }, 300);
         }
       };
 
@@ -61,7 +63,7 @@ function Home() {
 
   return (
     <>
-      {!skipPreloader && <Preloader progress={progress} isDone={isDone} />}
+      {!hidePreloader && <Preloader progress={progress} isDone={isDone} />}
       <div
         className={`bg-background text-gold font-cardo ${
           !isDone ? 'invisible' : 'visible'

@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -26,7 +26,7 @@ export default function Footer() {
           {/* Prawa kolumna */}
           <div className="flex-1 max-w-xs space-y-4 text-left">
             <h4 className="text-lg md:text-xl font-semibold font-cardo mb-2 text-center md:text-left">
-              Kontakt
+              Dane kontaktowe
             </h4>
             <div className="flex items-start gap-3">
               <MapPin size={20} className="mt-1" />
