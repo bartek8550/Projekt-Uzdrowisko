@@ -45,16 +45,28 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 py-2 flex justify-between items-center text-gold">
+        {/* Logo z obsługą scroll-to-top */}
         <div className="flex items-center">
-          <Link to="/" className="block">
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              if (location.pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              } else {
+                navigate("/");
+              }
+            }}
+            className="block cursor-pointer"
+          >
             <img
               src="/logoLepsze.webp"
               alt="Logo Uzdrowiska"
               className="h-22 w-auto"
             />
-          </Link>
+          </button>
         </div>
 
+        {/* Hamburger menu */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -82,6 +94,7 @@ export default function Navbar() {
           </button>
         </div>
 
+        {/* Desktop menu */}
         <ul className="hidden md:flex space-x-6 font-light text-xl">
           {links.map((item) => (
             <li key={item.label}>
@@ -105,6 +118,7 @@ export default function Navbar() {
         </ul>
       </div>
 
+      {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
