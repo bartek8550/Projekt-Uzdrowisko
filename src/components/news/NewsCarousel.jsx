@@ -54,7 +54,7 @@ export default function NewsCarousel() {
       ></div>
 
       <img
-        src="/cennikTlo.png"
+        src="/cennikTlo.webp"
         alt="Tło dekoracyjne"
         className="absolute inset-0 w-full h-full object-cover opacity-8 pointer-events-none select-none z-0"
       />

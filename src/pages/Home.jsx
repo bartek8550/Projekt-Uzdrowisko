@@ -31,10 +31,10 @@ function Home() {
       '/gabinet.webp',
       '/papier.webp',
       '/kosc.webp',
-      '/icons/Kregoslup.png',
-      '/icons/ludzik.png',
-      '/offer/masowanie plecow.jpg',
-      '/offer/rehabilitacja.png',
+      '/icons/Kregoslup.webp',
+      '/icons/ludzik.webp',
+      '/offer/masowanie plecow.webp',
+      '/offer/rehabilitacja.webp',
     ];
 
     let loaded = 0;

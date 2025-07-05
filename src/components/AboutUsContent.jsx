@@ -31,7 +31,7 @@ export default function AboutUsContent() {
           transition={{ duration: 0.7 }}
         >
           <img
-            src="/Hanna.jpg"
+            src="/Hanna.webp"
             alt="Założycielka Uzdrowiska"
             className="rounded-lg shadow-lg max-w-xs w-full"
           />

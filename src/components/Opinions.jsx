@@ -1,18 +1,18 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export default function Opinions() {
   const testimonials = [
     {
-      text: "Ból pleców zniknął po kilku zabiegach. Profesjonalne podejście i świetna atmosfera!",
-      author: "Anna K.",
+      text: 'Ból pleców zniknął po kilku zabiegach. Profesjonalne podejście i świetna atmosfera!',
+      author: 'Anna K.',
     },
     {
-      text: "Zdecydowanie polecam terapię manualną – pełen profesjonalizm i wyraźna poprawa.",
-      author: "Agnieszka C.",
+      text: 'Zdecydowanie polecam terapię manualną – pełen profesjonalizm i wyraźna poprawa.',
+      author: 'Agnieszka C.',
     },
     {
-      text: "Indywidualne podejście, cierpliwość i efektywność. Dziękuję za wsparcie po urazie.",
-      author: "Michał T.",
+      text: 'Indywidualne podejście, cierpliwość i efektywność. Dziękuję za wsparcie po urazie.',
+      author: 'Michał T.',
     },
   ];
 
@@ -32,7 +32,7 @@ export default function Opinions() {
       <div id="opinie" className="absolute -top-28" aria-hidden="true"></div>
 
       <img
-        src="/opinionstlo.png"
+        src="/opinionstlo.webp"
         alt="Tło opinii"
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
       />
@@ -42,7 +42,7 @@ export default function Opinions() {
           className="text-2xl md:text-3xl font-semibold mb-16 font-cardo"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           Opinie podopiecznych Uzdrowiska
         </motion.h2>

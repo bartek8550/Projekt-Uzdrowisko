@@ -9,7 +9,7 @@ export default function Kontakt() {
 
       {/* Tło dekoracyjne */}
       <img
-        src="/kosciZdjecie2.png"
+        src="/kosciZdjecie2.webp"
         alt="Tło kontaktu"
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
       />

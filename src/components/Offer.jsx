@@ -7,7 +7,7 @@ export default function Offer() {
       time: '60 minut',
       price: '150 zł',
       desc: 'Skuteczny masaż leczniczy pleców, który łagodzi napięcia mięśniowe, redukuje ból i przywraca swobodę ruchu. Idealny przy pracy siedzącej, stresie i przeciążeniach kręgosłupa.',
-      img: '/offer/masowanie plecow.jpg',
+      img: '/offer/masowanie plecow.webp',
       reverse: false,
     },
     {
@@ -15,7 +15,7 @@ export default function Offer() {
       time: '60 minut',
       price: '190 zł',
       desc: 'Delikatna, ale głęboko działająca metoda, która poprawia elastyczność tkanek i zmniejsza przewlekłe napięcia. Polecana przy bólach mięśniowo-powięziowych i ograniczeniach ruchomości.',
-      img: '/offer/terapia powieziowa.png',
+      img: '/offer/terapia powieziowa.webp',
       reverse: true,
     },
     {
@@ -23,7 +23,7 @@ export default function Offer() {
       time: '60 minut',
       price: '180 zł',
       desc: 'Indywidualna praca fizjoterapeuty z ciałem pacjenta, mająca na celu przywrócenie prawidłowej pracy stawów i mięśni. Sprawdza się przy bólach kręgosłupa, stawów i w stanach przeciążeniowych.',
-      img: '/offer/terapia manualna.png',
+      img: '/offer/terapia manualna.webp',
       reverse: false,
     },
     {
@@ -31,7 +31,7 @@ export default function Offer() {
       time: '60 minut',
       price: '190 zł',
       desc: 'Ćwiczenia oraz techniki manualne dopasowane do potrzeb pacjenta, wspierające powrót do sprawności po urazach, operacjach lub w przewlekłych schorzeniach.',
-      img: '/offer/rehabilitacja.png',
+      img: '/offer/rehabilitacja.webp',
       reverse: true,
     },
   ];
@@ -41,7 +41,7 @@ export default function Offer() {
       <div id="oferta" className="absolute -top-28" aria-hidden="true"></div>
 
       <img
-        src="/tlooferta.png"
+        src="/tlooferta.webp"
         alt="Tło dekoracyjne"
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none z-0"
       />
