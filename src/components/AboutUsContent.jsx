@@ -22,7 +22,7 @@ export default function AboutUsContent() {
       </div>
 
       {/* Zawartość górna: zdjęcie + tekst */}
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-10">
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-10">
         {/* Zdjęcie założycielki */}
         <motion.div
           className="md:w-1/3 flex justify-center"
@@ -74,11 +74,11 @@ export default function AboutUsContent() {
         <h3 className="text-xl md:text-2xl font-semibold mb-6 text-[#3E3E3E]">
           Moje dyplomy i certyfikaty
         </h3>
-        <div className="flex flex-wrap justify-start gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {Array.from({ length: total }, (_, i) => (
             <motion.div
               key={i}
-              className="w-44 h-32 bg-[#F5E9E2] rounded-md shadow-md p-2 cursor-pointer hover:scale-105 transition"
+              className="w-full sm:w-44 aspect-video bg-[#F5E9E2] rounded-md shadow-md p-2 cursor-pointer hover:scale-105 transition"
               whileHover={{ scale: 1.05 }}
               onClick={() => {
                 setCurrent(i);
@@ -105,7 +105,7 @@ export default function AboutUsContent() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="relative bg-white rounded-lg max-w-4xl w-full p-4"
+              className="relative bg-white rounded-lg max-w-4xl w-full p-4 overflow-auto max-h-[90vh]"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -121,7 +121,7 @@ export default function AboutUsContent() {
                 <img
                   src={`/HannaNow/zdj${current + 1}.webp`}
                   alt={`Certyfikat ${current + 1}`}
-                  className="max-h-[70vh] object-contain rounded shadow"
+                  className="max-h-[70vh] w-full object-contain rounded shadow"
                 />
                 <p className="mt-2 text-sm text-gray-600">
                   {current + 1} / {total}
