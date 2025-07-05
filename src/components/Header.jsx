@@ -50,7 +50,7 @@ export default function Header() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 text-gold z-10 text-center"
+        className="absolute bottom-24 sm:bottom-16 left-1/2 -translate-x-1/2 text-gold z-10 text-center"
       >
         <button
           onClick={() => handleScrollTo('kontakt')}
