@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-background: #4e2a23;
+  --color-background: #4E342E;
   --color-gold: #d4af37;
   --font-serif: 'Cardo', serif;
 }

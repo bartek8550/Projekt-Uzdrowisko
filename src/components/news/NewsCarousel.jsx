@@ -1,9 +1,9 @@
-import { useEffect, useCallback, useState } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import { newsList } from './newsData';
-import NewsCard from './NewsCard';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useEffect, useCallback, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { newsList } from "./newsData";
+import NewsCard from "./NewsCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -13,7 +13,7 @@ const fadeInUp = {
     transition: {
       delay: i * 0.15,
       duration: 0.6,
-      ease: 'easeOut',
+      ease: "easeOut",
     },
   }),
 };
@@ -21,7 +21,7 @@ const fadeInUp = {
 export default function NewsCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     slidesToScroll: 1,
-    containScroll: 'trimSnaps',
+    containScroll: "trimSnaps",
     loop: false,
   });
 
@@ -41,12 +41,12 @@ export default function NewsCarousel() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    emblaApi.on('select', onSelect);
+    emblaApi.on("select", onSelect);
     onSelect();
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="relative py-32 bg-[#CCA291] text-[#3E3E3E] text-center overflow-hidden">
+    <section className="relative py-16 md:py-20 lg:py-32 px-4 sm:px-6 md:px-10 lg:px-20 bg-[#CCA291] text-[#3E3E3E] text-center overflow-hidden">
       <div
         id="aktualnosci"
         className="absolute -top-28"
@@ -66,7 +66,7 @@ export default function NewsCarousel() {
         viewport={{ once: true, amount: 0.3 }}
       >
         <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-20"
+          className="text-2xl md:text-3xl lg:text-4xl font-bold mb-12 md:mb-16 lg:mb-20"
           variants={fadeInUp}
         >
           Aktualności – Co nowego w Uzdrowisku?
@@ -82,19 +82,22 @@ export default function NewsCarousel() {
             variants={fadeInUp}
             custom={0.1}
           >
-            <ChevronLeft size={32} />
+            <ChevronLeft size={28} />
           </motion.button>
 
           {/* Karuzela */}
-          <div className="overflow-hidden px-4 sm:px-12" ref={emblaRef}>
-            <div className="flex gap-6">
+          <div
+            className="overflow-hidden px-2 sm:px-6 md:px-10 lg:px-16"
+            ref={emblaRef}
+          >
+            <div className="flex gap-4 md:gap-6">
               {newsList.map((news, index) => (
                 <motion.div
                   key={news.id}
                   className={`flex-shrink-0 w-[90vw] sm:w-[440px] transition-transform duration-300 ${
                     selectedIndex === index
-                      ? 'scale-95 z-10'
-                      : 'scale-90 opacity-90'
+                      ? "scale-95 z-10"
+                      : "scale-90 opacity-90"
                   }`}
                   variants={fadeInUp}
                   custom={index + 1}
@@ -116,14 +119,18 @@ export default function NewsCarousel() {
             variants={fadeInUp}
             custom={0.2}
           >
-            <ChevronRight size={32} />
+            <ChevronRight size={28} />
           </motion.button>
         </div>
 
-        <motion.div className="mt-24" variants={fadeInUp} custom={0.3}>
+        <motion.div
+          className="mt-12 md:mt-16 lg:mt-24"
+          variants={fadeInUp}
+          custom={0.3}
+        >
           <a
             href="/aktualnosci"
-            className="bg-[#8D6E62] text-[#CCA291] px-8 py-3 rounded-md hover:scale-105 transition inline-block"
+            className="bg-[#8D6E62] text-[#CCA291] px-6 md:px-8 py-2.5 md:py-3 rounded-md hover:scale-105 transition inline-block text-sm md:text-base"
           >
             Przejdź do aktualności
           </a>
