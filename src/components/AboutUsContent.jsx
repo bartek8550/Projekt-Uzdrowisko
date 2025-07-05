@@ -74,11 +74,11 @@ export default function AboutUsContent() {
         <h3 className="text-lg md:text-xl font-semibold mb-6 text-[#3E3E3E]">
           Moje dyplomy i certyfikaty
         </h3>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {Array.from({ length: total }, (_, i) => (
             <motion.div
               key={i}
-              className="w-40 h-28 bg-[#F5E9E2] rounded-md shadow-md p-1.5 cursor-pointer hover:scale-105 transition"
+              className="bg-[#F5E9E2] rounded-md shadow-md p-1.5 cursor-pointer hover:scale-105 transition aspect-[4/3]"
               whileHover={{ scale: 1.05 }}
               onClick={() => {
                 setCurrent(i);
