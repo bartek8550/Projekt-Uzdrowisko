@@ -22,7 +22,7 @@ export default function WhyUs() {
 
       {/* Tło ilustracyjne */}
       <img
-        src="/piasek.png"
+        src="/piasek.webp"
         alt="Tło dekoracyjne"
         className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none select-none"
       />
@@ -53,10 +53,10 @@ export default function WhyUs() {
               <img
                 src={
                   [
-                    '/icons/Kregoslup.png',
-                    '/icons/ludzik.png',
-                    '/icons/serce.png',
-                    '/icons/macica.png',
+                    '/icons/Kregoslup.webp',
+                    '/icons/ludzik.webp',
+                    '/icons/serce.webp',
+                    '/icons/macica.webp',
                   ][i]
                 }
                 alt="Ikona"

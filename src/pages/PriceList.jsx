@@ -20,7 +20,7 @@ function PriceList() {
       return;
     }
 
-    const imageUrls = ['/cennikTlo.png', '/logoLepsze.webp'];
+    const imageUrls = ['/cennikTlo.webp', '/logoLepsze.webp'];
 
     let loaded = 0;
 

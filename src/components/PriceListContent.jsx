@@ -17,7 +17,7 @@ export default function PriceListContent() {
       }}
     >
       <img
-        src="/cennikTlo.png"
+        src="/cennikTlo.webp"
         alt="Tło cennika"
         className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none select-none"
       />

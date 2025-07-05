@@ -21,21 +21,21 @@ function NewsPage() {
     }
 
     const fileNames = [
-      'drenazlimfatyczny.png',
-      'drenazlimfatyczny2.png',
-      'dziecipowyzej10r.png',
-      'dziecipowyzej10r2.png',
-      'kardiologiczne.png',
-      'kobietywciazy.png',
-      'masazleczniczy.png',
-      'masazsportowy.png',
-      'rehabilitacjakobietpociazy.png',
-      'rehabilitacjaonkologiczna.png',
-      'sportowcow.png',
-      'sportowcow2.png',
-      'terapiespecjalistyczne.png',
-      'traumatologiczna.png',
-      'uroginekologiczna.png',
+      'drenazlimfatyczny.webp',
+      'drenazlimfatyczny2.webp',
+      'dziecipowyzej10r.webp',
+      'dziecipowyzej10r2.webp',
+      'kardiologiczne.webp',
+      'kobietywciazy.webp',
+      'masazleczniczy.webp',
+      'masazsportowy.webp',
+      'rehabilitacjakobietpociazy.webp',
+      'rehabilitacjaonkologiczna.webp',
+      'sportowcow.webp',
+      'sportowcow2.webp',
+      'terapiespecjalistyczne.webp',
+      'traumatologiczna.webp',
+      'uroginekologiczna.webp',
     ];
 
     const imageUrls = [
