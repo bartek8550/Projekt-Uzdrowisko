@@ -28,10 +28,9 @@ export default function Navbar() {
   const handleLinkClick = (hash) => {
     setIsOpen(false);
     if (location.pathname !== "/") {
-      // jeśli jesteśmy na innej stronie — wróć na główną i scrolluj po nawigacji
-      navigate(`/#${hash}`);
+      sessionStorage.setItem("scrollToHash", hash);
+      navigate("/");
     } else {
-      // jeśli już jesteśmy na głównej, scrolluj natychmiast
       const element = document.getElementById(hash);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
@@ -46,7 +45,6 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 py-2 flex justify-between items-center text-gold">
-        {/* Logo */}
         <div className="flex items-center">
           <Link to="/" className="block">
             <img
@@ -57,7 +55,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Hamburger menu */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -85,7 +82,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Desktop menu */}
         <ul className="hidden md:flex space-x-6 font-light text-xl">
           {links.map((item) => (
             <li key={item.label}>
@@ -109,7 +105,6 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
