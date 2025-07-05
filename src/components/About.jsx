@@ -12,7 +12,11 @@ const container = {
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -40 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
 };
 
 const fadeUp = {
@@ -26,12 +30,16 @@ const fadeUp = {
 
 const fadeScale = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { delay: 0.8, duration: 0.5 } },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { delay: 0.8, duration: 0.5 },
+  },
 };
 
 export default function About() {
   return (
-    <section className="relative bg-[#CCA291] py-16 px-4 overflow-hidden">
+    <section className="relative bg-[#CCA291] py-12 px-6 sm:px-10 md:px-14 overflow-hidden">
       <div id="onas" className="absolute -top-28" aria-hidden="true"></div>
 
       {/* Tło dekoracyjne */}
@@ -41,28 +49,31 @@ export default function About() {
         className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
+      <div className="relative z-10 max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-16">
         <motion.div
-          className="text-center md:text-left md:w-1/2 space-y-6 text-[#3E3E3E]"
+          className="text-center md:text-left md:w-1/2 space-y-6 text-[#3E3E3E] max-w-prose md:max-w-full"
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.h2
-            className="text-3xl md:text-4xl font-bold font-cardo"
+            className="text-xl md:text-2xl font-bold font-cardo"
             variants={fadeLeft}
           >
             Uzdrowisko – przestrzeń dla Twojego ciała i spokoju
           </motion.h2>
 
-          <motion.p className="text-xl leading-relaxed" variants={fadeUp}>
+          <motion.p
+            className="text-base md:text-lg leading-relaxed"
+            variants={fadeUp}
+          >
             Uzdrowisko to kameralne, profesjonalne miejsce, w którym nowoczesna
             fizjoterapia spotyka się ze spokojem i indywidualnym podejściem.
           </motion.p>
 
           <motion.p
-            className="text-xl leading-relaxed"
+            className="text-base md:text-lg leading-relaxed"
             custom={0.2}
             variants={fadeUp}
           >
@@ -71,7 +82,7 @@ export default function About() {
           </motion.p>
 
           <motion.p
-            className="text-xl leading-relaxed"
+            className="text-base md:text-lg leading-relaxed"
             custom={0.4}
             variants={fadeUp}
           >
@@ -84,7 +95,7 @@ export default function About() {
           <motion.div variants={fadeScale}>
             <Link
               to="/onas"
-              className="inline-block bg-[#4E342E] text-[#D4AF37] px-6 py-2 mt-4 rounded-md hover:scale-105 transition"
+              className="inline-block bg-[#4E342E] text-[#D4AF37] px-5 py-2 mt-4 rounded-md hover:scale-105 transition text-sm md:text-base"
             >
               Czytaj więcej
             </Link>

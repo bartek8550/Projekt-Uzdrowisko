@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 export default function QuoteBanner({
-  text = '„Równowaga ciała to początek harmonii w całym życiu.”',
-  background = '#4e2a23',
-  textColor = '#D4AF37',
-  className = '',
+  text = "„Równowaga ciała to początek harmonii w całym życiu.”",
+  background = "#4E342E",
+  textColor = "#D4AF37",
+  className = "",
 }) {
   const ref = useRef(null);
   const [hasShown, setHasShown] = useState(false);
@@ -40,7 +40,7 @@ export default function QuoteBanner({
       <span
         className={`
           inline-block transition-all duration-1000 ease-out
-          ${hasShown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          ${hasShown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
         `}
       >
         {text}

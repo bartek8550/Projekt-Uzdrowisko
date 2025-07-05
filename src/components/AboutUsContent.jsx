@@ -11,7 +11,7 @@ export default function AboutUsContent() {
   const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
 
   return (
-    <section className="relative bg-[#CCA291] py-32 px-4 overflow-hidden">
+    <section className="relative bg-[#CCA291] py-20 px-6 sm:px-10 md:px-14 overflow-hidden">
       {/* Tło sekcji */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none select-none">
         <img
@@ -22,7 +22,7 @@ export default function AboutUsContent() {
       </div>
 
       {/* Zawartość górna: zdjęcie + tekst */}
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-10">
+      <div className="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-10 lg:gap-16">
         {/* Zdjęcie założycielki */}
         <motion.div
           className="md:w-1/3 flex justify-center"
@@ -39,12 +39,12 @@ export default function AboutUsContent() {
 
         {/* Tekst */}
         <motion.div
-          className="md:w-2/3 space-y-6 text-[#3E3E3E]"
+          className="md:w-2/3 space-y-5 text-[#3E3E3E] text-base md:text-lg leading-relaxed"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold font-cardo">
+          <h2 className="text-xl md:text-2xl font-bold font-cardo">
             Założycielka Uzdrowiska | Hanna Nowotczyńska
           </h2>
           <p>
@@ -70,15 +70,15 @@ export default function AboutUsContent() {
       </div>
 
       {/* Galeria – dyplomy */}
-      <div className="relative z-10 max-w-7xl mx-auto mt-20 px-2">
-        <h3 className="text-xl md:text-2xl font-semibold mb-6 text-[#3E3E3E]">
+      <div className="relative z-10 max-w-6xl mx-auto mt-16 px-2">
+        <h3 className="text-lg md:text-xl font-semibold mb-6 text-[#3E3E3E]">
           Moje dyplomy i certyfikaty
         </h3>
         <div className="flex flex-wrap justify-center gap-4">
           {Array.from({ length: total }, (_, i) => (
             <motion.div
               key={i}
-              className="w-full sm:w-44 aspect-video bg-[#F5E9E2] rounded-md shadow-md p-2 cursor-pointer hover:scale-105 transition"
+              className="w-40 h-28 bg-[#F5E9E2] rounded-md shadow-md p-1.5 cursor-pointer hover:scale-105 transition"
               whileHover={{ scale: 1.05 }}
               onClick={() => {
                 setCurrent(i);
