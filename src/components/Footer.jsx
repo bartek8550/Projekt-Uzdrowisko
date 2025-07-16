@@ -44,8 +44,8 @@ export default function Footer() {
               <Clock size={20} className="mt-1" />
               <div>
                 <p className="font-semibold">Godziny otwarcia:</p>
-                <p>Pon – Pt: 09:00 – 18:00</p>
-                <p>Sobota: 10:00 – 17:00</p>
+                <p>Pon – Pt: 08:30 – 15:00 i 17:00 - 20:00</p>
+                <p>Sobota: 10:00 – 15:00</p>
               </div>
             </div>
           </div>

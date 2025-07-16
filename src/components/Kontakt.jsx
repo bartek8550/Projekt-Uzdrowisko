@@ -1,5 +1,5 @@
-import { MapPin, Phone, Clock } from "lucide-react";
-import { motion } from "framer-motion";
+import { MapPin, Phone, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Kontakt() {
   return (
@@ -32,7 +32,7 @@ export default function Kontakt() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-cardo text-left">
             Skontaktuj się z nami
@@ -61,10 +61,10 @@ export default function Kontakt() {
                 Godziny otwarcia:
               </p>
               <p className="text-base md:text-lg font-semibold">
-                Pon – Pt: 09:00 – 18:00
+                Pon – Pt: 08:30 – 15:00 i 17:00 - 20:00
               </p>
               <p className="text-base md:text-lg font-semibold">
-                Sobota: 10:00 – 17:00
+                Sobota: 10:00 – 15:00
               </p>
             </div>
           </div>

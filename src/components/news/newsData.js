@@ -20,40 +20,4 @@ Dołączenie tej formy terapii do oferty Uzdrowiska to kolejny krok w kierunku j
 
 Cieszę się, że mogę wprowadzić tę wyjątkową jakość do naszych spotkań terapeutycznych i zaprosić Cię do odkrycia nowego wymiaru pracy z ciałem — w atmosferze uważności, spokoju i pełnego zaangażowania.`,
   },
-  {
-    id: 'nowa-usluga-tt1',
-    date: '9 czerwca 2025',
-    title: 'Nowa usługa: chiropraktyka i techniki TT!',
-    excerpt:
-      'Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie w Chiropractic School of Poland...',
-    image: '/images/masowanie plecow.webp',
-    content: `Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie...`,
-  },
-  {
-    id: 'nowa-usluga-tt2',
-    date: '9 czerwca 2025',
-    title: 'Nowa usługa: chiropraktyka i techniki TT!',
-    excerpt:
-      'Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie w Chiropractic School of Poland...',
-    image: '/images/masowanie plecow.webp',
-    content: `Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie...`,
-  },
-  {
-    id: 'nowa-usluga-tt3',
-    date: '9 czerwca 2025',
-    title: 'Nowa usługa: chiropraktyka i techniki TT!',
-    excerpt:
-      'Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie w Chiropractic School of Poland...',
-    image: '/images/masowanie plecow.webp',
-    content: `Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie...`,
-  },
-  {
-    id: 'nowa-usluga-tt4',
-    date: '5 czerwca 2025',
-    title: 'Nowa usługa: chiropraktyka i techniki TT!',
-    excerpt:
-      'Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie w Chiropractic School of Poland...',
-    image: '/images/masowanie plecow.webp',
-    content: `Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie...`,
-  },
 ];

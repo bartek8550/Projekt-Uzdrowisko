@@ -21,7 +21,7 @@ export default function Offer() {
     {
       title: 'Terapia manualna',
       time: '60 minut',
-      price: '180 zł',
+      price: '190 zł',
       desc: 'Indywidualna praca fizjoterapeuty z ciałem pacjenta, mająca na celu przywrócenie prawidłowej pracy stawów i mięśni. Sprawdza się przy bólach kręgosłupa, stawów i w stanach przeciążeniowych.',
       img: '/offer/terapia manualna.webp',
       reverse: false,
