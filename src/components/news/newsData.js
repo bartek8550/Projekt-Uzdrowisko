@@ -5,7 +5,7 @@ export const newsList = [
     title: 'Nowa usługa: chiropraktyka i techniki TT!',
     excerpt:
       'Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie w Chiropractic School of Poland, które koncentrowało się na metodzie TT (Toony Therapy) oraz na zaawansowanych technikach terapii manualnej (MTT – Manual Toony Therapy)',
-    image: '/images/masowanie plecow.webp',
+    image: '/News/chiropraktyka.webp',
     content: `Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie w Chiropractic School of Poland, które koncentrowało się na metodzie TT (Toony Therapy) oraz na zaawansowanych technikach terapii manualnej (MTT – Manual Toony Therapy).
 
 Podczas kursu miałam okazję pracować pod okiem doświadczonych terapeutów oraz specjalistów z zakresu neurofizjologii i biomechaniki, co pozwoliło mi pogłębić wiedzę związaną z funkcjonowaniem układu mięśniowo-szkieletowego oraz nerwowego.

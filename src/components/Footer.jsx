@@ -15,8 +15,9 @@ export default function Footer() {
               <img src="/logoLepsze.webp" alt="Logo" className="h-16 w-auto" />
             </div>
             <p className="leading-relaxed">
-              Profesjonalna fizjoterapia i masaż – skuteczne podejście, troska o
-              pacjenta i indywidualny plan terapii
+              Profesjonalna fizjoterapia i masaż – skuteczne podejście,
+              prawdziwa troska o pacjenta oraz indywidualnie dopasowany plan
+              terapii, który przynosi realne efekty.
             </p>
           </div>
 
