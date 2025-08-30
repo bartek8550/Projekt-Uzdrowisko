@@ -53,10 +53,10 @@ export default function WhyUs() {
               <img
                 src={
                   [
-                    '/icons/Kregoslup.webp',
-                    '/icons/ludzik.webp',
-                    '/icons/serce.webp',
-                    '/icons/macica.webp',
+                    '/img-icons/Kregoslup.webp',
+                    '/img-icons/ludzik.webp',
+                    '/img-icons/serce.webp',
+                    '/img-icons/macica.webp',
                   ][i]
                 }
                 alt="Ikona"
