@@ -1,37 +1,38 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+
 export default function Offer() {
   const services = [
     {
-      title: 'Masaż leczniczy pleców',
-      time: '60 minut',
-      price: '150 zł',
-      desc: 'Skuteczny masaż leczniczy pleców, który łagodzi napięcia mięśniowe, redukuje ból i przywraca swobodę ruchu. Idealny przy pracy siedzącej, stresie i przeciążeniach kręgosłupa.',
+      title: 'Pierwsza wizyta fizjoterapeutyczna',
+      time: 'ok. 60 minut',
+      price: '250 zł',
+      desc: 'Diagnoza, wywiad i pierwsze techniki terapeutyczne w gabinecie. Ustalamy plan działania i cele na kolejne wizyty.',
+      img: '/offer/rehabilitacja.webp',
+      reverse: false,
+    },
+    {
+      title: 'Terapia manualna + chiropraktyka',
+      time: 'ok. 60 minut',
+      price: '350 zł',
+      desc: 'Zaawansowane techniki łączone prowadzone przez mgr Hannę Nowotczyńską. Pomagają w uwolnieniu napięć i poprawie ruchomości.',
+      img: '/offer/terapia manualna.webp',
+      reverse: true,
+    },
+    {
+      title: 'Wizyta domowa (Marki i okolice)',
+      time: 'do 60 minut',
+      price: '300 zł',
+      desc: 'Pełna sesja fizjoterapeutyczna z dojazdem do pacjenta. Łączymy komfort domowy z terapią dobraną do Twoich potrzeb.',
       img: '/offer/masowanie plecow.webp',
       reverse: false,
     },
     {
-      title: 'Terapia powięziowa',
-      time: '60 minut',
-      price: '190 zł',
-      desc: 'Delikatna, ale głęboko działająca metoda, która poprawia elastyczność tkanek i zmniejsza przewlekłe napięcia. Polecana przy bólach mięśniowo-powięziowych i ograniczeniach ruchomości.',
+      title: 'Chiropraktyka z dojazdem',
+      time: 'do 60 minut',
+      price: '350 zł',
+      desc: 'Chiropraktyka i terapia manualna w Twoim domu. Idealne, gdy potrzebujesz ulgi, ale nie możesz dotrzeć do gabinetu.',
       img: '/offer/terapia powieziowa.webp',
-      reverse: true,
-    },
-    {
-      title: 'Terapia manualna',
-      time: '60 minut',
-      price: '190 zł',
-      desc: 'Indywidualna praca fizjoterapeuty z ciałem pacjenta, mająca na celu przywrócenie prawidłowej pracy stawów i mięśni. Sprawdza się przy bólach kręgosłupa, stawów i w stanach przeciążeniowych.',
-      img: '/offer/terapia manualna.webp',
-      reverse: false,
-    },
-    {
-      title: 'Rehabilitacja',
-      time: '60 minut',
-      price: '190 zł',
-      desc: 'Ćwiczenia oraz techniki manualne dopasowane do potrzeb pacjenta, wspierające powrót do sprawności po urazach, operacjach lub w przewlekłych schorzeniach.',
-      img: '/offer/rehabilitacja.webp',
       reverse: true,
     },
   ];

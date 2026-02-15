@@ -1,9 +1,63 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 
 export default function PriceListContent() {
+  const sections = [
+    {
+      title: 'W gabinecie',
+      className: 'md:row-span-2',
+      items: [
+        {
+          name: 'Pierwsza wizyta fizjoterapeutyczna',
+          price: '250 zł',
+          note: 'Diagnoza, plan terapii i pierwsza sesja',
+        },
+        {
+          name: 'Kolejne wizyty fizjoterapeutyczne',
+          price: '200 zł',
+          note: 'Terapia manualna, drenaż limfatyczny, masaż leczniczy',
+        },
+        {
+          name: 'Wizyta rozpoznawcza (konsultacja + usługa w gabinecie)',
+          price: '250 zł',
+        },
+        {
+          name: 'Manipulacja krótkodźwiękowa (chiropraktyka/terapia manualna)',
+          price: '350 zł',
+          note: 'mgr Hanna Nowotczyńska',
+        },
+      ],
+    },
+    {
+      title: 'Wizyty domowe',
+      items: [
+        {
+          name: 'Wizyta domowa',
+          price: '300 zł',
+          note: 'Do 60 minut na terenie Marek',
+        },
+        {
+          name: 'Wizyta metodą chiropraktyki i terapii manualnej',
+          price: '350 zł',
+          note: 'Do 60 minut, dojazd wliczony na terenie Marek',
+        },
+      ],
+      footer: 'Poza Markami dojazd na terenie Warszawy + 20 zł',
+    },
+    {
+      title: 'Usługi specjalistyczne',
+      items: [
+        {
+          name: 'Terapia manualna połączona z chiropraktyką',
+          price: '350 zł',
+          note: 'mgr Hanna Nowotczyńska',
+        },
+      ],
+    },
+  ];
+
   return (
     <motion.section
-      className="relative bg-[#d6a999] text-[#754A3A] py-16 px-4 overflow-hidden"
+      className="relative bg-[#d6a999] text-[#4E342E] py-16 px-4 overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -19,14 +73,15 @@ export default function PriceListContent() {
       <img
         src="/cennikTlo.webp"
         alt="Tło cennika"
-        className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none select-none"
+        className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none select-none"
       />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#d6a999]/60 via-[#e7d4c7]/50 to-[#d6a999]/80 pointer-events-none" />
 
-      <div className="relative z-10 max-w-3xl mx-auto text-center space-y-10">
+      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-10">
         <motion.img
           src="/logoLepsze.webp"
           alt="Uzdrowisko logo"
-          className="mx-auto w-28 h-auto"
+          className="mx-auto w-28 h-auto drop-shadow-md"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -43,8 +98,20 @@ export default function PriceListContent() {
           Cennik usług
         </motion.h2>
 
+        <motion.p
+          className="max-w-2xl mx-auto text-base text-[#4E342E]/80"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          Aktualny cennik wizyt w gabinecie i w domu. Stawki obejmują pełną
+          opiekę fizjoterapeutyczną; opłata za dojazd doliczana jest tylko poza
+          terenem Marek.
+        </motion.p>
+
         <motion.div
-          className="space-y-8 text-left"
+          className="grid gap-6 text-left md:grid-cols-2"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -55,95 +122,53 @@ export default function PriceListContent() {
             },
           }}
         >
-          {[
-            {
-              title: 'Masaże lecznicze',
-              items: [
-                { name: 'Pleców (60min)', price: '160 zł' },
-                { name: 'Całego ciała (90min)', price: '220 zł' },
-              ],
-            },
-            {
-              title: 'Drenaż limfatyczny',
-              items: [{ name: 'Rąk lub nóg (60min)', price: '190 zł' }],
-            },
-            {
-              title: 'Masaże sportowe',
-              items: [
-                { name: 'Pleców (60min)', price: '200 zł' },
-                { name: 'Całego ciała (90min)', price: '250 zł' },
-              ],
-            },
-            {
-              title: 'Terapie specjalistyczne',
-              items: [
-                { name: 'Terapia powięziowa (60min)', price: '190 zł' },
-                { name: 'Rehabilitacja (60min)', price: '190 zł' },
-                { name: 'Terapia manualna (60min)', price: '190 zł' },
-                { name: 'Fizjoterapia (60min)', price: '190 zł' },
-                { name: 'Chiropraktyka (60min)', price: '300 zł' },
-              ],
-            },
-            {
-              title: 'Pakiety rehabilitacyjne',
-              items: [
-                {
-                  name: 'Mały pakiet: 5 zabiegów + 1 gratis!',
-                  price: '1050 zł',
-                },
-                {
-                  name: 'Duży pakiet: 10 zabiegów + 2 gratis!',
-                  price: '2100 zł',
-                },
-              ],
-            },
-            {
-              title: 'Wizyty domowe',
-              items: [
-                { name: '60 min', price: '250 zł' },
-                { name: '90 min', price: '350 zł' },
-              ],
-            },
-          ].map((section, idx) => (
+          {sections.map((section, idx) => (
             <AnimatedSection key={idx} {...section} />
           ))}
-
-          <motion.p
-            className="text-base italic text-center mt-8 font-semibold"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            Poza Markami – dojazd na terenie Warszawy + 20zł*
-          </motion.p>
         </motion.div>
       </div>
     </motion.section>
   );
 }
 
-// Komponent sekcji z animacją
-function AnimatedSection({ title, items }) {
+function AnimatedSection({ title, items, footer, className = '' }) {
   return (
     <motion.div
+      className={`bg-white/85 backdrop-blur-sm rounded-2xl shadow-md border border-white/60 p-6 space-y-4 ${className}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <h3 className="font-cardo font-semibold text-lg mb-2">{title}</h3>
-      <ul className="space-y-2">
+      <h3 className="font-cardo font-semibold text-xl text-[#4E342E]">
+        {title}
+      </h3>
+      <ul className="space-y-3">
         {items.map((item, idx) => (
           <li
             key={idx}
-            className="flex justify-between items-center bg-[#f9e4dc] rounded-xl px-4 py-1 text-sm sm:text-base"
+            className="flex flex-col gap-1 rounded-xl px-4 py-3 bg-[#f9e4dc] text-sm sm:text-base shadow-sm"
           >
-            <span>{item.name}</span>
-            <span className="font-semibold">{item.price}</span>
+            <div className="flex justify-between items-start gap-3">
+              <span className="font-medium text-[#3E3E3E]">{item.name}</span>
+              <span className="font-semibold text-[#4E342E] whitespace-nowrap">
+                {item.price}
+              </span>
+            </div>
+            {item.note && (
+              <span className="text-xs sm:text-sm text-[#4E342E]/80">
+                {item.note}
+              </span>
+            )}
           </li>
         ))}
       </ul>
+
+      {footer && (
+        <p className="text-sm text-[#4E342E]/80 border-t border-[#4E342E]/10 pt-3">
+          {footer}
+        </p>
+      )}
     </motion.div>
   );
 }
