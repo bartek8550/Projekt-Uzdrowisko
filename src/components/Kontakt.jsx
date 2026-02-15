@@ -61,10 +61,7 @@ export default function Kontakt() {
                 Godziny otwarcia:
               </p>
               <p className="text-base md:text-lg font-semibold">
-                Pon – Pt: 08:30 – 15:00 i 17:00 - 20:00
-              </p>
-              <p className="text-base md:text-lg font-semibold">
-                Sobota: 10:00 – 15:00
+                Pon – Sob: 10:00 – 15:00
               </p>
             </div>
           </div>
