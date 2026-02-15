@@ -41,9 +41,9 @@ export default function Kontakt() {
           <div className="flex items-start gap-4 text-left">
             <MapPin size={28} className="mt-3" />
             <p className="text-base md:text-lg font-semibold text-left">
-              ul. Małachowskiego 4/11,
+              ul. Kolejowa 76,
               <br />
-              05–270 Marki
+              05–220 Zielonka
             </p>
           </div>
 
