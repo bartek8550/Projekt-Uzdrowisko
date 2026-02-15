@@ -79,7 +79,7 @@ export default function Kontakt() {
           viewport={{ once: true }}
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2437.9739792747696!2d21.108808475580332!3d52.334618149939566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecf7239ae1475%3A0xd2b252f211c63ffc!2sMa%C5%82achowskiego%204%2C%2005-270%20Marki!5e0!3m2!1spl!2spl!4v1751665731866!5m2!1spl!2spl"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d304.52355490687387!2d21.160062379419617!3d52.30346935634419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecfd3c261982d%3A0x3596491145180099!2sKolejowa%2076%2C%2005-220%20Zielonka!5e1!3m2!1spl!2spl!4v1771178536906!5m2!1spl!2spl"
             width="100%"
             className="rounded-md border-0 w-full h-[250px] sm:h-[300px] md:h-[400px]"
             loading="lazy"
