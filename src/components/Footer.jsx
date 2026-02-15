@@ -32,9 +32,9 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <MapPin size={20} className="mt-1" />
               <p>
-                ul. Małachowskiego 4/11,
+                ul. Kolejowa 76,
                 <br />
-                05–270 Marki
+                05-220 Zielonka
               </p>
             </div>
             <div className="flex items-center gap-3">
@@ -57,7 +57,7 @@ export default function Footer() {
       <div className="w-full">
         <div className="w-full h-px bg-[#D4AF37]" />
         <div className="text-center text-xs pt-4 pb-6">
-          © 2025 Uzdrowisko. Wszelkie prawa zastrzeżone.
+          © 2026 Uzdrowisko. Wszelkie prawa zastrzeżone.
         </div>
       </div>
     </footer>
