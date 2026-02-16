@@ -14,7 +14,7 @@ export default function Offer() {
     {
       title: 'Terapia manualna + chiropraktyka',
       time: 'ok. 60 minut',
-      price: '350 zł',
+      price: '400 zł',
       desc: 'Zaawansowane techniki łączone prowadzone przez mgr Hannę Nowotczyńską. Pomagają w uwolnieniu napięć i poprawie ruchomości.',
       img: '/offer/terapia manualna.webp',
       reverse: true,
@@ -30,7 +30,7 @@ export default function Offer() {
     {
       title: 'Chiropraktyka z dojazdem',
       time: 'do 60 minut',
-      price: '350 zł',
+      price: '400 zł',
       desc: 'Chiropraktyka i terapia manualna w Twoim domu. Idealne, gdy potrzebujesz ulgi, ale nie możesz dotrzeć do gabinetu.',
       img: '/offer/terapia powieziowa.webp',
       reverse: true,

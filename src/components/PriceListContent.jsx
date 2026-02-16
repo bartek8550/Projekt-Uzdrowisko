@@ -22,7 +22,7 @@ export default function PriceListContent() {
         },
         {
           name: 'Manipulacja krótkodźwiękowa (chiropraktyka/terapia manualna)',
-          price: '350 zł',
+          price: '400 zł',
           note: 'mgr Hanna Nowotczyńska',
         },
       ],
@@ -37,7 +37,7 @@ export default function PriceListContent() {
         },
         {
           name: 'Wizyta metodą chiropraktyki i terapii manualnej',
-          price: '350 zł',
+          price: '400 zł',
           note: 'Do 60 minut, dojazd wliczony na terenie Marek',
         },
       ],
@@ -48,7 +48,7 @@ export default function PriceListContent() {
       items: [
         {
           name: 'Terapia manualna połączona z chiropraktyką',
-          price: '350 zł',
+          price: '400 zł',
           note: 'mgr Hanna Nowotczyńska',
         },
       ],
