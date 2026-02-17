@@ -38,9 +38,6 @@ export default function ImageGallery({ images, title }) {
 
   if (!images || images.length <= 1) return null;
 
-  const extraCount = images.length - 1;
-  const galleryLabel = extraCount === 1 ? '1 dodatkowe zdjęcie' : `${extraCount} dodatkowe zdjęcia`;
-
   return (
     <>
       <motion.button
@@ -50,13 +47,29 @@ export default function ImageGallery({ images, title }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         onClick={() => openLightbox(images.length > 1 ? 1 : 0)}
-        aria-label={`Otwórz galerię: ${galleryLabel}`}
+        aria-label="Otwórz galerię zdjęć"
       >
-        <div className="relative h-16 md:h-18 bg-[#3E1F1B]/90">
+        <div className="relative h-18 md:h-18 bg-[#3E1F1B]/90">
           <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/35 to-black/25 transition-all duration-300 group-hover:via-black/45" />
-          <div className="relative z-10 h-full w-full flex items-center justify-center px-4 text-center">
+          <div className="relative z-10 h-full w-full flex items-center justify-center gap-2 px-4 text-center">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-[#F2D57A] transition-transform duration-200 group-hover:scale-110"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
             <span className="text-[#F2D57A] font-semibold tracking-wide">
-              Galeria +{extraCount}
+              Otwórz galerię
             </span>
           </div>
         </div>
