@@ -72,6 +72,8 @@ export default function WhyUs() {
         src="/piasek.webp"
         alt="Tło dekoracyjne"
         className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none select-none"
+        loading="lazy"
+        decoding="async"
       />
 
       <Motion.div
@@ -101,6 +103,8 @@ export default function WhyUs() {
                 src={reason.icon}
                 alt={reason.alt}
                 className="h-36"
+                loading="lazy"
+                decoding="async"
               />
               <p className="text-xl md:text-2xl leading-snug font-medium">
                 {reason.label}

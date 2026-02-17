@@ -21,6 +21,8 @@ export default function NewsPage() {
           src="/recekwiaty.webp"
           alt="Dekoracyjne tło z rękami i kwiatami"
           className="w-full h-full object-cover mx-auto"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
@@ -46,6 +48,8 @@ export default function NewsPage() {
                 alt={news.title}
                 className="rounded-md shadow-md w-full object-cover max-h-[300px]"
                 style={{ objectPosition: news.imagePosition || 'center' }}
+                loading="lazy"
+                decoding="async"
               />
             </Motion.div>
 

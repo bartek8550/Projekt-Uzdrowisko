@@ -47,6 +47,8 @@ export default function About() {
         src="/papier.webp"
         alt="Papier"
         className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-16">
@@ -114,6 +116,8 @@ export default function About() {
             src="/kosc.webp"
             alt="Kość z kwiatami"
             className="max-w-sm w-full md:ml-auto opacity-75"
+            loading="lazy"
+            decoding="async"
           />
         </Motion.div>
       </div>

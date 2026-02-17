@@ -12,9 +12,13 @@ export default function Header() {
     <header className="h-screen relative overflow-hidden bg-[#3E1F1B] px-6">
       {/* Tło z papieru */}
       <img
-        src="/gabinet.webp"
+        src="/optimized/gabinet-1024.webp"
+        srcSet="/optimized/gabinet-640.webp 640w, /optimized/gabinet-1024.webp 1024w"
+        sizes="100vw"
         alt="Tło papierowe"
         className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
+        fetchPriority="high"
+        decoding="async"
       />
 
       {/* Treść wyśrodkowana */}

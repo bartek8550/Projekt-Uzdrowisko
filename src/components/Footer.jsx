@@ -13,9 +13,13 @@ export default function Footer() {
                 Gabinet <br /> Uzdrowisko
               </h3>
               <img
-                src="/logo-Uzdrowisko-Marki.webp"
+                src="/optimized/logo-512.webp"
+                srcSet="/optimized/logo-512.webp 512w, /optimized/logo-1024.webp 1024w"
+                sizes="120px"
                 alt="Logo"
                 className="h-[7.5rem] w-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <p className="leading-relaxed">

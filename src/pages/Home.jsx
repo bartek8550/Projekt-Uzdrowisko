@@ -30,7 +30,7 @@ function Home() {
     }
 
     const imageUrls = [
-      "/gabinet.webp",
+      "/optimized/gabinet-1024.webp",
       "/papier.webp",
       "/kosc.webp",
       "/icons/Kregoslup.webp",

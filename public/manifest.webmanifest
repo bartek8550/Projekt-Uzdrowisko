@@ -1,0 +1,24 @@
+{
+  "name": "Uzdrowisko Marki",
+  "short_name": "Uzdrowisko",
+  "description": "Gabinet fizjoterapii i terapii manualnej w Zielonce koło Marek.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#4E342E",
+  "theme_color": "#4E342E",
+  "icons": [
+    {
+      "src": "/optimized/logo-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-Uzdrowisko-Marki.webp",
+      "sizes": "3002x3002",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}

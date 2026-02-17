@@ -47,6 +47,8 @@ export default function Opinions() {
         src="/opinionstlo.webp"
         alt="Tło opinii"
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">

@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://uzdrowisko-marki.pl/sitemap.xml

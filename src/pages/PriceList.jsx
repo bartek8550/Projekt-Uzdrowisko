@@ -21,7 +21,7 @@ function PriceList() {
       return;
     }
 
-    const imageUrls = ['/cennikTlo.webp', '/logo-Uzdrowisko-Marki.webp'];
+    const imageUrls = ['/cennikTlo.webp', '/optimized/logo-512.webp'];
 
     let loaded = 0;
 

@@ -8,9 +8,12 @@ export default function Preloader({ progress, isDone }) {
       }`}
     >
       <img
-        src="/logo-Uzdrowisko-Marki.webp"
+        src="/optimized/logo-512.webp"
+        srcSet="/optimized/logo-512.webp 512w, /optimized/logo-1024.webp 1024w"
+        sizes="144px"
         alt="Logo"
         className="w-36 h-36 mb-6 object-contain invert"
+        decoding="async"
       />
 
       <svg

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Facebook } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { prefetchRoute } from '../utils/routeImports';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -59,9 +60,12 @@ export default function Navbar() {
             className="block cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/75 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
           >
             <img
-              src="/logo-Uzdrowisko-Marki.webp"
+              src="/optimized/logo-512.webp"
+              srcSet="/optimized/logo-512.webp 512w, /optimized/logo-1024.webp 1024w"
+              sizes="120px"
               alt="Logo Uzdrowiska"
               className="h-[7.5rem] w-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]"
+              decoding="async"
             />
           </button>
         </div>
@@ -102,6 +106,8 @@ export default function Navbar() {
                 {item.path ? (
                   <Link
                     to={item.path}
+                    onMouseEnter={() => prefetchRoute(item.path)}
+                    onFocus={() => prefetchRoute(item.path)}
                     className="relative inline-block cursor-pointer after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
                   >
                     {item.label}
@@ -144,6 +150,8 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 to={item.path}
+                onMouseEnter={() => prefetchRoute(item.path)}
+                onFocus={() => prefetchRoute(item.path)}
                 onClick={() => setIsOpen(false)}
                 className={`block border-b border-gold pb-2 text-left w-full cursor-pointer opacity-0 animate-fade-in animation-delay-${
                   i * 75

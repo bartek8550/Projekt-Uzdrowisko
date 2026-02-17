@@ -76,6 +76,8 @@ export default function Services() {
             objectPosition: 'left center, right center',
             transform: 'scale(1)', // przesunięcie elementów poza centrum
           }}
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
@@ -96,6 +98,8 @@ export default function Services() {
                 src={service.icon}
                 alt={service.text}
                 className="h-8 w-8 object-contain"
+                loading="lazy"
+                decoding="async"
               />
               <p className="text-lg font-medium">{service.text}</p>
             </Motion.div>

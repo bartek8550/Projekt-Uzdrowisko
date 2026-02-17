@@ -74,12 +74,16 @@ export default function PriceListContent() {
         src="/cennikTlo.webp"
         alt="Tło cennika"
         className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none select-none"
+        loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#d6a999]/60 via-[#e7d4c7]/50 to-[#d6a999]/80 pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-10">
         <Motion.img
-          src="/logo-Uzdrowisko-Marki.webp"
+          src="/optimized/logo-512.webp"
+          srcSet="/optimized/logo-512.webp 512w, /optimized/logo-1024.webp 1024w"
+          sizes="144px"
           alt="Uzdrowisko logo"
           className="mx-auto w-36 h-auto opacity-95 drop-shadow-[0_1px_2px_rgba(62,31,27,0.25)]"
           initial={{ opacity: 0, scale: 0.9 }}

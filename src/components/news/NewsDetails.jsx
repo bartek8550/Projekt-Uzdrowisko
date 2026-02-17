@@ -30,6 +30,8 @@ export default function NewsDetails() {
           src="/dlonkwiat.webp"
           alt="Dekoracyjne tło z dłonią i roślinami"
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 

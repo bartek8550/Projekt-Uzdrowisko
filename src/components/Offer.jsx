@@ -45,6 +45,8 @@ export default function Offer() {
         src="/tlooferta.webp"
         alt="Tło dekoracyjne"
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none z-0"
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="relative z-10">
@@ -87,6 +89,8 @@ export default function Offer() {
                   src={item.img}
                   alt={item.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-[#4E342E]/80"></div>
                 <div className="absolute bottom-0 left-0 text-[#FDE4B3] px-6 py-4 text-left z-10">

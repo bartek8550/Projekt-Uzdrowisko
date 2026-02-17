@@ -18,6 +18,8 @@ export default function AboutUsContent() {
           src="/aboutusphoto.webp"
           alt="Dekoracyjne tło"
           className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
@@ -34,6 +36,8 @@ export default function AboutUsContent() {
             src="/Hanna.webp"
             alt="Założycielka Uzdrowiska"
             className="rounded-lg shadow-lg max-w-xs w-full"
+            loading="lazy"
+            decoding="async"
           />
         </Motion.div>
 
@@ -89,6 +93,8 @@ export default function AboutUsContent() {
                 src={`/HannaNow/zdj${i + 1}.webp`}
                 alt={`Certyfikat ${i + 1}`}
                 className="w-full h-full object-cover rounded"
+                loading="lazy"
+                decoding="async"
               />
             </Motion.div>
           ))}
