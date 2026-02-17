@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ImageGallery({ images, title }) {
@@ -70,94 +71,97 @@ export default function ImageGallery({ images, title }) {
         </div>
       </motion.div>
 
-      {/* Lightbox / Karuzela na pełnym ekranie */}
-      <AnimatePresence>
-        {lightboxOpen && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {/* Ciemne tło */}
-            <div
-              className="absolute inset-0 bg-black/90 backdrop-blur-sm"
-              onClick={closeLightbox}
-            />
-
-            {/* Zamknij */}
-            <button
-              onClick={closeLightbox}
-              className="absolute top-4 right-4 z-50 text-white/80 hover:text-white transition-colors p-2"
-              aria-label="Zamknij galerię"
+      {/* Lightbox / Karuzela na pełnym ekranie — renderowany przez portal */}
+      {createPortal(
+        <AnimatePresence>
+          {lightboxOpen && (
+            <motion.div
+              className="fixed inset-0 z-[100] flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-
-            {/* Numer zdjęcia */}
-            <div className="absolute top-5 left-1/2 -translate-x-1/2 z-50 text-white/70 text-sm font-medium">
-              {currentIndex + 1} / {images.length}
-            </div>
-
-            {/* Strzałka lewo */}
-            <button
-              onClick={(e) => { e.stopPropagation(); goPrev(); }}
-              className="absolute left-3 md:left-6 z-50 text-white/70 hover:text-white transition-colors p-2"
-              aria-label="Poprzednie zdjęcie"
-            >
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            </button>
-
-            {/* Strzałka prawo */}
-            <button
-              onClick={(e) => { e.stopPropagation(); goNext(); }}
-              className="absolute right-3 md:right-6 z-50 text-white/70 hover:text-white transition-colors p-2"
-              aria-label="Następne zdjęcie"
-            >
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
-
-            {/* Zdjęcie */}
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentIndex}
-                src={images[currentIndex]}
-                alt={`${title} — zdjęcie ${currentIndex + 1}`}
-                className="relative z-10 max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.25 }}
-                onClick={(e) => e.stopPropagation()}
+              {/* Ciemne tło */}
+              <div
+                className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+                onClick={closeLightbox}
               />
-            </AnimatePresence>
 
-            {/* Kropki nawigacyjne */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex gap-2">
-              {images.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={(e) => { e.stopPropagation(); setCurrentIndex(i); }}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${
-                    i === currentIndex
-                      ? 'bg-white scale-110'
-                      : 'bg-white/40 hover:bg-white/60'
-                  }`}
-                  aria-label={`Zdjęcie ${i + 1}`}
+              {/* Zamknij */}
+              <button
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 z-10 text-white/80 hover:text-white transition-colors p-2"
+                aria-label="Zamknij galerię"
+              >
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+
+              {/* Numer zdjęcia */}
+              <div className="absolute top-5 left-1/2 -translate-x-1/2 z-10 text-white/70 text-sm font-medium">
+                {currentIndex + 1} / {images.length}
+              </div>
+
+              {/* Strzałka lewo */}
+              <button
+                onClick={(e) => { e.stopPropagation(); goPrev(); }}
+                className="absolute left-3 md:left-6 z-10 text-white/70 hover:text-white transition-colors p-2"
+                aria-label="Poprzednie zdjęcie"
+              >
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+
+              {/* Strzałka prawo */}
+              <button
+                onClick={(e) => { e.stopPropagation(); goNext(); }}
+                className="absolute right-3 md:right-6 z-10 text-white/70 hover:text-white transition-colors p-2"
+                aria-label="Następne zdjęcie"
+              >
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+
+              {/* Zdjęcie */}
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentIndex}
+                  src={images[currentIndex]}
+                  alt={`${title} — zdjęcie ${currentIndex + 1}`}
+                  className="relative max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.25 }}
+                  onClick={(e) => e.stopPropagation()}
                 />
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </AnimatePresence>
+
+              {/* Kropki nawigacyjne */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+                {images.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => { e.stopPropagation(); setCurrentIndex(i); }}
+                    className={`w-2.5 h-2.5 rounded-full transition-all ${
+                      i === currentIndex
+                        ? 'bg-white scale-110'
+                        : 'bg-white/40 hover:bg-white/60'
+                    }`}
+                    aria-label={`Zdjęcie ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 }

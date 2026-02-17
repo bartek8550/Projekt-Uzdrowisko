@@ -6,6 +6,7 @@ export const newsList = [
     excerpt:
       'Z ogromną radością informuję, że od 10 lutego 2026 roku Uzdrowisko rozpoczyna działalność w nowym, pięknym gabinecie w Zielonce przy ul. Kolejowej 76. To miejsce, które tworzyłam z myślą o Waszym komforcie i spokoju',
     image: '/News/nowaLokalizacja/nowaLokalizacja2.webp',
+    imagePosition: 'center',
     gallery: [
       '/News/nowaLokalizacja/nowaLokalizacja2.webp',
       '/News/nowaLokalizacja/nowaLokalizacja1.webp',
@@ -32,6 +33,7 @@ Zapraszam serdecznie do nowego Uzdrowiska — z nową energią, w nowym miejscu,
     excerpt:
       'Tak się wychodzi szczęśliwą po kolejnym szkoleniu w ToonyTherapy! Trzy intensywne dni w Akademii ToonyTherapy w Gdańsku — powtórka modułów, szlifowanie technik chiropraktycznych i przygotowanie do egzaminu',
     image: '/News/SzkolenieToony/szkolenieToony.webp',
+    imagePosition: 'center 20%',
     content: `Tak się wychodzi szczęśliwą po następnym szkoleniu w ToonyTherapy! 🙂
 
 W dniach 6–8 lutego byłam ponownie w Akademii ToonyTherapy w Gdańsku — tym razem na intensywnej powtórce modułów i przygotowaniu do egzaminu z Metody ToonyTherapy Basic.
@@ -53,6 +55,7 @@ Jeśli chcesz przekonać się, jak działają techniki ToonyTherapy w praktyce �
     excerpt:
       'Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie w Chiropractic School of Poland, które koncentrowało się na metodzie TT (Toony Therapy) oraz na zaawansowanych technikach terapii manualnej (MTT – Manual Toony Therapy)',
     image: '/News/chiropraktyka.webp',
+    imagePosition: 'center 30%',
     content: `Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie w Chiropractic School of Poland, które koncentrowało się na metodzie TT (Toony Therapy) oraz na zaawansowanych technikach terapii manualnej (MTT – Manual Toony Therapy).
 
 Podczas kursu miałam okazję pracować pod okiem doświadczonych terapeutów oraz specjalistów z zakresu neurofizjologii i biomechaniki, co pozwoliło mi pogłębić wiedzę związaną z funkcjonowaniem układu mięśniowo-szkieletowego oraz nerwowego.

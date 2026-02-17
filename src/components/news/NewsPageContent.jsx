@@ -44,7 +44,8 @@ export default function NewsPage() {
               <img
                 src={news.image}
                 alt={news.title}
-                className="rounded-md shadow-md w-full object-cover object-top max-h-[300px]"
+                className="rounded-md shadow-md w-full object-cover max-h-[300px]"
+                style={{ objectPosition: news.imagePosition || 'center' }}
               />
             </motion.div>
 
