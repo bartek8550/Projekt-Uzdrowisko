@@ -61,7 +61,7 @@ export default function Navbar() {
             <img
               src="/logo-Uzdrowisko-Marki.webp"
               alt="Logo Uzdrowiska"
-              className="h-18 w-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]"
+              className="h-20 w-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]"
             />
           </button>
         </div>
