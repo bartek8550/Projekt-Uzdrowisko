@@ -7,13 +7,11 @@ export default function Preloader({ progress, isDone }) {
         isDone ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      <div className="mb-6 rounded-xl bg-[#F3E6DE] p-2 shadow-sm ring-1 ring-[#D4AF37]/25">
-        <img
-          src="/logo-Uzdrowisko-Marki.webp"
-          alt="Logo"
-          className="w-28 h-28 object-contain contrast-110"
-        />
-      </div>
+      <img
+        src="/logo-Uzdrowisko-Marki.webp"
+        alt="Logo"
+        className="w-28 h-28 mb-6 object-contain contrast-125"
+      />
 
       <svg
         className="animate-spin h-10 w-10 mb-4 text-gold"
