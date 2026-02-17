@@ -12,11 +12,13 @@ export default function Footer() {
               <h3 className="text-xl md:text-2xl font-semibold font-cardo">
                 Gabinet <br /> Uzdrowisko
               </h3>
-              <img
-                src="/logo-Uzdrowisko-Marki.webp"
-                alt="Logo"
-                className="h-20 w-auto"
-              />
+              <div className="rounded-lg bg-[#F3E6DE]/90 p-1.5 shadow-sm ring-1 ring-[#D4AF37]/20">
+                <img
+                  src="/logo-Uzdrowisko-Marki.webp"
+                  alt="Logo"
+                  className="h-18 w-auto contrast-110"
+                />
+              </div>
             </div>
             <p className="leading-relaxed">
               Profesjonalna fizjoterapia i masaż – skuteczne podejście,

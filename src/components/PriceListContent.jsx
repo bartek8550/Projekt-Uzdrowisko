@@ -78,15 +78,19 @@ export default function PriceListContent() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#d6a999]/60 via-[#e7d4c7]/50 to-[#d6a999]/80 pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-10">
-        <motion.img
-          src="/logo-Uzdrowisko-Marki.webp"
-          alt="Uzdrowisko logo"
-          className="mx-auto w-32 h-auto drop-shadow-md"
+        <motion.div
+          className="mx-auto inline-flex rounded-xl bg-[#F3E6DE]/90 p-2 shadow-sm ring-1 ring-[#D4AF37]/25"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-        />
+        >
+          <img
+            src="/logo-Uzdrowisko-Marki.webp"
+            alt="Uzdrowisko logo"
+            className="w-30 h-auto contrast-110"
+          />
+        </motion.div>
 
         <motion.h2
           className="text-3xl font-cardo font-semibold"

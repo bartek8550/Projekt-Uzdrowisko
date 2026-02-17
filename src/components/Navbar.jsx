@@ -56,12 +56,12 @@ export default function Navbar() {
                 navigate("/");
               }
             }}
-            className="block cursor-pointer"
+            className="block cursor-pointer rounded-lg bg-[#F3E6DE]/90 px-2 py-1 shadow-sm ring-1 ring-[#D4AF37]/25 backdrop-blur-[1px] transition-all duration-200 hover:bg-[#F3E6DE] hover:ring-[#D4AF37]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/75"
           >
             <img
               src="/logo-Uzdrowisko-Marki.webp"
               alt="Logo Uzdrowiska"
-              className="h-22 w-auto"
+              className="h-20 w-auto contrast-110 drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
             />
           </button>
         </div>
