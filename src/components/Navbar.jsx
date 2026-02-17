@@ -95,8 +95,8 @@ export default function Navbar() {
         </div>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex items-center gap-4">
-          <ul className="flex space-x-6 font-light text-xl">
+        <div className="hidden md:flex items-center gap-5">
+          <ul className="flex items-center gap-6 font-light text-xl">
             {links.map((item) => (
               <li key={item.label}>
                 {item.path ? (
@@ -118,14 +118,16 @@ export default function Navbar() {
             ))}
           </ul>
 
+          <div className="h-5 w-px bg-gold/40" aria-hidden="true" />
+
           <a
             href="https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook Uzdrowisko"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/60 text-gold/90 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F2D57A] hover:bg-[#D4AF37]/10 hover:text-[#F2D57A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
+            className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-gold/60 text-gold/90 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F2D57A] hover:bg-[#D4AF37]/10 hover:text-[#F2D57A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
           >
-            <Facebook size={14} />
+            <Facebook size={13} />
           </a>
         </div>
       </div>
@@ -162,16 +164,18 @@ export default function Navbar() {
             )
           )}
 
-          <a
-            href="https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 pt-2 text-sm text-gold/90 hover:text-[#F2D57A] transition-colors"
-            aria-label="Facebook Uzdrowisko"
-          >
-            <Facebook size={14} />
-            Facebook
-          </a>
+          <div className="flex justify-end pt-2">
+            <a
+              href="https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/60 text-gold/90 transition-all duration-200 hover:border-[#F2D57A] hover:bg-[#D4AF37]/10 hover:text-[#F2D57A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
+              aria-label="Facebook Uzdrowisko"
+            >
+              <Facebook size={14} />
+            </a>
+          </div>
         </div>
       </div>
     </nav>
