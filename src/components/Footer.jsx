@@ -12,7 +12,11 @@ export default function Footer() {
               <h3 className="text-xl md:text-2xl font-semibold font-cardo">
                 Gabinet <br /> Uzdrowisko
               </h3>
-              <img src="/logo-Uzdrowisko-Marki.webp" alt="Logo" className="h-16 w-auto" />
+              <img
+                src="/logo-Uzdrowisko-Marki.webp"
+                alt="Logo"
+                className="h-20 w-auto"
+              />
             </div>
             <p className="leading-relaxed">
               Profesjonalna fizjoterapia i masaż – skuteczne podejście,
@@ -53,7 +57,7 @@ export default function Footer() {
                 href="https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 hover:text-white transition-colors"
+                className="flex items-center gap-3 rounded-md px-1 py-1 text-[#D4AF37] transition-all duration-200 hover:text-[#F2D57A] hover:bg-[#D4AF37]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
                 aria-label="Facebook Uzdrowisko"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

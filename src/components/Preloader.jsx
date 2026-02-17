@@ -10,7 +10,7 @@ export default function Preloader({ progress, isDone }) {
       <img
         src="/logo-Uzdrowisko-Marki.webp"
         alt="Logo"
-        className="w-24 h-24 mb-6 object-contain"
+        className="w-28 h-28 mb-6 object-contain"
       />
 
       <svg

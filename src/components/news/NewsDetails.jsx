@@ -39,7 +39,7 @@ export default function NewsDetails() {
         <motion.img
           src={news.image}
           alt={news.title}
-          className="w-full max-h-[500px] object-cover rounded-md shadow-md"
+          className="w-full max-h-[560px] object-contain rounded-md shadow-md bg-[#f5e6dd]"
           style={{ objectPosition: news.imagePosition || 'center' }}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}

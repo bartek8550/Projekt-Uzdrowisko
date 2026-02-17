@@ -42,7 +42,7 @@ export default function ImageGallery({ images, title }) {
 
   return (
     <>
-      {/* Miniaturka z overlay "+N zdjęć" */}
+      {/* Miniaturki podglądu bez agresywnego kadrowania */}
       <motion.div
         className="relative cursor-pointer rounded-md overflow-hidden shadow-md group"
         initial={{ opacity: 0, y: 20 }}
@@ -50,17 +50,17 @@ export default function ImageGallery({ images, title }) {
         transition={{ duration: 0.6, delay: 0.1 }}
         onClick={() => openLightbox(0)}
       >
-        <div className="grid grid-cols-2 gap-1 h-48">
+        <div className="grid grid-cols-2 gap-1 h-52 md:h-56 bg-[#E8C2AE]/45">
           <img
             src={images[1]}
             alt={`${title} — zdjęcie 2`}
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-contain bg-[#f5e6dd] p-1"
           />
           <div className="relative">
             <img
               src={images.length > 2 ? images[2] : images[1]}
               alt={`${title} — zdjęcie 3`}
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-contain bg-[#f5e6dd] p-1"
             />
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center transition-all group-hover:bg-black/40">
               <span className="text-white text-lg font-semibold">
