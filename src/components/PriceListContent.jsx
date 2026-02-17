@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 export default function PriceListContent() {
   const sections = [
@@ -56,7 +56,7 @@ export default function PriceListContent() {
   ];
 
   return (
-    <motion.section
+    <Motion.section
       className="relative bg-[#d6a999] text-[#4E342E] py-16 px-4 overflow-hidden"
       initial="hidden"
       whileInView="visible"
@@ -78,17 +78,17 @@ export default function PriceListContent() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#d6a999]/60 via-[#e7d4c7]/50 to-[#d6a999]/80 pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-10">
-        <motion.img
+        <Motion.img
           src="/logo-Uzdrowisko-Marki.webp"
           alt="Uzdrowisko logo"
-          className="mx-auto w-32 h-auto invert opacity-95 drop-shadow-sm"
+          className="mx-auto w-30 h-auto invert opacity-90"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         />
 
-        <motion.h2
+        <Motion.h2
           className="text-3xl font-cardo font-semibold"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,9 +96,9 @@ export default function PriceListContent() {
           viewport={{ once: true }}
         >
           Cennik usług
-        </motion.h2>
+        </Motion.h2>
 
-        <motion.p
+        <Motion.p
           className="max-w-2xl mx-auto text-base text-[#4E342E]/80"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -108,9 +108,9 @@ export default function PriceListContent() {
           Aktualny cennik wizyt w gabinecie i w domu. Stawki obejmują pełną
           opiekę fizjoterapeutyczną; opłata za dojazd doliczana jest tylko poza
           terenem Marek.
-        </motion.p>
+        </Motion.p>
 
-        <motion.div
+        <Motion.div
           className="grid gap-6 text-left md:grid-cols-2"
           initial="hidden"
           whileInView="visible"
@@ -125,15 +125,15 @@ export default function PriceListContent() {
           {sections.map((section, idx) => (
             <AnimatedSection key={idx} {...section} />
           ))}
-        </motion.div>
+        </Motion.div>
       </div>
-    </motion.section>
+    </Motion.section>
   );
 }
 
 function AnimatedSection({ title, items, footer, className = '' }) {
   return (
-    <motion.div
+    <Motion.div
       className={`bg-white/85 backdrop-blur-sm rounded-2xl shadow-md border border-white/60 p-6 space-y-4 ${className}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -169,6 +169,6 @@ function AnimatedSection({ title, items, footer, className = '' }) {
           {footer}
         </p>
       )}
-    </motion.div>
+    </Motion.div>
   );
 }

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 export default function Header() {
   const handleScrollTo = (id) => {
@@ -19,34 +19,34 @@ export default function Header() {
 
       {/* Treść wyśrodkowana */}
       <div className="absolute inset-0 flex items-center justify-center text-center z-10">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="text-gold font-cardo max-w-3xl px-4"
         >
           <h1 className="text-5xl md:text-8xl font-light">Uzdrowisko</h1>
-          <motion.p
+          <Motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-lg md:text-3xl italic mt-2"
           >
             Gabinet Fizjoterapii i Terapii Manualnej
-          </motion.p>
-          <motion.p
+          </Motion.p>
+          <Motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-base md:text-xl mt-1"
           >
             Hanna Nowotczyńska
-          </motion.p>
-        </motion.div>
+          </Motion.p>
+        </Motion.div>
       </div>
 
       {/* CTA i Scroll cue */}
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
@@ -64,7 +64,7 @@ export default function Header() {
         >
           ↓ Przewiń dalej
         </button>
-      </motion.div>
+      </Motion.div>
     </header>
   );
 }

@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { newsList } from './newsData';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import ImageGallery from './ImageGallery';
 
 export default function NewsDetails() {
@@ -13,7 +13,7 @@ export default function NewsDetails() {
     );
 
   return (
-    <motion.section
+    <Motion.section
       className="relative bg-[#D6A996] min-h-screen py-20 px-6 text-[#3E1F1B] overflow-hidden"
       initial="hidden"
       animate="visible"
@@ -36,7 +36,7 @@ export default function NewsDetails() {
       {/* TREŚĆ */}
       <div className="relative z-10 max-w-4xl mx-auto space-y-6">
         {/* Obrazek główny */}
-        <motion.img
+        <Motion.img
           src={news.image}
           alt={news.title}
           className="w-full max-h-[560px] object-contain rounded-md shadow-md bg-[#f5e6dd]"
@@ -50,37 +50,37 @@ export default function NewsDetails() {
         {news.gallery && <ImageGallery images={news.gallery} title={news.title} />}
 
         {/* Tytuł */}
-        <motion.h1
+        <Motion.h1
           className="text-3xl font-bold"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           {news.title}
-        </motion.h1>
+        </Motion.h1>
 
         {/* Data */}
-        <motion.p
+        <Motion.p
           className="italic text-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           {news.date}
-        </motion.p>
+        </Motion.p>
 
         {/* Treść */}
-        <motion.div
+        <Motion.div
           className="whitespace-pre-line leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           {news.content}
-        </motion.div>
+        </Motion.div>
 
         {/* Powrót */}
-        <motion.div
+        <Motion.div
           className="pt-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -92,8 +92,8 @@ export default function NewsDetails() {
           >
             ← Powrót do listy aktualności
           </Link>
-        </motion.div>
+        </Motion.div>
       </div>
-    </motion.section>
+    </Motion.section>
   );
 }

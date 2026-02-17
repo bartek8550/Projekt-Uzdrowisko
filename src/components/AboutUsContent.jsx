@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function AboutUsContent() {
@@ -24,7 +24,7 @@ export default function AboutUsContent() {
       {/* Zawartość górna: zdjęcie + tekst */}
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-10 lg:gap-16">
         {/* Zdjęcie założycielki */}
-        <motion.div
+        <Motion.div
           className="md:w-1/3 flex justify-center"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,10 +35,10 @@ export default function AboutUsContent() {
             alt="Założycielka Uzdrowiska"
             className="rounded-lg shadow-lg max-w-xs w-full"
           />
-        </motion.div>
+        </Motion.div>
 
         {/* Tekst */}
-        <motion.div
+        <Motion.div
           className="md:w-2/3 space-y-5 text-[#3E3E3E] text-base md:text-lg leading-relaxed"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -66,7 +66,7 @@ export default function AboutUsContent() {
             i kursach doskonalących – wierzę, że skuteczna pomoc zaczyna się od
             solidnej wiedzy i uważności na człowieka.
           </p>
-        </motion.div>
+        </Motion.div>
       </div>
 
       {/* Galeria – dyplomy */}
@@ -76,7 +76,7 @@ export default function AboutUsContent() {
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {Array.from({ length: total }, (_, i) => (
-            <motion.div
+            <Motion.div
               key={i}
               className="bg-[#F5E9E2] rounded-md shadow-md p-1.5 cursor-pointer hover:scale-105 transition aspect-[4/3]"
               whileHover={{ scale: 1.05 }}
@@ -90,7 +90,7 @@ export default function AboutUsContent() {
                 alt={`Certyfikat ${i + 1}`}
                 className="w-full h-full object-cover rounded"
               />
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
       </div>
@@ -98,13 +98,13 @@ export default function AboutUsContent() {
       {/* Modal z karuzelą */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <Motion.div
             className="fixed inset-0 z-50 bg-black bg-opacity-70 flex justify-center items-center px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <motion.div
+            <Motion.div
               className="relative bg-white rounded-lg max-w-4xl w-full p-4 overflow-auto max-h-[90vh]"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -144,8 +144,8 @@ export default function AboutUsContent() {
                   <ChevronRight size={32} />
                 </button>
               </div>
-            </motion.div>
-          </motion.div>
+            </Motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </section>

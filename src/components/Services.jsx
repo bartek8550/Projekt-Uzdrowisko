@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Phone } from 'lucide-react';
 
 export default function Services() {
@@ -54,7 +54,7 @@ export default function Services() {
   ];
 
   return (
-    <motion.section
+    <Motion.section
       className="relative py-24 px-6 text-[#3E3E3E] bg-[#CCA291] overflow-hidden"
       initial="hidden"
       whileInView="visible"
@@ -84,7 +84,7 @@ export default function Services() {
         {/* Grid usług */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <Motion.div
               key={index}
               className="flex items-center gap-4 bg-[#F5D5C5] rounded-lg px-4 py-3 shadow-sm"
               initial={{ opacity: 0, y: 30 }}
@@ -98,12 +98,12 @@ export default function Services() {
                 className="h-8 w-8 object-contain"
               />
               <p className="text-lg font-medium">{service.text}</p>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
 
         {/* Sekcja kontaktowa */}
-        <motion.div
+        <Motion.div
           className="mt-20 text-center"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,8 +119,8 @@ export default function Services() {
               +48 510 783 269
             </a>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
-    </motion.section>
+    </Motion.section>
   );
 }

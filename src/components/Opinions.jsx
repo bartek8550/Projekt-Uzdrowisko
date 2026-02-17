@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 export default function Opinions() {
   const testimonials = [
@@ -29,7 +29,7 @@ export default function Opinions() {
   ];
 
   return (
-    <motion.section
+    <Motion.section
       className="bg-[#4E2A23] text-center pt-24 pb-32 px-4 text-[#D4AF37] relative overflow-hidden"
       initial="hidden"
       whileInView="visible"
@@ -50,18 +50,18 @@ export default function Opinions() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <motion.h2
+        <Motion.h2
           className="text-2xl md:text-3xl font-semibold mb-16 font-cardo"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           Opinie podopiecznych Uzdrowiska
-        </motion.h2>
+        </Motion.h2>
 
         <div className="columns-1 sm:columns-2 xl:columns-3 gap-6 px-2">
           {testimonials.map((opinion, index) => (
-            <motion.div
+            <Motion.div
               key={index}
               className="break-inside-avoid mb-6 bg-[#F4CBB0] text-[#3E1F1B] shadow-xl p-6 rounded-lg"
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
@@ -75,10 +75,10 @@ export default function Opinions() {
               <p className="mt-6 font-cardo italic text-right text-sm text-[#3E1F1B]/80">
                 – {opinion.author}
               </p>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
       </div>
-    </motion.section>
+    </Motion.section>
   );
 }

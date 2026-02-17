@@ -10,6 +10,7 @@ export default function QuoteBanner({
   const [hasShown, setHasShown] = useState(false);
 
   useEffect(() => {
+    const element = ref.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasShown) {
@@ -19,9 +20,9 @@ export default function QuoteBanner({
       { threshold: 0.2 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    if (element) observer.observe(element);
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      if (element) observer.unobserve(element);
     };
   }, [hasShown]);
 

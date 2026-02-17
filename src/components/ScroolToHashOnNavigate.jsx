@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom"; // ← DODAJ TO!
+import { useLocation } from "react-router-dom";
 
 export default function ScrollToHashOnNavigate() {
   const location = useLocation();
@@ -29,7 +29,7 @@ export default function ScrollToHashOnNavigate() {
       window.removeEventListener("hashchange", handleHashChange);
       window.removeEventListener("popstate", handleHashChange);
     };
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return null;
 }

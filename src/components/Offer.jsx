@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 export default function Offer() {
@@ -48,7 +48,7 @@ export default function Offer() {
       />
 
       <div className="relative z-10">
-        <motion.h2
+        <Motion.h2
           className="text-3xl md:text-4xl font-bold mb-16 font-cardo"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,11 +56,11 @@ export default function Offer() {
           transition={{ duration: 0.6 }}
         >
           Popularne usługi w Uzdrowisku
-        </motion.h2>
+        </Motion.h2>
 
         <div className="space-y-10 max-w-6xl mx-auto">
           {services.map((item, index) => (
-            <motion.div
+            <Motion.div
               key={index}
               className={`flex flex-col ${
                 item.reverse ? 'md:flex-row-reverse' : 'md:flex-row'
@@ -101,11 +101,11 @@ export default function Offer() {
               <div className="md:w-1/2 flex items-center justify-center p-6 text-left">
                 <p className="text-lg leading-relaxed">{item.desc}</p>
               </div>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
 
-        <motion.div
+        <Motion.div
           className="mt-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function Offer() {
           >
             Cennik
           </Link>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

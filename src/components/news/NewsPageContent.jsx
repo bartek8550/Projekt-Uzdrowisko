@@ -1,10 +1,10 @@
 import { newsList } from './newsData';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 export default function NewsPage() {
   return (
-    <motion.section
+    <Motion.section
       className="relative bg-[#CCA291] min-h-screen py-24 px-6 text-[#3E3E3E] overflow-hidden"
       initial="hidden"
       animate="visible"
@@ -27,7 +27,7 @@ export default function NewsPage() {
       {/* TREŚĆ */}
       <div className="relative z-10 max-w-6xl mx-auto space-y-20">
         {newsList.map((news, index) => (
-          <motion.div
+          <Motion.div
             key={news.id}
             className="flex flex-col md:flex-row gap-10 items-center"
             initial={{ opacity: 0, y: 40 }}
@@ -35,7 +35,7 @@ export default function NewsPage() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
           >
             {/* Obrazek */}
-            <motion.div
+            <Motion.div
               className="w-full md:w-1/2"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -47,10 +47,10 @@ export default function NewsPage() {
                 className="rounded-md shadow-md w-full object-cover max-h-[300px]"
                 style={{ objectPosition: news.imagePosition || 'center' }}
               />
-            </motion.div>
+            </Motion.div>
 
             {/* Tekst */}
-            <motion.div
+            <Motion.div
               className="w-full md:w-1/2 space-y-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -65,10 +65,10 @@ export default function NewsPage() {
               >
                 Czytaj więcej →
               </Link>
-            </motion.div>
-          </motion.div>
+            </Motion.div>
+          </Motion.div>
         ))}
       </div>
-    </motion.section>
+    </Motion.section>
   );
 }

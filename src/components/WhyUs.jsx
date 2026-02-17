@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -27,24 +27,24 @@ export default function WhyUs() {
         className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none select-none"
       />
 
-      <motion.div
+      <Motion.div
         className="relative z-10 max-w-6xl mx-auto"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
       >
         {/* Nagłówek */}
-        <motion.h2
+        <Motion.h2
           className="text-3xl md:text-4xl font-bold mb-16"
           variants={fadeInUp}
         >
           Kiedy warto odwiedzić Uzdrowisko?
-        </motion.h2>
+        </Motion.h2>
 
         {/* Kafelki */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
           {[...Array(4)].map((_, i) => (
-            <motion.div
+            <Motion.div
               key={i}
               className="flex flex-col items-center space-y-4"
               custom={i}
@@ -88,36 +88,36 @@ export default function WhyUs() {
                   ][i]
                 }
               </p>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
 
         {/* Hasła */}
-        <motion.p
+        <Motion.p
           className="text-xl md:text-2xl mb-2"
           variants={fadeInUp}
           custom={4}
         >
           Każdy zasługuje na życie bez bólu.
-        </motion.p>
-        <motion.p
+        </Motion.p>
+        <Motion.p
           className="text-xl md:text-2xl mb-8"
           variants={fadeInUp}
           custom={5}
         >
           Pozwól nam pomóc odzyskać Twój komfort i równowagę.
-        </motion.p>
+        </Motion.p>
 
         {/* CTA */}
-        <motion.div variants={fadeInUp} custom={6}>
+        <Motion.div variants={fadeInUp} custom={6}>
           <Link
             to="/dlaczego"
             className="inline-block border border-[#D4AF37] text-[#D4AF37] px-6 py-3 rounded-md hover:bg-[#D4AF37] hover:text-[#4E2A23] transition"
           >
             Sprawdź usługi
           </Link>
-        </motion.div>
-      </motion.div>
+        </Motion.div>
+      </Motion.div>
     </section>
   );
 }

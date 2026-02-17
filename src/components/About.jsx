@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const container = {
   hidden: {},
@@ -50,38 +50,38 @@ export default function About() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10 lg:gap-16">
-        <motion.div
+        <Motion.div
           className="text-center md:text-left md:w-1/2 space-y-6 text-[#3E3E3E] max-w-prose md:max-w-full"
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <motion.h2
+          <Motion.h2
             className="text-xl md:text-2xl font-bold font-cardo"
             variants={fadeLeft}
           >
             Uzdrowisko – przestrzeń dla Twojego ciała i spokoju
-          </motion.h2>
+          </Motion.h2>
 
-          <motion.p
+          <Motion.p
             className="text-base md:text-lg leading-relaxed"
             variants={fadeUp}
           >
             Uzdrowisko to kameralne, profesjonalne miejsce, w którym nowoczesna
             fizjoterapia spotyka się ze spokojem i indywidualnym podejściem.
-          </motion.p>
+          </Motion.p>
 
-          <motion.p
+          <Motion.p
             className="text-base md:text-lg leading-relaxed"
             custom={0.2}
             variants={fadeUp}
           >
             Każdy klient otrzymuje pełną uwagę, precyzyjnie dobraną terapię i
             atmosferę, która sprzyja regeneracji oraz powrotowi do pełni sił.
-          </motion.p>
+          </Motion.p>
 
-          <motion.p
+          <Motion.p
             className="text-base md:text-lg leading-relaxed"
             custom={0.4}
             variants={fadeUp}
@@ -90,20 +90,20 @@ export default function About() {
             zaufanie i komfort. Kameralny charakter Uzdrowiska pozwala skupić
             się na prawdziwych potrzebach ciała – bez pośpiechu, presji i
             rozpraszaczy.
-          </motion.p>
+          </Motion.p>
 
-          <motion.div variants={fadeScale}>
+          <Motion.div variants={fadeScale}>
             <Link
               to="/onas"
               className="inline-block bg-[#4E342E] text-[#D4AF37] px-5 py-2 mt-4 rounded-md hover:scale-105 transition text-sm md:text-base"
             >
               Czytaj więcej
             </Link>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
 
         {/* Obrazek z animacją po scrollu */}
-        <motion.div
+        <Motion.div
           className="md:w-1/2 hidden md:flex justify-center"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -115,7 +115,7 @@ export default function About() {
             alt="Kość z kwiatami"
             className="max-w-sm w-full md:ml-auto opacity-75"
           />
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 
 export default function ImageGallery({ images, title }) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -40,7 +40,7 @@ export default function ImageGallery({ images, title }) {
 
   return (
     <>
-      <motion.button
+      <Motion.button
         type="button"
         className="relative w-full rounded-md overflow-hidden border border-[#D4AF37]/35 shadow-sm group cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[#D4AF37]/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#4E342E]"
         initial={{ opacity: 0, y: 20 }}
@@ -73,13 +73,13 @@ export default function ImageGallery({ images, title }) {
             </span>
           </div>
         </div>
-      </motion.button>
+      </Motion.button>
 
       {/* Lightbox / Karuzela na pełnym ekranie — renderowany przez portal */}
       {createPortal(
         <AnimatePresence>
           {lightboxOpen && (
-            <motion.div
+            <Motion.div
               className="fixed inset-0 z-[100] flex items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -133,7 +133,7 @@ export default function ImageGallery({ images, title }) {
 
               {/* Zdjęcie */}
               <AnimatePresence mode="wait">
-                <motion.img
+                <Motion.img
                   key={currentIndex}
                   src={images[currentIndex]}
                   alt={`${title} — zdjęcie ${currentIndex + 1}`}
@@ -161,7 +161,7 @@ export default function ImageGallery({ images, title }) {
                   />
                 ))}
               </div>
-            </motion.div>
+            </Motion.div>
           )}
         </AnimatePresence>,
         document.body

@@ -1,5 +1,5 @@
 import { MapPin, Phone, Clock } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 export default function Kontakt() {
   return (
@@ -14,7 +14,7 @@ export default function Kontakt() {
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
       />
 
-      <motion.div
+      <Motion.div
         className="relative z-10 max-w-4xl mx-auto bg-[#FBF0EF] rounded-xl shadow-md p-8 flex flex-col md:flex-row items-stretch gap-3 min-h-[450px]"
         initial="hidden"
         whileInView="visible"
@@ -27,7 +27,7 @@ export default function Kontakt() {
         }}
       >
         {/* Informacje kontaktowe */}
-        <motion.div
+        <Motion.div
           className="flex-1 space-y-6 text-[#3E3E3E] flex flex-col justify-center text-center items-center md:text-left md:items-start md:pl-6"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,10 +65,10 @@ export default function Kontakt() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Mapa */}
-        <motion.div
+        <Motion.div
           className="flex-1 w-full flex items-center md:pr-6"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -83,8 +83,8 @@ export default function Kontakt() {
             referrerPolicy="no-referrer-when-downgrade"
             title="Mapa lokalizacji gabinetu fizjoterapii"
           />
-        </motion.div>
-      </motion.div>
+        </Motion.div>
+      </Motion.div>
     </section>
   );
 }

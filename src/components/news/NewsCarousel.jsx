@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { newsList } from "./newsData";
 import NewsCard from "./NewsCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -59,22 +59,22 @@ export default function NewsCarousel() {
         className="absolute inset-0 w-full h-full object-cover opacity-8 pointer-events-none select-none z-0"
       />
 
-      <motion.div
+      <Motion.div
         className="relative z-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <motion.h2
+        <Motion.h2
           className="text-2xl md:text-3xl lg:text-4xl font-bold mb-12 md:mb-16 lg:mb-20"
           variants={fadeInUp}
         >
           Aktualności – Co nowego w Uzdrowisku?
-        </motion.h2>
+        </Motion.h2>
 
         <div className="relative w-full max-w-[1440px] mx-auto">
           {/* Strzałki */}
-          <motion.button
+          <Motion.button
             onClick={scrollPrev}
             disabled={!canScrollPrev}
             aria-label="Poprzedni slajd"
@@ -83,7 +83,7 @@ export default function NewsCarousel() {
             custom={0.1}
           >
             <ChevronLeft size={28} />
-          </motion.button>
+          </Motion.button>
 
           {/* Karuzela */}
           <div
@@ -92,7 +92,7 @@ export default function NewsCarousel() {
           >
             <div className="flex gap-4 md:gap-6">
               {newsList.map((news, index) => (
-                <motion.div
+                <Motion.div
                   key={news.id}
                   className={`flex-shrink-0 w-[90vw] sm:w-[440px] transition-transform duration-300 ${
                     selectedIndex === index
@@ -106,12 +106,12 @@ export default function NewsCarousel() {
                   viewport={{ once: true }}
                 >
                   <NewsCard news={news} />
-                </motion.div>
+                </Motion.div>
               ))}
             </div>
           </div>
 
-          <motion.button
+          <Motion.button
             onClick={scrollNext}
             disabled={!canScrollNext}
             aria-label="Następny slajd"
@@ -120,10 +120,10 @@ export default function NewsCarousel() {
             custom={0.2}
           >
             <ChevronRight size={28} />
-          </motion.button>
+          </Motion.button>
         </div>
 
-        <motion.div
+        <Motion.div
           className="mt-12 md:mt-16 lg:mt-24"
           variants={fadeInUp}
           custom={0.3}
@@ -134,8 +134,8 @@ export default function NewsCarousel() {
           >
             Przejdź do aktualności
           </a>
-        </motion.div>
-      </motion.div>
+        </Motion.div>
+      </Motion.div>
     </section>
   );
 }
