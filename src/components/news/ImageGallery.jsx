@@ -45,7 +45,7 @@ export default function ImageGallery({ images, title }) {
     <>
       <motion.button
         type="button"
-        className="relative w-full rounded-md overflow-hidden shadow-md group"
+        className="relative w-full rounded-md overflow-hidden shadow-md group cursor-pointer transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#3E1F1B]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
