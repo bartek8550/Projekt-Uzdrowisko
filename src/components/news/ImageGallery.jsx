@@ -39,37 +39,28 @@ export default function ImageGallery({ images, title }) {
   if (!images || images.length <= 1) return null;
 
   const extraCount = images.length - 1;
+  const galleryLabel = extraCount === 1 ? '1 dodatkowe zdjęcie' : `${extraCount} dodatkowe zdjęcia`;
 
   return (
     <>
-      {/* Miniaturki podglądu bez agresywnego kadrowania */}
-      <motion.div
-        className="relative cursor-pointer rounded-md overflow-hidden shadow-md group"
+      <motion.button
+        type="button"
+        className="relative w-full rounded-md overflow-hidden shadow-md group"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        onClick={() => openLightbox(0)}
+        onClick={() => openLightbox(images.length > 1 ? 1 : 0)}
+        aria-label={`Otwórz galerię: ${galleryLabel}`}
       >
-        <div className="grid grid-cols-2 gap-1 h-52 md:h-56 bg-[#E8C2AE]/45">
-          <img
-            src={images[1]}
-            alt={`${title} — zdjęcie 2`}
-            className="w-full h-full object-contain bg-[#f5e6dd] p-1"
-          />
-          <div className="relative">
-            <img
-              src={images.length > 2 ? images[2] : images[1]}
-              alt={`${title} — zdjęcie 3`}
-              className="w-full h-full object-contain bg-[#f5e6dd] p-1"
-            />
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center transition-all group-hover:bg-black/40">
-              <span className="text-white text-lg font-semibold">
-                +{extraCount} {extraCount === 1 ? 'zdjęcie' : extraCount < 5 ? 'zdjęcia' : 'zdjęć'}
-              </span>
-            </div>
+        <div className="relative h-16 md:h-18 bg-[#3E1F1B]/90">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/35 to-black/25 transition-all duration-300 group-hover:via-black/45" />
+          <div className="relative z-10 h-full w-full flex items-center justify-center px-4 text-center">
+            <span className="text-[#F2D57A] font-semibold tracking-wide">
+              Galeria +{extraCount}
+            </span>
           </div>
         </div>
-      </motion.div>
+      </motion.button>
 
       {/* Lightbox / Karuzela na pełnym ekranie — renderowany przez portal */}
       {createPortal(
