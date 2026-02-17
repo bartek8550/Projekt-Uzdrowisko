@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Facebook } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
@@ -95,27 +95,39 @@ export default function Navbar() {
         </div>
 
         {/* Desktop menu */}
-        <ul className="hidden md:flex space-x-6 font-light text-xl">
-          {links.map((item) => (
-            <li key={item.label}>
-              {item.path ? (
-                <Link
-                  to={item.path}
-                  className="relative inline-block cursor-pointer after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  onClick={() => handleLinkClick(item.hash)}
-                  className="relative inline-block cursor-pointer after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
-                >
-                  {item.label}
-                </button>
-              )}
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-4">
+          <ul className="flex space-x-6 font-light text-xl">
+            {links.map((item) => (
+              <li key={item.label}>
+                {item.path ? (
+                  <Link
+                    to={item.path}
+                    className="relative inline-block cursor-pointer after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => handleLinkClick(item.hash)}
+                    className="relative inline-block cursor-pointer after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
+                  >
+                    {item.label}
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook Uzdrowisko"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/60 text-gold/90 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F2D57A] hover:bg-[#D4AF37]/10 hover:text-[#F2D57A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
+          >
+            <Facebook size={14} />
+          </a>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -149,6 +161,17 @@ export default function Navbar() {
               </button>
             )
           )}
+
+          <a
+            href="https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 pt-2 text-sm text-gold/90 hover:text-[#F2D57A] transition-colors"
+            aria-label="Facebook Uzdrowisko"
+          >
+            <Facebook size={14} />
+            Facebook
+          </a>
         </div>
       </div>
     </nav>
