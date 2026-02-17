@@ -12,7 +12,7 @@ export default function Preloader({ progress, isDone }) {
         srcSet="/optimized/logo-512.webp 512w, /optimized/logo-1024.webp 1024w"
         sizes="144px"
         alt="Logo"
-        className="w-36 h-36 mb-6 object-contain invert"
+        className="w-36 h-36 mb-6 object-contain drop-shadow-[0_1px_2px_rgba(62,31,27,0.2)]"
         decoding="async"
       />
 
