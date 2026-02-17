@@ -81,7 +81,7 @@ export default function PriceListContent() {
         <motion.img
           src="/logo-Uzdrowisko-Marki.webp"
           alt="Uzdrowisko logo"
-          className="mx-auto w-32 h-auto contrast-125 drop-shadow-sm"
+          className="mx-auto w-32 h-auto invert opacity-95 drop-shadow-sm"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}

@@ -10,7 +10,7 @@ export default function Preloader({ progress, isDone }) {
       <img
         src="/logo-Uzdrowisko-Marki.webp"
         alt="Logo"
-        className="w-28 h-28 mb-6 object-contain contrast-125"
+        className="w-28 h-28 mb-6 object-contain invert drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]"
       />
 
       <svg
