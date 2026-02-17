@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { newsList } from './newsData';
 import { motion } from 'framer-motion';
+import ImageGallery from './ImageGallery';
 
 export default function NewsDetails() {
   const { id } = useParams();
@@ -38,32 +39,14 @@ export default function NewsDetails() {
         <motion.img
           src={news.image}
           alt={news.title}
-          className="w-full max-h-[400px] object-cover rounded-md shadow-md"
+          className="w-full max-h-[400px] object-cover object-top rounded-md shadow-md cursor-pointer"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         />
 
         {/* Galeria zdjęć */}
-        {news.gallery && news.gallery.length > 1 && (
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            {news.gallery
-              .filter((img) => img !== news.image)
-              .map((img, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={`${news.title} — zdjęcie ${i + 2}`}
-                  className="w-full h-48 object-cover rounded-md shadow-md"
-                />
-              ))}
-          </motion.div>
-        )}
+        {news.gallery && <ImageGallery images={news.gallery} title={news.title} />}
 
         {/* Tytuł */}
         <motion.h1

@@ -27,22 +27,24 @@ Zapraszam serdecznie do nowego Uzdrowiska — z nową energią, w nowym miejscu,
   },
   {
     id: 'szkolenie-toony-therapy',
-    date: '25 stycznia 2026',
-    title: 'Kolejne szkolenie za mną — ToonyTherapy Basic ukończone!',
+    date: '6–8 lutego 2026',
+    title: 'Powrót do Akademii ToonyTherapy — powtórka i przygotowanie do egzaminu!',
     excerpt:
-      'Szczęśliwa po kolejnym intensywnym szkoleniu w Akademii ToonyTherapy w Gdańsku! Metoda ToonyTherapy Basic to kolejny kamień milowy w mojej drodze terapeutycznej, który pozwala mi jeszcze lepiej pomagać moim pacjentom',
+      'Tak się wychodzi szczęśliwą po kolejnym szkoleniu w ToonyTherapy! Trzy intensywne dni w Akademii ToonyTherapy w Gdańsku — powtórka modułów, szlifowanie technik chiropraktycznych i przygotowanie do egzaminu',
     image: '/News/SzkolenieToony/szkolenieToony.webp',
-    content: `Tak się wychodzi szczęśliwym po następnym szkoleniu w ToonyTherapy! 🙂
+    content: `Tak się wychodzi szczęśliwą po następnym szkoleniu w ToonyTherapy! 🙂
 
-Z dumą mogę powiedzieć, że za mną kolejne intensywne szkolenie — tym razem w Akademii ToonyTherapy w Gdańsku, gdzie ukończyłam kurs Metoda ToonyTherapy Basic.
+W dniach 6–8 lutego byłam ponownie w Akademii ToonyTherapy w Gdańsku — tym razem na intensywnej powtórce modułów i przygotowaniu do egzaminu z Metody ToonyTherapy Basic.
 
-Szkolenie obejmowało zaawansowane techniki pracy z ciałem, które łączą w sobie elementy chiropraktyki, osteopatii i nowoczesnej terapii manualnej. Pod okiem doświadczonych instruktorów miałam okazję doskonalić umiejętności precyzyjnej diagnostyki, mobilizacji stawów oraz pracy z tkanką powięziową.
+To był mój powrót na szkolenie, by jeszcze lepiej podszlifować techniki chiropraktyczne, które stosuję na co dzień w pracy z pacjentami. Trzy dni pełne praktyki, powtórek i doskonalenia umiejętności pod okiem doświadczonych instruktorów.
 
-ToonyTherapy to podejście, które stawia na delikatność, indywidualne podejście do pacjenta i holistyczne spojrzenie na organizm. Każda technika jest dostosowywana do konkretnych potrzeb — nie ma tu miejsca na schematyczne działanie. Właśnie to najbardziej cenię w tej metodzie.
+Powtórka modułów to coś, co bardzo cenię — za każdym razem odkrywam nowe niuanse, dopracowuję szczegóły i zyskuję jeszcze większą pewność w wykonywaniu technik mobilizacyjnych, manipulacyjnych i powięziowych. To nie jest zwykłe powtarzanie materiału — to pogłębianie zrozumienia ciała i jego reakcji na terapię.
 
-Każde kolejne szkolenie to nie tylko nowa wiedza, ale przede wszystkim nowe narzędzia, które mogę wykorzystać w codziennej pracy z moimi pacjentami. Poszerzanie kompetencji to dla mnie nie obowiązek, a prawdziwa pasja — bo wierzę, że im więcej wiem, tym skuteczniej mogę pomagać.
+Przygotowanie do egzaminu wymagało pełnej koncentracji i zaangażowania. Weryfikacja wiedzy teoretycznej i umiejętności praktycznych to dla mnie ważny element rozwoju — potwierdza, że techniki, które stosuję, są wykonywane na najwyższym poziomie.
 
-Cieszę się, że mogę wnosić te umiejętności do Uzdrowiska i oferować Wam coraz lepszą, bardziej kompleksową opiekę terapeutyczną. Jeśli chcesz przekonać się, jak działają techniki ToonyTherapy — zapraszam na wizytę!`,
+Każdy wyjazd szkoleniowy to dla mnie ogromna motywacja. Wracam z nową energią, odświeżoną wiedzą i jeszcze większym zapałem do pracy. Wierzę, że ciągłe doskonalenie się przekłada bezpośrednio na jakość terapii, którą oferuję moim pacjentom.
+
+Jeśli chcesz przekonać się, jak działają techniki ToonyTherapy w praktyce — serdecznie zapraszam na wizytę do Uzdrowiska!`,
   },
   {
     id: 'nowa-usluga-tt',
