@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Dokumentacja dla agentów AI (lokalna)
+AGENTS.md
+CHANGELOG.md
+TODO.md

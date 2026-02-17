@@ -8,7 +8,7 @@ export default function Preloader({ progress, isDone }) {
       }`}
     >
       <img
-        src="/logoLepsze.webp"
+        src="/logo-Uzdrowisko-Marki.webp"
         alt="Logo"
         className="w-24 h-24 mb-6 object-contain"
       />

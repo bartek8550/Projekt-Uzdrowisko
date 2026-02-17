@@ -20,7 +20,7 @@ function PriceList() {
       return;
     }
 
-    const imageUrls = ['/cennikTlo.webp', '/logoLepsze.webp'];
+    const imageUrls = ['/cennikTlo.webp', '/logo-Uzdrowisko-Marki.webp'];
 
     let loaded = 0;
 

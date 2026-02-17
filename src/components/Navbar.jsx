@@ -59,7 +59,7 @@ export default function Navbar() {
             className="block cursor-pointer"
           >
             <img
-              src="/logoLepsze.webp"
+              src="/logo-Uzdrowisko-Marki.webp"
               alt="Logo Uzdrowiska"
               className="h-22 w-auto"
             />

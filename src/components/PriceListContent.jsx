@@ -79,7 +79,7 @@ export default function PriceListContent() {
 
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-10">
         <motion.img
-          src="/logoLepsze.webp"
+          src="/logo-Uzdrowisko-Marki.webp"
           alt="Uzdrowisko logo"
           className="mx-auto w-28 h-auto drop-shadow-md"
           initial={{ opacity: 0, scale: 0.9 }}
