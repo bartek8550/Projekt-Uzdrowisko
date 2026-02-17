@@ -34,7 +34,7 @@ export default function NewsDetails() {
 
       {/* TREŚĆ */}
       <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-        {/* Obrazek */}
+        {/* Obrazek główny */}
         <motion.img
           src={news.image}
           alt={news.title}
@@ -43,6 +43,27 @@ export default function NewsDetails() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         />
+
+        {/* Galeria zdjęć */}
+        {news.gallery && news.gallery.length > 1 && (
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            {news.gallery
+              .filter((img) => img !== news.image)
+              .map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={`${news.title} — zdjęcie ${i + 2}`}
+                  className="w-full h-48 object-cover rounded-md shadow-md"
+                />
+              ))}
+          </motion.div>
+        )}
 
         {/* Tytuł */}
         <motion.h1
