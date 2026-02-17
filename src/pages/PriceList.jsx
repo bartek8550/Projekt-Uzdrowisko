@@ -5,6 +5,7 @@ import HeaderOther from '../components/HeaderOther';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PriceListContent from '../components/PriceListContent';
+import Seo from '../components/Seo';
 
 function PriceList() {
   const [progress, setProgress] = useState(0);
@@ -46,6 +47,11 @@ function PriceList() {
 
   return (
     <>
+      <Seo
+        title="Cennik usług | Uzdrowisko Marki"
+        description="Sprawdź aktualny cennik fizjoterapii, terapii manualnej, chiropraktyki oraz wizyt domowych w gabinecie Uzdrowisko."
+        path="/cennik"
+      />
       {!skipPreloader && <Preloader progress={progress} isDone={isDone} />}
       <div
         className={`bg-background text-gold font-cardo ${

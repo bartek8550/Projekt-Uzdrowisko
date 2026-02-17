@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import NewsPageContent from '../components/news/NewsPageContent';
 import { newsList } from '../components/news/newsData';
+import Seo from '../components/Seo';
 
 function NewsPage() {
   const [progress, setProgress] = useState(0);
@@ -51,6 +52,11 @@ function NewsPage() {
 
   return (
     <>
+      <Seo
+        title="Aktualności | Uzdrowisko Marki"
+        description="Najnowsze informacje z gabinetu Uzdrowisko: nowości, szkolenia, rozwój usług oraz ważne ogłoszenia dla pacjentów."
+        path="/aktualnosci"
+      />
       {!skipPreloader && <Preloader progress={progress} isDone={isDone} />}
       <div
         className={`bg-background text-gold font-cardo ${

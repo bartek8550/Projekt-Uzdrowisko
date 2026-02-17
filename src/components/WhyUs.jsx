@@ -15,6 +15,53 @@ const fadeInUp = {
 };
 
 export default function WhyUs() {
+  const reasons = [
+    {
+      icon: '/img-icons/Kregoslup.webp',
+      alt: 'Ikona kręgosłupa',
+      label: (
+        <>
+          Walczysz z bólem
+          <br />
+          kręgosłupa
+        </>
+      ),
+    },
+    {
+      icon: '/img-icons/ludzik.webp',
+      alt: 'Ikona rehabilitacji',
+      label: (
+        <>
+          Potrzebujesz
+          <br />
+          rehabilitacji
+        </>
+      ),
+    },
+    {
+      icon: '/img-icons/serce.webp',
+      alt: 'Ikona relaksu i regeneracji',
+      label: (
+        <>
+          Chcesz się
+          <br />
+          zrelaksować
+        </>
+      ),
+    },
+    {
+      icon: '/img-icons/macica.webp',
+      alt: 'Ikona wsparcia uroginekologicznego',
+      label: (
+        <>
+          Szukasz wsparcia
+          <br />
+          uroginekologicznego
+        </>
+      ),
+    },
+  ];
+
   return (
     <section className="bg-[#4E2A23] text-[#D4AF37] py-24 px-6 text-center relative overflow-hidden">
       {/* Niewidoczny punkt kotwicy dla scrolla */}
@@ -43,7 +90,7 @@ export default function WhyUs() {
 
         {/* Kafelki */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
-          {[...Array(4)].map((_, i) => (
+          {reasons.map((reason, i) => (
             <Motion.div
               key={i}
               className="flex flex-col items-center space-y-4"
@@ -51,42 +98,12 @@ export default function WhyUs() {
               variants={fadeInUp}
             >
               <img
-                src={
-                  [
-                    '/img-icons/Kregoslup.webp',
-                    '/img-icons/ludzik.webp',
-                    '/img-icons/serce.webp',
-                    '/img-icons/macica.webp',
-                  ][i]
-                }
-                alt="Ikona"
+                src={reason.icon}
+                alt={reason.alt}
                 className="h-36"
               />
               <p className="text-xl md:text-2xl leading-snug font-medium">
-                {
-                  [
-                    <>
-                      Walczysz z bólem
-                      <br />
-                      kręgosłupa
-                    </>,
-                    <>
-                      Potrzebujesz
-                      <br />
-                      rehabilitacji
-                    </>,
-                    <>
-                      Chcesz się
-                      <br />
-                      zrelaksować
-                    </>,
-                    <>
-                      Szukasz wsparcia
-                      <br />
-                      uroginekologicznego
-                    </>,
-                  ][i]
-                }
+                {reason.label}
               </p>
             </Motion.div>
           ))}
