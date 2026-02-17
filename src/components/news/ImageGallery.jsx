@@ -42,15 +42,15 @@ export default function ImageGallery({ images, title }) {
     <>
       <motion.button
         type="button"
-        className="relative w-full rounded-md overflow-hidden shadow-md group cursor-pointer transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#3E1F1B]"
+        className="relative w-full rounded-md overflow-hidden border border-[#D4AF37]/35 shadow-sm group cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[#D4AF37]/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#4E342E]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         onClick={() => openLightbox(images.length > 1 ? 1 : 0)}
         aria-label="Otwórz galerię zdjęć"
       >
-        <div className="relative h-18 md:h-18 bg-[#3E1F1B]/90">
-          <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/35 to-black/25 transition-all duration-300 group-hover:via-black/45" />
+        <div className="relative h-18 md:h-18 bg-[#4E342E]/95">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#4E342E]/90 via-[#5B3C35]/85 to-[#4E342E]/90 transition-all duration-300 group-hover:via-[#6A463D]/85" />
           <div className="relative z-10 h-full w-full flex items-center justify-center gap-2 px-4 text-center">
             <svg
               width="18"
@@ -61,14 +61,14 @@ export default function ImageGallery({ images, title }) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-[#F2D57A] transition-transform duration-200 group-hover:scale-110"
+              className="text-[#D4AF37] transition-transform duration-200 group-hover:scale-105"
               aria-hidden="true"
             >
               <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
               <circle cx="8.5" cy="8.5" r="1.5" />
               <polyline points="21 15 16 10 5 21" />
             </svg>
-            <span className="text-[#F2D57A] font-semibold tracking-wide">
+            <span className="text-[#D4AF37] font-semibold tracking-wide">
               Otwórz galerię
             </span>
           </div>
