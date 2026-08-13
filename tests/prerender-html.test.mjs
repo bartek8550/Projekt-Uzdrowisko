@@ -34,7 +34,11 @@ function jsonLdFrom(html) {
 }
 
 function textContent(htmlFragment) {
-  return htmlFragment.replace(/<[^>]+>/g, '').replaceAll('&amp;', '&').trim();
+  return htmlFragment
+    .replace(/<[^>]+>/g, ' ')
+    .replaceAll('&amp;', '&')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 test('każda trasa ma pełny, kanoniczny HTML', async () => {
@@ -51,7 +55,7 @@ test('każda trasa ma pełny, kanoniczny HTML', async () => {
     assert.equal(h1Matches.length, 1, `${route}: dokładnie jeden H1`);
     const news = newsList.find(({ id }) => route === `/aktualnosci/${id}`);
     const expectedH1 = news?.title || {
-      '/': 'Uzdrowisko',
+      '/': 'Uzdrowisko fizjoterapia w Zielonce',
       '/onas': 'O nas',
       '/cennik': 'Cennik',
       '/dlaczego': 'Usługi',

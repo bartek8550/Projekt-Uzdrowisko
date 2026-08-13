@@ -10,7 +10,8 @@ export default function Kontakt() {
       {/* Tło dekoracyjne */}
       <img
         src="/kosciZdjecie2.webp"
-        alt="Tło kontaktu"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
         loading="lazy"
         decoding="async"
@@ -37,8 +38,10 @@ export default function Kontakt() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <h2 className="text-2xl md:text-3xl font-bold font-cardo text-left">
-            Skontaktuj się z nami
+            Gabinet Uzdrowisko w Zielonce
           </h2>
+
+          <p>Wizyty stacjonarne odbywają się pod poniższym adresem.</p>
 
           <div className="flex items-start gap-4 text-left">
             <MapPin size={28} className="mt-3" />

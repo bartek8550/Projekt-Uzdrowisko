@@ -45,7 +45,8 @@ export default function About() {
       {/* Tło dekoracyjne */}
       <img
         src="/papier.webp"
-        alt="Papier"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
         loading="lazy"
         decoding="async"
@@ -63,15 +64,16 @@ export default function About() {
             className="text-xl md:text-2xl font-bold font-cardo"
             variants={fadeLeft}
           >
-            Uzdrowisko – przestrzeń dla Twojego ciała i spokoju
+            Gabinet fizjoterapii w Zielonce
           </Motion.h2>
 
           <Motion.p
             className="text-base md:text-lg leading-relaxed"
             variants={fadeUp}
           >
-            Uzdrowisko to kameralne, profesjonalne miejsce, w którym nowoczesna
-            fizjoterapia spotyka się ze spokojem i indywidualnym podejściem.
+            Uzdrowisko to kameralny gabinet Hanny Nowotczyńskiej przy ul.
+            Kolejowej 76 w Zielonce. Wizyty są prowadzone z uwzględnieniem
+            indywidualnych potrzeb i możliwości pacjenta.
           </Motion.p>
 
           <Motion.p
@@ -79,8 +81,9 @@ export default function About() {
             custom={0.2}
             variants={fadeUp}
           >
-            Każdy klient otrzymuje pełną uwagę, precyzyjnie dobraną terapię i
-            atmosferę, która sprzyja regeneracji oraz powrotowi do pełni sił.
+            Pierwsza wizyta obejmuje wywiad, ocenę potrzeb i ustalenie planu
+            dalszej pracy. W gabinecie dostępne są m.in. fizjoterapia, terapia
+            manualna, drenaż limfatyczny i masaż leczniczy.
           </Motion.p>
 
           <Motion.p
@@ -88,10 +91,8 @@ export default function About() {
             custom={0.4}
             variants={fadeUp}
           >
-            Wierzymy, że skuteczna terapia to nie tylko technika, ale też
-            zaufanie i komfort. Kameralny charakter Uzdrowiska pozwala skupić
-            się na prawdziwych potrzebach ciała – bez pośpiechu, presji i
-            rozpraszaczy.
+            Pełny zakres usług oraz aktualne ceny znajdziesz w cenniku. Termin
+            wizyty możesz umówić telefonicznie.
           </Motion.p>
 
           <Motion.div variants={fadeScale}>
@@ -99,7 +100,7 @@ export default function About() {
               to="/onas"
               className="inline-block bg-[#4E342E] text-[#D4AF37] px-5 py-2 mt-4 rounded-md hover:scale-105 transition text-sm md:text-base"
             >
-              Czytaj więcej
+              Poznaj Hannę Nowotczyńską
             </Link>
           </Motion.div>
         </Motion.div>
@@ -114,7 +115,8 @@ export default function About() {
         >
           <img
             src="/kosc.webp"
-            alt="Kość z kwiatami"
+            alt=""
+            aria-hidden="true"
             className="max-w-sm w-full md:ml-auto opacity-75"
             loading="lazy"
             decoding="async"

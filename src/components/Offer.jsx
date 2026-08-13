@@ -20,18 +20,18 @@ export default function Offer() {
       reverse: true,
     },
     {
-      title: 'Wizyta domowa (Marki i okolice)',
+      title: 'Wizyta domowa na terenie Marek',
       time: 'do 60 minut',
       price: '300 zł',
-      desc: 'Pełna sesja fizjoterapeutyczna z dojazdem do pacjenta. Łączymy komfort domowy z terapią dobraną do Twoich potrzeb.',
+      desc: 'Sesja fizjoterapeutyczna z dojazdem do pacjenta na terenie Marek. Szczegóły dotyczące dojazdu poza Markami znajdziesz w cenniku.',
       img: '/offer/masowanie plecow.webp',
       reverse: false,
     },
     {
-      title: 'Chiropraktyka z dojazdem',
+      title: 'Chiropraktyka z dojazdem w Markach',
       time: 'do 60 minut',
       price: '400 zł',
-      desc: 'Chiropraktyka i terapia manualna w Twoim domu. Idealne, gdy potrzebujesz ulgi, ale nie możesz dotrzeć do gabinetu.',
+      desc: 'Chiropraktyka i terapia manualna w domu pacjenta. Obszar dojazdu oraz aktualne ceny znajdziesz w cenniku.',
       img: '/offer/terapia powieziowa.webp',
       reverse: true,
     },
@@ -43,7 +43,8 @@ export default function Offer() {
 
       <img
         src="/tlooferta.webp"
-        alt="Tło dekoracyjne"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none z-0"
         loading="lazy"
         decoding="async"

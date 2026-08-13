@@ -23,9 +23,8 @@ export default function Footer() {
               />
             </div>
             <p className="leading-relaxed">
-              Profesjonalna fizjoterapia i masaż – skuteczne podejście,
-              prawdziwa troska o pacjenta oraz indywidualnie dopasowany plan
-              terapii, który przynosi realne efekty.
+              Gabinet fizjoterapii i terapii manualnej Hanny Nowotczyńskiej w
+              Zielonce. Wizyty domowe są dostępne na terenie Marek.
             </p>
           </div>
 

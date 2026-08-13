@@ -15,7 +15,8 @@ export default function Header() {
         src="/optimized/gabinet-1024.webp"
         srcSet="/optimized/gabinet-640.webp 640w, /optimized/gabinet-1024.webp 1024w"
         sizes="100vw"
-        alt="Tło papierowe"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none"
         fetchPriority="high"
         decoding="async"
@@ -29,7 +30,9 @@ export default function Header() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="text-gold font-cardo max-w-3xl px-4"
         >
-          <h1 className="text-5xl md:text-8xl font-light">Uzdrowisko</h1>
+          <h1 className="text-5xl md:text-8xl font-light">
+            Uzdrowisko <span className="block text-2xl md:text-4xl mt-3">fizjoterapia w Zielonce</span>
+          </h1>
           <Motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,7 +47,7 @@ export default function Header() {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-base md:text-xl mt-1"
           >
-            Hanna Nowotczyńska
+            Hanna Nowotczyńska • ul. Kolejowa 76
           </Motion.p>
         </Motion.div>
       </div>
