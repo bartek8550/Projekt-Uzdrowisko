@@ -56,6 +56,8 @@ test('każda trasa ma pełny, kanoniczny HTML', async () => {
     assert.doesNotMatch(html, /data-ssr-outlet/);
     assert.equal(count(html, '<main id="main-content"'), 1, `${route}: main`);
     assert.equal(count(html, 'href="#main-content"'), 1, `${route}: skip link`);
+    assert.ok(count(html, '<address') >= 1, `${route}: address`);
+    assert.ok(html.includes('href="/#onas"'), `${route}: link do sekcji homepage`);
     const h1Matches = [...html.matchAll(/<h1(?:\s[^>]*)?>([\s\S]*?)<\/h1>/g)];
     assert.equal(h1Matches.length, 1, `${route}: dokładnie jeden H1`);
     const news = newsList.find(({ id }) => route === `/aktualnosci/${id}`);

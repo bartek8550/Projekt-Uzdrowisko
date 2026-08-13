@@ -33,7 +33,7 @@ export default function Footer() {
           <div className="hidden md:block h-auto self-stretch border-l border-[#D4AF37]" />
 
           {/* Prawa kolumna */}
-          <div className="flex-1 max-w-xs space-y-4 text-left">
+          <address className="flex-1 max-w-xs space-y-4 text-left not-italic">
             <h4 className="text-lg md:text-xl font-semibold font-cardo mb-2 text-center md:text-left">
               Dane kontaktowe
             </h4>
@@ -69,7 +69,7 @@ export default function Footer() {
                 href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-md px-1 py-1 text-[#D4AF37] transition-all duration-200 hover:text-[#F2D57A] hover:bg-[#D4AF37]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
+                className="flex min-h-11 items-center gap-3 rounded-md px-2 py-1 text-[#D4AF37] transition-all duration-200 hover:text-[#F2D57A] hover:bg-[#D4AF37]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
                 aria-label="Facebook Uzdrowisko"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -78,7 +78,7 @@ export default function Footer() {
                 <span className="text-sm">Znajdź nas na Facebooku</span>
               </a>
             </div>
-          </div>
+          </address>
         </div>
       </div>
 

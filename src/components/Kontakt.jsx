@@ -44,7 +44,7 @@ export default function Kontakt() {
 
           <p>Wizyty stacjonarne odbywają się pod poniższym adresem.</p>
 
-          <div className="flex items-start gap-4 text-left">
+          <address className="flex items-start gap-4 text-left not-italic">
             <MapPin size={28} className="mt-3" />
             <a
               href={MAP_URL}
@@ -55,13 +55,13 @@ export default function Kontakt() {
               05–220 Zielonka
               <span className="block text-sm font-normal">Wyznacz trasę</span>
             </a>
-          </div>
+          </address>
 
           <div className="flex items-center gap-4 text-left">
             <Phone size={28} />
             <a
               href={PHONE_HREF}
-              className="rounded-sm text-base md:text-lg font-semibold underline decoration-transparent underline-offset-4 transition hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4E342E]"
+              className="inline-flex min-h-11 items-center rounded-sm text-base md:text-lg font-semibold underline decoration-transparent underline-offset-4 transition hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4E342E]"
             >
               {PHONE_DISPLAY}
             </a>

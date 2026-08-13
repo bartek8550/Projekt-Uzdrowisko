@@ -2,7 +2,8 @@ import { motion as Motion } from 'framer-motion';
 import { BOOKSY_URL } from '../businessInfo.js';
 
 export default function Header() {
-  const handleScrollTo = (id) => {
+  const handleScrollTo = (event, id) => {
+    event.preventDefault();
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -66,12 +67,13 @@ export default function Header() {
         >
           Umów wizytę online
         </a>
-        <button
-          onClick={() => handleScrollTo('onas')}
-          className="mt-6 block w-full text-center text-sm text-[#D4AF37] animate-bounce opacity-80 hover:opacity-100 transition cursor-pointer"
+        <a
+          href="/#onas"
+          onClick={(event) => handleScrollTo(event, 'onas')}
+          className="mt-6 flex min-h-11 w-full items-center justify-center text-center text-sm text-[#D4AF37] animate-bounce opacity-80 hover:opacity-100 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
         >
           ↓ Przewiń dalej
-        </button>
+        </a>
       </Motion.div>
     </header>
   );

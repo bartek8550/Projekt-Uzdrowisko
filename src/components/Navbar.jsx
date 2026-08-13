@@ -42,7 +42,8 @@ export default function Navbar() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
-  const handleLinkClick = (hash) => {
+  const handleLinkClick = (event, hash) => {
+    event.preventDefault();
     setIsOpen(false);
     if (location.pathname !== "/") {
       sessionStorage.setItem("scrollToHash", hash);
@@ -139,12 +140,13 @@ export default function Navbar() {
                     {item.label}
                   </Link>
                 ) : (
-                  <button
-                    onClick={() => handleLinkClick(item.hash)}
+                  <a
+                    href={`/#${item.hash}`}
+                    onClick={(event) => handleLinkClick(event, item.hash)}
                     className="relative inline-block cursor-pointer after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 after:origin-center after:transform after:-translate-x-1/2 hover:after:w-full"
                   >
                     {item.label}
-                  </button>
+                  </a>
                 )}
               </li>
             ))}
@@ -157,7 +159,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook Uzdrowisko"
-            className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-gold/60 text-gold/90 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F2D57A] hover:bg-[#D4AF37]/10 hover:text-[#F2D57A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/60 text-gold/90 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F2D57A] hover:bg-[#D4AF37]/10 hover:text-[#F2D57A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
           >
             <Facebook size={13} />
           </a>
@@ -188,15 +190,16 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ) : (
-              <button
+              <a
                 key={item.label}
-                onClick={() => handleLinkClick(item.hash)}
+                href={`/#${item.hash}`}
+                onClick={(event) => handleLinkClick(event, item.hash)}
                 className={`block border-b border-gold pb-2 text-left w-full cursor-pointer opacity-0 animate-fade-in animation-delay-${
                   i * 75
                 }`}
               >
                 {item.label}
-              </button>
+              </a>
             )
           )}
 
@@ -206,7 +209,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/60 text-gold/90 transition-all duration-200 hover:border-[#F2D57A] hover:bg-[#D4AF37]/10 hover:text-[#F2D57A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/60 text-gold/90 transition-all duration-200 hover:border-[#F2D57A] hover:bg-[#D4AF37]/10 hover:text-[#F2D57A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
               aria-label="Facebook Uzdrowisko"
             >
               <Facebook size={14} />
