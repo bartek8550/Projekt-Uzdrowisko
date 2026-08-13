@@ -19,7 +19,8 @@ export default function AboutUsContent() {
           src="/aboutusphoto.webp"
           alt=""
           className="w-full h-full object-cover"
-          loading="lazy"
+          loading="eager"
+          fetchPriority="high"
           decoding="async"
         />
       </div>

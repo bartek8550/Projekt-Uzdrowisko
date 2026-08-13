@@ -239,5 +239,5 @@ test('hosting ma spójną politykę cache i bazowe nagłówki bezpieczeństwa', 
   assert.match(headers, /Netlify-CDN-Cache-Control: no-store/);
   assert.match(headers, /manifest\.webmanifest[\s\S]*application\/manifest\+json/);
   assert.doesNotMatch(index, /\sonload=/i);
-  assert.doesNotMatch(index, /media="print"/i);
+  assert.match(index, /id="google-fonts"[\s\S]*media="print"/i);
 });

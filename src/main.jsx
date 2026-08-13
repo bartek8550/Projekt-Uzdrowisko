@@ -3,6 +3,19 @@ import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
+const fontStylesheet = document.getElementById('google-fonts');
+if (fontStylesheet) {
+  const enableFontStylesheet = () => {
+    fontStylesheet.media = 'all';
+  };
+
+  if (fontStylesheet.sheet) {
+    enableFontStylesheet();
+  } else {
+    fontStylesheet.addEventListener('load', enableFontStylesheet, { once: true });
+  }
+}
+
 const container = document.getElementById('root');
 const app = (
   <StrictMode>
