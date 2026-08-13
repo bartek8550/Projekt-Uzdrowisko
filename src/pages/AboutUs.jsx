@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import Preloader from '../components/Preloader';
-
 import HeaderOther from '../components/HeaderOther';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -8,49 +5,6 @@ import AboutUsContent from '../components/AboutUsContent';
 import Seo from '../components/Seo';
 
 function AboutUs() {
-  const [progress, setProgress] = useState(0);
-  const [isDone, setIsDone] = useState(false);
-  const [skipPreloader, setSkipPreloader] = useState(false);
-
-  useEffect(() => {
-    const hasSeen = sessionStorage.getItem('seen-preloader-about');
-
-    if (hasSeen) {
-      setSkipPreloader(true);
-      setIsDone(true);
-      return;
-    }
-
-    const imageUrls = [
-      '/aboutusphoto.webp',
-      '/Hanna.webp',
-      ...[1, 8, 9, 11, 12].map(
-        (certificateId) => `/HannaNow/zdj${certificateId}.webp`,
-      ),
-    ];
-
-    let loaded = 0;
-
-    imageUrls.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-
-      const update = () => {
-        loaded++;
-        const percent = Math.round((loaded / imageUrls.length) * 100);
-        setProgress(percent);
-
-        if (loaded === imageUrls.length) {
-          sessionStorage.setItem('seen-preloader-about', 'true');
-          setTimeout(() => setIsDone(true), 300);
-        }
-      };
-
-      img.onload = update;
-      img.onerror = update;
-    });
-  }, []);
-
   return (
     <>
       <Seo
@@ -58,12 +12,7 @@ function AboutUs() {
         description="Poznaj mgr Hannę Nowotczyńską i podejście gabinetu Uzdrowisko. Sprawdź doświadczenie, kwalifikacje i certyfikaty z fizjoterapii, terapii manualnej i chiropraktyki."
         path="/onas"
       />
-      {!skipPreloader && <Preloader progress={progress} isDone={isDone} />}
-      <div
-        className={`bg-background text-gold font-cardo ${
-          !isDone ? 'invisible' : 'visible'
-        }`}
-      >
+      <div className="bg-background text-gold font-cardo">
         <Navbar />
         <HeaderOther />
         <AboutUsContent />

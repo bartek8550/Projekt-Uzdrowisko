@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import Preloader from "../components/Preloader";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
@@ -15,54 +14,7 @@ import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 
 function Home() {
-  const [progress, setProgress] = useState(0);
-  const [isDone, setIsDone] = useState(false);
-  const [hidePreloader, setHidePreloader] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const hasSeen = sessionStorage.getItem("seen-preloader");
-
-    if (hasSeen) {
-      setIsDone(true);
-      setHidePreloader(true);
-      return;
-    }
-
-    const imageUrls = [
-      "/optimized/gabinet-1024.webp",
-      "/papier.webp",
-      "/kosc.webp",
-      "/img-icons/Kregoslup.webp",
-      "/img-icons/ludzik.webp",
-      "/offer/masowanie plecow.webp",
-      "/offer/rehabilitacja.webp",
-    ];
-
-    let loaded = 0;
-
-    imageUrls.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-
-      const update = () => {
-        loaded++;
-        const percent = Math.round((loaded / imageUrls.length) * 100);
-        setProgress(percent);
-
-        if (loaded === imageUrls.length) {
-          sessionStorage.setItem("seen-preloader", "true");
-          setTimeout(() => {
-            setIsDone(true);
-            setTimeout(() => setHidePreloader(true), 800);
-          }, 300);
-        }
-      };
-
-      img.onload = update;
-      img.onerror = update;
-    });
-  }, []);
 
   // 🔽 Scrolluj po przejściu z innej podstrony
   useEffect(() => {
@@ -94,12 +46,7 @@ function Home() {
         description="Uzdrowisko to gabinet fizjoterapii i terapii manualnej mgr Hanny Nowotczyńskiej. Skuteczna pomoc w bólu kręgosłupa, rehabilitacji i regeneracji w Zielonce koło Marek."
         path="/"
       />
-      {!hidePreloader && <Preloader progress={progress} isDone={isDone} />}
-      <div
-        className={`bg-background text-gold font-cardo ${
-          !isDone ? "invisible" : "visible"
-        }`}
-      >
+      <div className="bg-background text-gold font-cardo">
         <Navbar />
         <Header />
         <About />

@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import Preloader from '../components/Preloader';
-
 import HeaderOther from '../components/HeaderOther';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -8,43 +5,6 @@ import PriceListContent from '../components/PriceListContent';
 import Seo from '../components/Seo';
 
 function PriceList() {
-  const [progress, setProgress] = useState(0);
-  const [isDone, setIsDone] = useState(false);
-  const [skipPreloader, setSkipPreloader] = useState(false);
-
-  useEffect(() => {
-    const hasSeen = sessionStorage.getItem('seen-preloader-price');
-
-    if (hasSeen) {
-      setSkipPreloader(true);
-      setIsDone(true);
-      return;
-    }
-
-    const imageUrls = ['/cennikTlo.webp', '/optimized/logo-512.webp'];
-
-    let loaded = 0;
-
-    imageUrls.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-
-      const update = () => {
-        loaded++;
-        const percent = Math.round((loaded / imageUrls.length) * 100);
-        setProgress(percent);
-
-        if (loaded === imageUrls.length) {
-          sessionStorage.setItem('seen-preloader-price', 'true');
-          setTimeout(() => setIsDone(true), 300); // Fade-out
-        }
-      };
-
-      img.onload = update;
-      img.onerror = update;
-    });
-  }, []);
-
   return (
     <>
       <Seo
@@ -52,12 +12,7 @@ function PriceList() {
         description="Sprawdź aktualny cennik fizjoterapii, terapii manualnej, chiropraktyki oraz wizyt domowych w gabinecie Uzdrowisko."
         path="/cennik"
       />
-      {!skipPreloader && <Preloader progress={progress} isDone={isDone} />}
-      <div
-        className={`bg-background text-gold font-cardo ${
-          !isDone ? 'invisible' : 'visible'
-        }`}
-      >
+      <div className="bg-background text-gold font-cardo">
         <Navbar />
         <HeaderOther />
         <PriceListContent />
