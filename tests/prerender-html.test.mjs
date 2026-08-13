@@ -140,6 +140,14 @@ test('metadata są kompletne, unikalne i mieszczą się w guardrailach', async (
   assert.equal(descriptions.size, metadata.length);
 });
 
+test('ikony przeglądarki mają kompatybilny format i istnieją', async () => {
+  const html = await readFile(join(projectRoot, 'index.html'), 'utf8');
+  assert.match(html, /rel="icon"[^>]+href="\/favicon\.png"/);
+  assert.match(html, /rel="apple-touch-icon"[^>]+href="\/apple-touch-icon\.png"/);
+  await access(join(projectRoot, 'public', 'favicon.png'));
+  await access(join(projectRoot, 'public', 'apple-touch-icon.png'));
+});
+
 test('homepage ma bezpośrednie akcje kontaktu i rezerwacji', async () => {
   const html = await readFile(outputPath('/'), 'utf8');
   assert.ok(html.includes(`href="${BOOKSY_URL}"`), 'brak potwierdzonego Booksy');
