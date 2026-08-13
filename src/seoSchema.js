@@ -110,6 +110,7 @@ export function createPageSchema({ path, title, description, image, article }) {
     inLanguage: 'pl-PL',
     isPartOf: { '@id': WEBSITE_ID },
     about: path === '/onas' ? { '@id': PERSON_ID } : { '@id': BUSINESS_ID },
+    ...(path === '/onas' ? { mainEntity: { '@id': PERSON_ID } } : {}),
     primaryImageOfPage: {
       '@type': 'ImageObject',
       url: imageUrl,

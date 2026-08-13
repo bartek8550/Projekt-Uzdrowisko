@@ -95,6 +95,13 @@ test('każda trasa ma pełny, kanoniczny HTML', async () => {
     assert.equal(new Set(ids).size, ids.length, `${route}: powtórzone @id`);
     const webPage = graph.find((node) => ['WebPage', 'ProfilePage'].includes(node['@type']));
     assert.equal(webPage.url, canonical, `${route}: WebPage.url`);
+    if (route === '/onas') {
+      assert.deepEqual(
+        webPage.mainEntity,
+        { '@id': 'https://uzdrowisko-marki.pl/#hanna-nowotczynska' },
+        `${route}: ProfilePage.mainEntity`,
+      );
+    }
 
     const article = graph.find((node) => node['@type'] === 'Article');
     if (route.startsWith('/aktualnosci/')) {
