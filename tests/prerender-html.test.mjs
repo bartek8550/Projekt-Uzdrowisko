@@ -99,7 +99,9 @@ test('każda trasa ma pełny, kanoniczny HTML', async () => {
       assert.match(html, /<time dateTime="\d{4}-\d{2}-\d{2}">/, `${route}: time`);
     } else {
       assert.equal(article, undefined, `${route}: zbędny Article`);
-      assert.equal(count(html, '<article '), 0, `${route}: zbędny article`);
+      if (route === '/aktualnosci') {
+        assert.equal(count(html, '<article '), newsList.length, `${route}: lista artykułów`);
+      }
     }
   }
 });

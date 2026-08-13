@@ -68,10 +68,10 @@ export default function Services() {
       }}
     >
       {/* TŁO Z OBRAZEM */}
-      <div className="absolute inset-0 z-0 opacity-30">
+      <div className="absolute inset-0 z-0 opacity-30" aria-hidden="true">
         <img
           src="/koscimiedkreg.webp"
-          alt="Tło kości i kwiatów"
+          alt=""
           className="w-full h-full object-cover opacity-50"
           style={{
             objectPosition: 'left center, right center',
@@ -84,10 +84,11 @@ export default function Services() {
 
       {/* ZAWARTOŚĆ */}
       <div className="relative z-10 max-w-6xl mx-auto">
+        <h2 className="sr-only">Zakres usług Uzdrowiska</h2>
         {/* Grid usług */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <Motion.div
+            <Motion.li
               key={index}
               className="flex items-center gap-4 bg-[#F5D5C5] rounded-lg px-4 py-3 shadow-sm"
               initial={{ opacity: 0, y: 30 }}
@@ -97,15 +98,16 @@ export default function Services() {
             >
               <img
                 src={service.icon}
-                alt={service.text}
+                alt=""
+                aria-hidden="true"
                 className="h-8 w-8 object-contain"
                 loading="lazy"
                 decoding="async"
               />
               <p className="text-lg font-medium">{service.text}</p>
-            </Motion.div>
+            </Motion.li>
           ))}
-        </div>
+        </ul>
 
         {/* Sekcja kontaktowa */}
         <Motion.div

@@ -70,7 +70,8 @@ export default function WhyUs() {
       {/* Tło ilustracyjne */}
       <img
         src="/piasek.webp"
-        alt="Tło dekoracyjne"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none select-none"
         loading="lazy"
         decoding="async"
@@ -119,14 +120,14 @@ export default function WhyUs() {
           variants={fadeInUp}
           custom={4}
         >
-          Każdy zasługuje na życie bez bólu.
+          Wspólnie pracujemy nad większym komfortem i swobodą ruchu.
         </Motion.p>
         <Motion.p
           className="text-xl md:text-2xl mb-8"
           variants={fadeInUp}
           custom={5}
         >
-          Pozwól nam pomóc odzyskać Twój komfort i równowagę.
+          Zakres pracy dobieramy do potrzeb i możliwości pacjenta.
         </Motion.p>
 
         {/* CTA */}

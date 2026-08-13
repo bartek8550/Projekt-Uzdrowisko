@@ -16,10 +16,10 @@ export default function NewsPage() {
       }}
     >
       {/* TŁO ZDEFINIOWANE Z OBRAZU */}
-      <div className="absolute inset-0 z-0 opacity-25 pointer-events-none select-none">
+      <div className="absolute inset-0 z-0 opacity-25 pointer-events-none select-none" aria-hidden="true">
         <img
           src="/recekwiaty.webp"
-          alt="Dekoracyjne tło z rękami i kwiatami"
+          alt=""
           className="w-full h-full object-cover mx-auto"
           loading="lazy"
           decoding="async"
@@ -29,7 +29,7 @@ export default function NewsPage() {
       {/* TREŚĆ */}
       <div className="relative z-10 max-w-6xl mx-auto space-y-20">
         {newsList.map((news, index) => (
-          <Motion.div
+          <Motion.article
             key={news.id}
             className="flex flex-col md:flex-row gap-10 items-center"
             initial={{ opacity: 0, y: 40 }}
@@ -60,17 +60,21 @@ export default function NewsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
             >
-              <p className="text-sm">{news.date}</p>
-              <h2 className="text-2xl font-bold">{news.title}</h2>
+              <time className="text-sm" dateTime={news.dateTime}>{news.date}</time>
+              <h2 className="text-2xl font-bold">
+                <Link to={`/aktualnosci/${news.id}`} className="hover:underline">
+                  {news.title}
+                </Link>
+              </h2>
               <p>{news.excerpt}</p>
               <Link
                 to={`/aktualnosci/${news.id}`}
                 className="text-[#3E1F1B] font-semibold hover:underline"
               >
-                Czytaj więcej →
+                Czytaj więcej<span className="sr-only">: {news.title}</span> →
               </Link>
             </Motion.div>
-          </Motion.div>
+          </Motion.article>
         ))}
       </div>
     </Motion.section>

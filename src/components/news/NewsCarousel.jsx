@@ -4,6 +4,7 @@ import { newsList } from "./newsData";
 import NewsCard from "./NewsCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion as Motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -55,7 +56,8 @@ export default function NewsCarousel() {
 
       <img
         src="/cennikTlo.webp"
-        alt="Tło dekoracyjne"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-8 pointer-events-none select-none z-0"
         loading="lazy"
         decoding="async"
@@ -80,7 +82,7 @@ export default function NewsCarousel() {
             onClick={scrollPrev}
             disabled={!canScrollPrev}
             aria-label="Poprzedni slajd"
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#E8C2AE] rounded-full p-2 text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10"
+            className="absolute left-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-[#E8C2AE] rounded-full text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4E342E]"
             variants={fadeInUp}
             custom={0.1}
           >
@@ -117,7 +119,7 @@ export default function NewsCarousel() {
             onClick={scrollNext}
             disabled={!canScrollNext}
             aria-label="Następny slajd"
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E8C2AE] rounded-full p-2 text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10"
+            className="absolute right-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-[#E8C2AE] rounded-full text-[#4E342E] hover:text-[#D4AF37] transition disabled:opacity-30 z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4E342E]"
             variants={fadeInUp}
             custom={0.2}
           >
@@ -130,12 +132,12 @@ export default function NewsCarousel() {
           variants={fadeInUp}
           custom={0.3}
         >
-          <a
-            href="/aktualnosci"
+          <Link
+            to="/aktualnosci"
             className="bg-[#8D6E62] text-[#CCA291] px-6 md:px-8 py-2.5 md:py-3 rounded-md hover:scale-105 transition inline-block text-sm md:text-base"
           >
             Przejdź do aktualności
-          </a>
+          </Link>
         </Motion.div>
       </Motion.div>
     </section>

@@ -45,7 +45,8 @@ export default function Opinions() {
 
       <img
         src="/opinionstlo.webp"
-        alt="Tło opinii"
+        alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none select-none"
         loading="lazy"
         decoding="async"
