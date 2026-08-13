@@ -7,6 +7,7 @@ import NewsDetails from "../components/news/NewsDetails";
 import { newsList } from '../components/news/newsData';
 import Seo from '../components/Seo';
 import NotFound from './NotFound';
+import { metadataForNews } from '../routeMetadata';
 
 function NewsPage() {
   const { id } = useParams();
@@ -14,20 +15,14 @@ function NewsPage() {
 
   if (!news) return <NotFound />;
 
-  const title = `${news.title} | Aktualności | Uzdrowisko Marki`;
-
-  const description = news.excerpt;
-
-  const image = news.image;
+  const metadata = metadataForNews(news);
 
   return (
     <div className="bg-background text-gold font-cardo">
       <Seo
-        title={title}
-        description={description}
+        {...metadata}
         path={id ? `/aktualnosci/${id}` : '/aktualnosci'}
-        image={image}
-        type="article"
+        article={{ headline: news.title }}
       />
       <Navbar />
       <HeaderOther />

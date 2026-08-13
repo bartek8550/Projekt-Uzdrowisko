@@ -3,13 +3,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PriceListContent from '../components/PriceListContent';
 import Seo from '../components/Seo';
+import { pageMetadata } from '../routeMetadata';
 
 function PriceList() {
   return (
     <>
       <Seo
-        title="Cennik usług | Uzdrowisko Marki"
-        description="Sprawdź aktualny cennik fizjoterapii, terapii manualnej, chiropraktyki oraz wizyt domowych w gabinecie Uzdrowisko."
+        {...pageMetadata['/cennik']}
         path="/cennik"
       />
       <div className="bg-background text-gold font-cardo">

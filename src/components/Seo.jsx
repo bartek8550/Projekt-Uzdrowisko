@@ -4,6 +4,7 @@ import {
   SeoCollectorContext,
   SITE_URL,
 } from '../seoConfig.js';
+import { createPageSchema, serializeJsonLd } from '../seoSchema.js';
 
 function setMeta(selector, key, value) {
   if (!value) return;
@@ -49,8 +50,9 @@ function normalizeSeo({
   image = DEFAULT_IMAGE,
   type = 'website',
   robots = 'index, follow',
+  article,
 }) {
-  return {
+  const normalized = {
     title,
     description,
     canonical: path === null ? null : `${SITE_URL}${path}`,
@@ -58,11 +60,19 @@ function normalizeSeo({
     type,
     robots,
   };
+
+  return {
+    ...normalized,
+    schema: path === null
+      ? null
+      : createPageSchema({ path, title, description, image: normalized.image, article }),
+  };
 }
 
 export default function Seo(props) {
   const collectSeo = useContext(SeoCollectorContext);
   const seo = normalizeSeo(props);
+  const serializedSchema = seo.schema ? serializeJsonLd(seo.schema) : '';
 
   if (collectSeo) collectSeo(seo);
 
@@ -82,12 +92,30 @@ export default function Seo(props) {
       removeMeta('property', 'og:url');
     }
     setMeta('property', 'og:image', seo.image);
+    setMeta('property', 'og:image:width', '1200');
+    setMeta('property', 'og:image:height', '630');
+    setMeta('property', 'og:image:alt', 'Uzdrowisko – gabinet fizjoterapii w Zielonce');
+    setMeta('property', 'og:locale', 'pl_PL');
+    setMeta('property', 'og:site_name', 'Uzdrowisko');
 
     setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:title', seo.title);
     setMeta('name', 'twitter:description', seo.description);
     setMeta('name', 'twitter:image', seo.image);
-  }, [seo.title, seo.description, seo.canonical, seo.image, seo.type, seo.robots]);
+    setMeta('name', 'twitter:image:alt', 'Uzdrowisko – gabinet fizjoterapii w Zielonce');
+
+    const schemaId = 'structured-data';
+    const existingSchema = document.getElementById(schemaId);
+    if (!serializedSchema) {
+      existingSchema?.remove();
+    } else {
+      const script = existingSchema || document.createElement('script');
+      script.id = schemaId;
+      script.type = 'application/ld+json';
+      script.textContent = serializedSchema;
+      if (!existingSchema) document.head.appendChild(script);
+    }
+  }, [seo.title, seo.description, seo.canonical, seo.image, seo.type, seo.robots, serializedSchema]);
 
   return null;
 }

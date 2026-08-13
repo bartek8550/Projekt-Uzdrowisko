@@ -12,6 +12,7 @@ import Opinions from "../components/Opinions";
 import Kontakt from "../components/Kontakt";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
+import { pageMetadata } from '../routeMetadata';
 
 function Home() {
   const location = useLocation();
@@ -42,8 +43,7 @@ function Home() {
   return (
     <>
       <Seo
-        title="Uzdrowisko Marki - Fizjoterapia i terapia manualna"
-        description="Uzdrowisko to gabinet fizjoterapii i terapii manualnej mgr Hanny Nowotczyńskiej. Skuteczna pomoc w bólu kręgosłupa, rehabilitacji i regeneracji w Zielonce koło Marek."
+        {...pageMetadata['/']}
         path="/"
       />
       <div className="bg-background text-gold font-cardo">

@@ -3,13 +3,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Services from '../components/Services';
 import Seo from '../components/Seo';
+import { pageMetadata } from '../routeMetadata';
 
 function ServicesPage() {
   return (
     <>
       <Seo
-        title="Usługi fizjoterapii | Uzdrowisko Marki"
-        description="Poznaj pełną ofertę gabinetu Uzdrowisko: fizjoterapia, masaż leczniczy, rehabilitacja, drenaż limfatyczny i terapie specjalistyczne."
+        {...pageMetadata['/dlaczego']}
         path="/dlaczego"
       />
       <div className="bg-background text-gold font-cardo">

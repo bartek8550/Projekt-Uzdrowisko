@@ -2,6 +2,7 @@ import { copyFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { notFoundBuildPath, staticRoutes } from '../src/staticRoutes.js';
+import { serializeJsonLd } from '../src/seoSchema.js';
 
 const projectRoot = process.cwd();
 const distDir = join(projectRoot, 'dist');
@@ -25,13 +26,21 @@ function escapeAttribute(value) {
 }
 
 function renderSeo(seo) {
+  const serializedSchema = seo.schema
+    ? serializeJsonLd(seo.schema)
+    : null;
   const tags = [
     `<meta name="description" content="${escapeAttribute(seo.description)}" />`,
     `<meta name="robots" content="${escapeAttribute(seo.robots)}" />`,
     `<meta property="og:title" content="${escapeAttribute(seo.title)}" />`,
     `<meta property="og:description" content="${escapeAttribute(seo.description)}" />`,
     `<meta property="og:image" content="${escapeAttribute(seo.image)}" />`,
+    '<meta property="og:image:width" content="1200" />',
+    '<meta property="og:image:height" content="630" />',
+    '<meta property="og:image:alt" content="Uzdrowisko – gabinet fizjoterapii w Zielonce" />',
     `<meta property="og:type" content="${escapeAttribute(seo.type)}" />`,
+    '<meta property="og:locale" content="pl_PL" />',
+    '<meta property="og:site_name" content="Uzdrowisko" />',
     ...(seo.canonical
       ? [
           `<meta property="og:url" content="${escapeAttribute(seo.canonical)}" />`,
@@ -42,6 +51,10 @@ function renderSeo(seo) {
     `<meta name="twitter:title" content="${escapeAttribute(seo.title)}" />`,
     `<meta name="twitter:description" content="${escapeAttribute(seo.description)}" />`,
     `<meta name="twitter:image" content="${escapeAttribute(seo.image)}" />`,
+    '<meta name="twitter:image:alt" content="Uzdrowisko – gabinet fizjoterapii w Zielonce" />',
+    ...(serializedSchema
+      ? [`<script id="structured-data" type="application/ld+json">${serializedSchema}</script>`]
+      : []),
     `<title>${escapeText(seo.title)}</title>`,
   ];
 
