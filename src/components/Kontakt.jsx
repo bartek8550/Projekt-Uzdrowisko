@@ -1,5 +1,6 @@
 import { MapPin, Phone, Clock } from 'lucide-react';
 import { motion as Motion } from 'framer-motion';
+import { MAP_URL, PHONE_DISPLAY, PHONE_HREF } from '../businessInfo.js';
 
 export default function Kontakt() {
   return (
@@ -45,18 +46,25 @@ export default function Kontakt() {
 
           <div className="flex items-start gap-4 text-left">
             <MapPin size={28} className="mt-3" />
-            <p className="text-base md:text-lg font-semibold text-left">
+            <a
+              href={MAP_URL}
+              className="rounded-sm text-base md:text-lg font-semibold text-left underline decoration-transparent underline-offset-4 transition hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4E342E]"
+            >
               ul. Kolejowa 76,
               <br />
               05–220 Zielonka
-            </p>
+              <span className="block text-sm font-normal">Wyznacz trasę</span>
+            </a>
           </div>
 
           <div className="flex items-center gap-4 text-left">
             <Phone size={28} />
-            <p className="text-base md:text-lg font-semibold">
-              +48 510 783 269
-            </p>
+            <a
+              href={PHONE_HREF}
+              className="rounded-sm text-base md:text-lg font-semibold underline decoration-transparent underline-offset-4 transition hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4E342E]"
+            >
+              {PHONE_DISPLAY}
+            </a>
           </div>
 
           <div className="flex items-start gap-4 text-left">

@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, Facebook } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { prefetchRoute } from '../utils/routeImports';
+import { FACEBOOK_URL } from '../businessInfo.js';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const menuButtonRef = useRef(null);
 
   const links = [
     { label: "O nas", hash: "onas" },
@@ -25,6 +27,20 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen]);
 
   const handleLinkClick = (hash) => {
     setIsOpen(false);
@@ -55,13 +71,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 py-2 flex justify-between items-center text-gold">
         {/* Logo z obsługą scroll-to-top */}
         <div className="flex items-center">
-          <button
-            onClick={() => {
+          <Link
+            to="/"
+            onClick={(event) => {
               setIsOpen(false);
               if (location.pathname === "/") {
+                event.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
-              } else {
-                navigate("/");
               }
             }}
             className="block cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]/75 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
@@ -74,15 +90,18 @@ export default function Navbar() {
               className="h-[7.5rem] w-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)]"
               decoding="async"
             />
-          </button>
+          </Link>
         </div>
 
         {/* Hamburger menu */}
         <div className="md:hidden">
           <button
+            ref={menuButtonRef}
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-            className="relative w-8 h-8 flex items-center justify-center hover:scale-110 transition-transform"
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isOpen ? 'Zamknij menu' : 'Otwórz menu'}
+            className="relative w-11 h-11 flex items-center justify-center hover:scale-110 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
           >
             <span
               className={`absolute transition-all duration-300 ease-in-out ${
@@ -134,7 +153,7 @@ export default function Navbar() {
           <div className="h-5 w-px bg-gold/40" aria-hidden="true" />
 
           <a
-            href="https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL"
+            href={FACEBOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook Uzdrowisko"
@@ -147,6 +166,8 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-navigation"
+        hidden={!isOpen}
         className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         } bg-background px-6 sm:px-8 text-gold`}
@@ -181,7 +202,7 @@ export default function Navbar() {
 
           <div className="flex justify-end pt-2">
             <a
-              href="https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL"
+              href={FACEBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}

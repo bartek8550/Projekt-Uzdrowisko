@@ -6,6 +6,7 @@ import { staticRoutes } from '../src/staticRoutes.js';
 import { newsList } from '../src/components/news/newsData.js';
 import { metadataForNews, pageMetadata } from '../src/routeMetadata.js';
 import { serializeJsonLd } from '../src/seoSchema.js';
+import { BOOKSY_URL, MAP_URL, PHONE_HREF } from '../src/businessInfo.js';
 
 const projectRoot = process.cwd();
 const distDir = join(projectRoot, 'dist');
@@ -120,6 +121,13 @@ test('metadata są kompletne, unikalne i mieszczą się w guardrailach', async (
   }
   assert.equal(titles.size, metadata.length);
   assert.equal(descriptions.size, metadata.length);
+});
+
+test('homepage ma bezpośrednie akcje kontaktu i rezerwacji', async () => {
+  const html = await readFile(outputPath('/'), 'utf8');
+  assert.ok(html.includes(`href="${BOOKSY_URL}"`), 'brak potwierdzonego Booksy');
+  assert.ok(html.includes(`href="${PHONE_HREF}"`), 'brak tel:');
+  assert.ok(html.includes(`href="${MAP_URL.replaceAll('&', '&amp;')}"`), 'brak linku do mapy');
 });
 
 test('404 jest noindex i nie ma canonicala', async () => {

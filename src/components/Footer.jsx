@@ -1,4 +1,5 @@
 import { MapPin, Phone, Clock } from 'lucide-react';
+import { FACEBOOK_URL, MAP_URL, PHONE_DISPLAY, PHONE_HREF } from '../businessInfo.js';
 
 export default function Footer() {
   return (
@@ -38,15 +39,23 @@ export default function Footer() {
             </h4>
             <div className="flex items-start gap-3">
               <MapPin size={20} className="mt-1" />
-              <p>
+              <a
+                href={MAP_URL}
+                className="rounded-sm underline decoration-transparent underline-offset-4 transition hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
+              >
                 ul. Kolejowa 76,
                 <br />
                 05-220 Zielonka
-              </p>
+              </a>
             </div>
             <div className="flex items-center gap-3">
               <Phone size={20} />
-              <p>+48 510 783 269</p>
+              <a
+                href={PHONE_HREF}
+                className="rounded-sm underline decoration-transparent underline-offset-4 transition hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"
+              >
+                {PHONE_DISPLAY}
+              </a>
             </div>
             <div className="flex items-start gap-3">
               <Clock size={20} className="mt-1" />
@@ -57,7 +66,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL"
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-md px-1 py-1 text-[#D4AF37] transition-all duration-200 hover:text-[#F2D57A] hover:bg-[#D4AF37]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F2D57A]/80"

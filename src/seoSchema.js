@@ -1,11 +1,10 @@
 import { DEFAULT_IMAGE, SITE_URL } from './seoConfig.js';
+import { BOOKSY_URL, FACEBOOK_URL, MAP_URL, PHONE_DISPLAY } from './businessInfo.js';
 
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const BUSINESS_ID = `${SITE_URL}/#business`;
 const PERSON_ID = `${SITE_URL}/#hanna-nowotczynska`;
 const LOGO_URL = `${SITE_URL}/optimized/logo-512.webp`;
-const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61585589293300&locale=pl_PL';
-const MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Kolejowa+76%2C+05-220+Zielonka';
 
 const pageLabels = {
   '/': 'Strona główna',
@@ -31,7 +30,7 @@ function baseEntities() {
       url: `${SITE_URL}/`,
       logo: LOGO_URL,
       image: DEFAULT_IMAGE,
-      telephone: '+48 510 783 269',
+      telephone: PHONE_DISPLAY,
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Kolejowa 76',
@@ -48,7 +47,7 @@ function baseEntities() {
       },
       founder: { '@id': PERSON_ID },
       employee: { '@id': PERSON_ID },
-      sameAs: [FACEBOOK_URL],
+      sameAs: [FACEBOOK_URL, BOOKSY_URL],
     },
     {
       '@type': 'Person',

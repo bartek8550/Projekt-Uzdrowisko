@@ -1,4 +1,5 @@
 import { motion as Motion } from 'framer-motion';
+import { BOOKSY_URL } from '../businessInfo.js';
 
 export default function Header() {
   const handleScrollTo = (id) => {
@@ -59,12 +60,12 @@ export default function Header() {
         transition={{ delay: 1, duration: 0.8 }}
         className="absolute bottom-24 sm:bottom-16 left-1/2 -translate-x-1/2 text-gold z-10 text-center"
       >
-        <button
-          onClick={() => handleScrollTo('kontakt')}
+        <a
+          href={BOOKSY_URL}
           className="inline-block bg-[#D4AF37] text-[#3E1F1B] px-6 py-3 rounded-md font-medium hover:scale-105 transition cursor-pointer"
         >
-          Umów wizytę
-        </button>
+          Umów wizytę online
+        </a>
         <button
           onClick={() => handleScrollTo('onas')}
           className="mt-6 block w-full text-center text-sm text-[#D4AF37] animate-bounce opacity-80 hover:opacity-100 transition cursor-pointer"

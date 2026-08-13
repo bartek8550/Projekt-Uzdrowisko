@@ -1,5 +1,6 @@
 import { motion as Motion } from 'framer-motion';
 import { Phone } from 'lucide-react';
+import { PHONE_DISPLAY, PHONE_HREF } from '../businessInfo.js';
 
 export default function Services() {
   const services = [
@@ -119,8 +120,8 @@ export default function Services() {
           </p>
           <div className="flex justify-center items-center gap-3 text-xl font-semibold">
             <Phone className="h-6 w-6" />
-            <a href="tel:+48510783269" className="hover:underline">
-              +48 510 783 269
+            <a href={PHONE_HREF} className="hover:underline">
+              {PHONE_DISPLAY}
             </a>
           </div>
         </Motion.div>
