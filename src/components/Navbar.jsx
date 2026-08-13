@@ -40,11 +40,18 @@ export default function Navbar() {
   };
 
   return (
-    <nav
-      className={`fixed w-full top-0 z-50 transition-colors duration-500 ${
-        scrolled || isOpen ? "bg-background" : "bg-transparent"
-      }`}
-    >
+    <>
+      <a
+        href="#main-content"
+        className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-md bg-[#F5E9E2] px-4 py-3 font-semibold text-[#3E1F1B] shadow-lg transition-transform focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+      >
+        Przejdź do treści
+      </a>
+      <nav
+        className={`fixed w-full top-0 z-50 transition-colors duration-500 ${
+          scrolled || isOpen ? "bg-background" : "bg-transparent"
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 py-2 flex justify-between items-center text-gold">
         {/* Logo z obsługą scroll-to-top */}
         <div className="flex items-center">
@@ -186,6 +193,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </nav>
+      </nav>
+    </>
   );
 }

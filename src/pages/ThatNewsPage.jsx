@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import HeaderOther from "../components/HeaderOther";
 import Navbar from "../components/Navbar";
 
 import Footer from "../components/Footer";
@@ -25,8 +24,9 @@ function NewsPage() {
         article={{ headline: news.title }}
       />
       <Navbar />
-      <HeaderOther />
-      <NewsDetails />
+      <main id="main-content" tabIndex={-1}>
+        <NewsDetails />
+      </main>
       <Footer />
     </div>
   );

@@ -14,8 +14,10 @@ function ServicesPage() {
       />
       <div className="bg-background text-gold font-cardo">
         <Navbar />
-        <HeaderOther />
-        <Services />
+        <main id="main-content" tabIndex={-1}>
+          <HeaderOther />
+          <Services />
+        </main>
         <Footer />
       </div>
     </>

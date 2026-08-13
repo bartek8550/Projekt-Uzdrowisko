@@ -33,6 +33,10 @@ function jsonLdFrom(html) {
   return JSON.parse(match[1]);
 }
 
+function textContent(htmlFragment) {
+  return htmlFragment.replace(/<[^>]+>/g, '').replaceAll('&amp;', '&').trim();
+}
+
 test('każda trasa ma pełny, kanoniczny HTML', async () => {
   for (const route of staticRoutes) {
     const html = await readFile(outputPath(route), 'utf8');
@@ -41,7 +45,19 @@ test('każda trasa ma pełny, kanoniczny HTML', async () => {
 
     assert.match(html, /<div id="root" data-prerendered="true">[\s\S]+<\/div>/);
     assert.doesNotMatch(html, /data-ssr-outlet/);
-    assert.match(html, /<h1(?:\s[^>]*)?>[\s\S]*?<\/h1>/);
+    assert.equal(count(html, '<main id="main-content"'), 1, `${route}: main`);
+    assert.equal(count(html, 'href="#main-content"'), 1, `${route}: skip link`);
+    const h1Matches = [...html.matchAll(/<h1(?:\s[^>]*)?>([\s\S]*?)<\/h1>/g)];
+    assert.equal(h1Matches.length, 1, `${route}: dokładnie jeden H1`);
+    const news = newsList.find(({ id }) => route === `/aktualnosci/${id}`);
+    const expectedH1 = news?.title || {
+      '/': 'Uzdrowisko',
+      '/onas': 'O nas',
+      '/cennik': 'Cennik',
+      '/dlaczego': 'Usługi',
+      '/aktualnosci': 'Aktualności',
+    }[route];
+    assert.equal(textContent(h1Matches[0][1]), expectedH1, `${route}: treść H1`);
     assert.equal(count(html, '<title>'), 1, `${route}: title`);
     assert.equal(count(html, 'name="description"'), 1, `${route}: description`);
     assert.equal(count(html, 'rel="canonical"'), 1, `${route}: canonical`);
@@ -74,8 +90,11 @@ test('każda trasa ma pełny, kanoniczny HTML', async () => {
       assert.ok(article, `${route}: Article`);
       assert.equal('datePublished' in article, false, `${route}: niepotwierdzona data`);
       assert.equal('author' in article, false, `${route}: niepotwierdzony autor`);
+      assert.equal(count(html, '<article '), 1, `${route}: article`);
+      assert.match(html, /<time dateTime="\d{4}-\d{2}-\d{2}">/, `${route}: time`);
     } else {
       assert.equal(article, undefined, `${route}: zbędny Article`);
+      assert.equal(count(html, '<article '), 0, `${route}: zbędny article`);
     }
   }
 });

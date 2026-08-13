@@ -48,18 +48,20 @@ function Home() {
       />
       <div className="bg-background text-gold font-cardo">
         <Navbar />
-        <Header />
-        <About />
-        <QuoteBanner
-          text="„Równowaga ciała to początek harmonii w całym życiu.”"
-          background="#4E342E"
-          textColor="#D4AF37"
-        />
-        <NewsCarousel />
-        <WhyUs />
-        <Offer />
-        <Opinions />
-        <Kontakt />
+        <main id="main-content" tabIndex={-1}>
+          <Header />
+          <About />
+          <QuoteBanner
+            text="„Równowaga ciała to początek harmonii w całym życiu.”"
+            background="#4E342E"
+            textColor="#D4AF37"
+          />
+          <NewsCarousel />
+          <WhyUs />
+          <Offer />
+          <Opinions />
+          <Kontakt />
+        </main>
         <Footer />
       </div>
     </>

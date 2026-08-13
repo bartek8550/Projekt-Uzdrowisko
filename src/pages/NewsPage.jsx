@@ -14,8 +14,10 @@ function NewsPage() {
       />
       <div className="bg-background text-gold font-cardo">
         <Navbar />
-        <HeaderOther />
-        <NewsPageContent />
+        <main id="main-content" tabIndex={-1}>
+          <HeaderOther />
+          <NewsPageContent />
+        </main>
         <Footer />
       </div>
     </>

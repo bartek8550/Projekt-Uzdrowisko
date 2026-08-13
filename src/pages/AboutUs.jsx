@@ -14,8 +14,10 @@ function AboutUs() {
       />
       <div className="bg-background text-gold font-cardo">
         <Navbar />
-        <HeaderOther />
-        <AboutUsContent />
+        <main id="main-content" tabIndex={-1}>
+          <HeaderOther />
+          <AboutUsContent />
+        </main>
         <Footer />
       </div>
     </>

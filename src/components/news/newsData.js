@@ -2,6 +2,7 @@ export const newsList = [
   {
     id: 'nowa-lokalizacja-zielonka',
     date: '10 lutego 2026',
+    dateTime: '2026-02-10',
     title: 'Nowy rozdział — Uzdrowisko w nowej lokalizacji!',
     excerpt:
       'Z ogromną radością informuję, że od 10 lutego 2026 roku Uzdrowisko rozpoczyna działalność w nowym, pięknym gabinecie w Zielonce przy ul. Kolejowej 76. To miejsce, które tworzyłam z myślą o Waszym komforcie i spokoju',
@@ -29,6 +30,8 @@ Zapraszam serdecznie do nowego Uzdrowiska — z nową energią, w nowym miejscu,
   {
     id: 'szkolenie-toony-therapy',
     date: '6–8 lutego 2026',
+    dateTime: '2026-02-06',
+    endDateTime: '2026-02-08',
     title: 'Powrót do Akademii ToonyTherapy — powtórka i przygotowanie do egzaminu!',
     excerpt:
       'Tak się wychodzi szczęśliwą po kolejnym szkoleniu w ToonyTherapy! Trzy intensywne dni w Akademii ToonyTherapy w Gdańsku — powtórka modułów, szlifowanie technik chiropraktycznych i przygotowanie do egzaminu',
@@ -51,6 +54,7 @@ Jeśli chcesz przekonać się, jak działają techniki ToonyTherapy w praktyce �
   {
     id: 'nowa-usluga-tt',
     date: '9 czerwca 2025',
+    dateTime: '2025-06-09',
     title: 'Nowa usługa: chiropraktyka i techniki TT!',
     excerpt:
       'Z przyjemnością informuję, że ukończyłam specjalistyczne szkolenie w Chiropractic School of Poland, które koncentrowało się na metodzie TT (Toony Therapy) oraz na zaawansowanych technikach terapii manualnej (MTT – Manual Toony Therapy)',

@@ -15,6 +15,7 @@ export default function NotFound() {
       <Navbar />
       <main
         id="main-content"
+        tabIndex={-1}
         className="min-h-[70vh] px-6 pt-40 pb-24 text-center flex flex-col items-center justify-center"
       >
         <p className="text-sm uppercase tracking-[0.25em] opacity-80">Błąd 404</p>

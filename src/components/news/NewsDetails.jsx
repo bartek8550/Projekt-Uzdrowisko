@@ -12,8 +12,11 @@ export default function NewsDetails() {
       <p className="text-center py-20 text-[#3E1F1B]">Nie znaleziono newsa.</p>
     );
 
+  const titleId = `article-${news.id}-title`;
+
   return (
-    <Motion.section
+    <Motion.article
+      aria-labelledby={titleId}
       className="relative bg-[#D6A996] min-h-screen py-20 px-6 text-[#3E1F1B] overflow-hidden"
       initial="hidden"
       animate="visible"
@@ -25,10 +28,10 @@ export default function NewsDetails() {
       }}
     >
       {/* TŁO: dlonkwiat.webp */}
-      <div className="absolute inset-0 z-0 opacity-8 pointer-events-none select-none">
+      <div className="absolute inset-0 z-0 opacity-8 pointer-events-none select-none" aria-hidden="true">
         <img
           src="/dlonkwiat.webp"
-          alt="Dekoracyjne tło z dłonią i roślinami"
+          alt=""
           className="w-full h-full object-cover"
           loading="lazy"
           decoding="async"
@@ -37,6 +40,36 @@ export default function NewsDetails() {
 
       {/* TREŚĆ */}
       <div className="relative z-10 max-w-4xl mx-auto space-y-6">
+        <header className="space-y-3 pt-20">
+          <Motion.h1
+            id={titleId}
+            className="text-3xl md:text-4xl font-bold"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            {news.title}
+          </Motion.h1>
+
+          <Motion.p
+            className="italic text-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            {news.endDateTime ? (
+              <>
+                <time dateTime={news.dateTime}>6 lutego 2026</time>
+                <span aria-hidden="true">–</span>
+                <span className="sr-only"> do </span>
+                <time dateTime={news.endDateTime}>8 lutego 2026</time>
+              </>
+            ) : (
+              <time dateTime={news.dateTime}>{news.date}</time>
+            )}
+          </Motion.p>
+        </header>
+
         {/* Obrazek główny */}
         <Motion.img
           src={news.image}
@@ -51,34 +84,16 @@ export default function NewsDetails() {
         {/* Galeria zdjęć */}
         {news.gallery && <ImageGallery images={news.gallery} title={news.title} />}
 
-        {/* Tytuł */}
-        <Motion.h2
-          className="text-3xl font-bold"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          {news.title}
-        </Motion.h2>
-
-        {/* Data */}
-        <Motion.p
-          className="italic text-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          {news.date}
-        </Motion.p>
-
         {/* Treść */}
         <Motion.div
-          className="whitespace-pre-line leading-relaxed"
+          className="space-y-5 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {news.content}
+          {news.content.split('\n\n').map((paragraph, index) => (
+            <p key={`${news.id}-${index}`}>{paragraph}</p>
+          ))}
         </Motion.div>
 
         {/* Powrót */}
@@ -96,6 +111,6 @@ export default function NewsDetails() {
           </Link>
         </Motion.div>
       </div>
-    </Motion.section>
+    </Motion.article>
   );
 }

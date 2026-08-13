@@ -14,8 +14,10 @@ function PriceList() {
       />
       <div className="bg-background text-gold font-cardo">
         <Navbar />
-        <HeaderOther />
-        <PriceListContent />
+        <main id="main-content" tabIndex={-1}>
+          <HeaderOther />
+          <PriceListContent />
+        </main>
         <Footer />
       </div>
     </>
