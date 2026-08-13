@@ -69,6 +69,8 @@ test('każda trasa ma pełny, kanoniczny HTML', async () => {
     assert.equal(textContent(h1Matches[0][1]), expectedH1, `${route}: treść H1`);
     assert.equal(count(html, '<title>'), 1, `${route}: title`);
     assert.equal(count(html, 'name="description"'), 1, `${route}: description`);
+    assert.equal(count(html, 'name="robots"'), 1, `${route}: robots`);
+    assert.ok(html.includes('content="index, follow"'), `${route}: robots index, follow`);
     assert.equal(count(html, 'rel="canonical"'), 1, `${route}: canonical`);
     assert.equal(count(html, 'type="application/ld+json"'), 1, `${route}: JSON-LD`);
     assert.ok(html.includes(`<title>${metadata.title}</title>`), `${route}: treść title`);
@@ -154,11 +156,35 @@ test('serializer JSON-LD nie pozwala zamknąć znacznika script', () => {
 
 test('sitemap i lista tras są zgodne', async () => {
   const sitemap = await readFile(join(distDir, 'sitemap.xml'), 'utf8');
-  const sitemapRoutes = [...sitemap.matchAll(/<loc>https:\/\/uzdrowisko-marki\.pl([^<]*)<\/loc>/g)]
-    .map((match) => match[1] || '/')
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  const sitemapRoutes = sitemapUrls
+    .map((value) => {
+      const url = new URL(value);
+      assert.equal(url.protocol, 'https:', `${value}: protokół`);
+      assert.equal(url.hostname, 'uzdrowisko-marki.pl', `${value}: host`);
+      assert.equal(url.search, '', `${value}: query string`);
+      assert.equal(url.hash, '', `${value}: fragment`);
+      assert.doesNotMatch(url.pathname, /\.html$/i, `${value}: .html`);
+      if (url.pathname !== '/') assert.doesNotMatch(url.pathname, /\/$/, `${value}: trailing slash`);
+      return url.pathname;
+    })
     .sort();
 
+  assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, 'powtórzone URL-e sitemap');
   assert.deepEqual(sitemapRoutes, [...staticRoutes].sort());
+});
+
+test('robots utrzymuje dostęp do Search i wskazuje kanoniczną sitemapę', async () => {
+  const robots = await readFile(join(distDir, 'robots.txt'), 'utf8');
+  assert.equal(robots.charCodeAt(0) === 0xfeff, false, 'robots.txt ma BOM');
+  assert.match(robots, /^User-agent: \*\r?\nAllow: \/$/m);
+  assert.equal(
+    count(robots, 'Sitemap: https://uzdrowisko-marki.pl/sitemap.xml'),
+    1,
+    'robots.txt: dokładnie jedna kanoniczna sitemap',
+  );
+  assert.doesNotMatch(robots, /OAI-SearchBot[\s\S]*Disallow:\s*\//i);
+  assert.doesNotMatch(robots, /Bingbot[\s\S]*Disallow:\s*\//i);
 });
 
 test('tymczasowy bundle serwerowy został posprzątany', async () => {
