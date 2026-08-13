@@ -93,7 +93,7 @@ export default function Kontakt() {
             width="100%"
             className="rounded-md border-0 w-full h-[250px] sm:h-[300px] md:h-[400px]"
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerPolicy="strict-origin-when-cross-origin"
             title="Mapa lokalizacji gabinetu fizjoterapii"
           />
         </Motion.div>

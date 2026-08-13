@@ -190,3 +190,28 @@ test('hosting nie zawiera fallbacku SPA i ma konfigurację 404', async () => {
   const netlify = await readFile(join(projectRoot, 'netlify.toml'), 'utf8');
   assert.match(netlify, /pretty_urls\s*=\s*false/);
 });
+
+test('hosting ma spójną politykę cache i bazowe nagłówki bezpieczeństwa', async () => {
+  const headers = await readFile(join(distDir, '_headers'), 'utf8');
+  const htaccess = await readFile(join(distDir, '.htaccess'), 'utf8');
+  const index = await readFile(join(distDir, 'index.html'), 'utf8');
+
+  for (const header of [
+    'Content-Security-Policy-Report-Only',
+    'Permissions-Policy',
+    'Referrer-Policy',
+    'Strict-Transport-Security',
+    'X-Content-Type-Options',
+    'X-Frame-Options',
+  ]) {
+    assert.ok(headers.includes(`${header}:`), `Netlify: brak ${header}`);
+    assert.ok(htaccess.includes(header), `Apache: brak ${header}`);
+  }
+
+  assert.match(headers, /\/assets\/\*[\s\S]*max-age=31536000, immutable/);
+  assert.match(headers, /\/sw\.js[\s\S]*Cache-Control: no-store/);
+  assert.match(headers, /Netlify-CDN-Cache-Control: no-store/);
+  assert.match(headers, /manifest\.webmanifest[\s\S]*application\/manifest\+json/);
+  assert.doesNotMatch(index, /\sonload=/i);
+  assert.doesNotMatch(index, /media="print"/i);
+});

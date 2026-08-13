@@ -10,3 +10,8 @@ test('service worker usuwa stare cache i nie przechowuje HTML ani skanów', () =
   assert.doesNotMatch(worker, /mode === ['"]navigate['"]/);
   assert.doesNotMatch(worker, /index\.html|HannaNow|manifest\.webmanifest|robots\.txt/);
 });
+
+test('rejestracja workera omija pamięć podręczną skryptu', async () => {
+  const client = await readFile(new URL('../src/main.jsx', import.meta.url), 'utf8');
+  assert.match(client, /register\('\/sw\.js', \{ updateViaCache: 'none' \}\)/);
+});
