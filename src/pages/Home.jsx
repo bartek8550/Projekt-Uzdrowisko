@@ -33,8 +33,8 @@ function Home() {
       "/optimized/gabinet-1024.webp",
       "/papier.webp",
       "/kosc.webp",
-      "/icons/Kregoslup.webp",
-      "/icons/ludzik.webp",
+      "/img-icons/Kregoslup.webp",
+      "/img-icons/ludzik.webp",
       "/offer/masowanie plecow.webp",
       "/offer/rehabilitacja.webp",
     ];
