@@ -2,3 +2,18 @@
 http://www.uzdrowisko-marki.pl/*  https://uzdrowisko-marki.pl/:splat  301!
 https://www.uzdrowisko-marki.pl/* https://uzdrowisko-marki.pl/:splat  301!
 http://uzdrowisko-marki.pl/*      https://uzdrowisko-marki.pl/:splat  301!
+
+# Płaskie pliki prerenderu mają jedną publiczną postać: bez .html.
+/index.html                                      /                                      301!
+/index                                           /                                      301!
+/onas.html                                       /onas                                  301!
+/cennik.html                                     /cennik                                301!
+/dlaczego.html                                   /dlaczego                              301!
+/aktualnosci.html                                /aktualnosci                           301!
+/aktualnosci/nowa-lokalizacja-zielonka.html     /aktualnosci/nowa-lokalizacja-zielonka 301!
+/aktualnosci/szkolenie-toony-therapy.html        /aktualnosci/szkolenie-toony-therapy    301!
+/aktualnosci/nowa-usluga-tt.html                 /aktualnosci/nowa-usluga-tt              301!
+
+# Dokument błędu nie jest publiczną stroną o statusie 200.
+/404                                             /404.html                              404!
+/404.html                                        /404.html                              404!

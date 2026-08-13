@@ -22,6 +22,10 @@ function count(haystack, needle) {
   return haystack.split(needle).length - 1;
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function metadataForRoute(route) {
   if (pageMetadata[route]) return pageMetadata[route];
   const news = newsList.find(({ id }) => route === `/aktualnosci/${id}`);
@@ -167,9 +171,21 @@ test('hosting nie zawiera fallbacku SPA i ma konfigurację 404', async () => {
 
   assert.doesNotMatch(redirects, /\/\*\s+\/index\.html\s+200/);
   assert.match(redirects, /https:\/\/www\.uzdrowisko-marki\.pl\/\*/);
+  assert.match(redirects, /^\/index\.html\s+\/\s+301!$/m);
+  for (const route of staticRoutes.filter((value) => value !== '/')) {
+    const escapedRoute = escapeRegExp(route);
+    assert.match(
+      redirects,
+      new RegExp(`^${escapedRoute}\\.html\\s+${escapedRoute}\\s+301!$`, 'm'),
+      `${route}: brak aliasu .html -> canonical`,
+    );
+  }
+  assert.match(redirects, /^\/404\.html\s+\/404\.html\s+404!$/m);
+  assert.doesNotMatch(redirects, /^\/[^\s]*\/\s+\/[^\s]*\s+301!?$/m);
   assert.match(htaccess, /ErrorDocument 404 \/404\.html/);
   assert.match(htaccess, /Options -MultiViews/);
   assert.match(htaccess, /RewriteRule \^404/);
+  assert.match(htaccess, /RewriteCond %\{DOCUMENT_ROOT\}\/\$1\.html -f/);
 
   const netlify = await readFile(join(projectRoot, 'netlify.toml'), 'utf8');
   assert.match(netlify, /pretty_urls\s*=\s*false/);
