@@ -5,7 +5,8 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 export default function AboutUsContent() {
   const [isOpen, setIsOpen] = useState(false);
   const [current, setCurrent] = useState(0);
-  const total = 12;
+  const certificateIds = [1, 8, 9, 11, 12];
+  const total = certificateIds.length;
 
   const next = () => setCurrent((prev) => (prev + 1) % total);
   const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
@@ -79,9 +80,9 @@ export default function AboutUsContent() {
           Moje dyplomy i certyfikaty
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {Array.from({ length: total }, (_, i) => (
+          {certificateIds.map((certificateId, i) => (
             <Motion.div
-              key={i}
+              key={certificateId}
               className="bg-[#F5E9E2] rounded-md shadow-md p-1.5 cursor-pointer hover:scale-105 transition aspect-[4/3]"
               whileHover={{ scale: 1.05 }}
               onClick={() => {
@@ -90,7 +91,7 @@ export default function AboutUsContent() {
               }}
             >
               <img
-                src={`/HannaNow/zdj${i + 1}.webp`}
+                src={`/HannaNow/zdj${certificateId}.webp`}
                 alt={`Certyfikat ${i + 1}`}
                 className="w-full h-full object-cover rounded"
                 loading="lazy"
@@ -125,7 +126,7 @@ export default function AboutUsContent() {
 
               <div className="flex flex-col items-center">
                 <img
-                  src={`/HannaNow/zdj${current + 1}.webp`}
+                  src={`/HannaNow/zdj${certificateIds[current]}.webp`}
                   alt={`Certyfikat ${current + 1}`}
                   className="max-h-[70vh] w-full object-contain rounded shadow"
                 />

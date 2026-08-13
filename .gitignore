@@ -28,3 +28,6 @@ AGENTS.md
 CHANGELOG.md
 TODO.md
 .claude/
+
+# Oryginalne dokumenty z danymi osobowymi — nigdy nie publikować ani commitować
+private-source/

@@ -24,7 +24,9 @@ function AboutUs() {
     const imageUrls = [
       '/aboutusphoto.webp',
       '/Hanna.webp',
-      ...Array.from({ length: 12 }, (_, i) => `/HannaNow/zdj${i + 1}.webp`),
+      ...[1, 8, 9, 11, 12].map(
+        (certificateId) => `/HannaNow/zdj${certificateId}.webp`,
+      ),
     ];
 
     let loaded = 0;
