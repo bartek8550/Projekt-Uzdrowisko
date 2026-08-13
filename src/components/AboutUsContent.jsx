@@ -1,23 +1,23 @@
 import { useState } from 'react';
-import { motion as Motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion as Motion } from 'framer-motion';
+import GalleryDialog from './gallery/GalleryDialog.jsx';
 
 export default function AboutUsContent() {
   const [isOpen, setIsOpen] = useState(false);
   const [current, setCurrent] = useState(0);
   const certificateIds = [1, 8, 9, 11, 12];
-  const total = certificateIds.length;
-
-  const next = () => setCurrent((prev) => (prev + 1) % total);
-  const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
+  const certificates = certificateIds.map((certificateId, index) => ({
+    src: `/HannaNow/zdj${certificateId}.webp`,
+    alt: `Certyfikat Hanny Nowotczyńskiej ${index + 1}`,
+  }));
 
   return (
     <section className="relative bg-[#CCA291] py-20 px-6 sm:px-10 md:px-14 overflow-hidden">
       {/* Tło sekcji */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none select-none">
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none select-none" aria-hidden="true">
         <img
           src="/aboutusphoto.webp"
-          alt="Dekoracyjne tło"
+          alt=""
           className="w-full h-full object-cover"
           loading="lazy"
           decoding="async"
@@ -81,14 +81,17 @@ export default function AboutUsContent() {
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {certificateIds.map((certificateId, i) => (
-            <Motion.div
+            <Motion.button
               key={certificateId}
+              type="button"
               className="bg-[#F5E9E2] rounded-md shadow-md p-1.5 cursor-pointer hover:scale-105 transition aspect-[4/3]"
               whileHover={{ scale: 1.05 }}
               onClick={() => {
                 setCurrent(i);
                 setIsOpen(true);
               }}
+              aria-haspopup="dialog"
+              aria-label={`Otwórz certyfikat ${i + 1} w powiększeniu`}
             >
               <img
                 src={`/HannaNow/zdj${certificateId}.webp`}
@@ -97,64 +100,20 @@ export default function AboutUsContent() {
                 loading="lazy"
                 decoding="async"
               />
-            </Motion.div>
+            </Motion.button>
           ))}
         </div>
       </div>
 
-      {/* Modal z karuzelą */}
-      <AnimatePresence>
-        {isOpen && (
-          <Motion.div
-            className="fixed inset-0 z-50 bg-black bg-opacity-70 flex justify-center items-center px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <Motion.div
-              className="relative bg-white rounded-lg max-w-4xl w-full p-4 overflow-auto max-h-[90vh]"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-            >
-              <button
-                onClick={() => setIsOpen(false)}
-                className="absolute top-3 right-3 text-gray-600 hover:text-black"
-              >
-                <X size={24} />
-              </button>
-
-              <div className="flex flex-col items-center">
-                <img
-                  src={`/HannaNow/zdj${certificateIds[current]}.webp`}
-                  alt={`Certyfikat ${current + 1}`}
-                  className="max-h-[70vh] w-full object-contain rounded shadow"
-                />
-                <p className="mt-2 text-sm text-gray-600">
-                  {current + 1} / {total}
-                </p>
-              </div>
-
-              <div className="absolute top-1/2 left-2 -translate-y-1/2">
-                <button
-                  onClick={prev}
-                  className="text-gray-700 hover:text-black"
-                >
-                  <ChevronLeft size={32} />
-                </button>
-              </div>
-              <div className="absolute top-1/2 right-2 -translate-y-1/2">
-                <button
-                  onClick={next}
-                  className="text-gray-700 hover:text-black"
-                >
-                  <ChevronRight size={32} />
-                </button>
-              </div>
-            </Motion.div>
-          </Motion.div>
-        )}
-      </AnimatePresence>
+      <GalleryDialog
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        items={certificates}
+        index={current}
+        onIndexChange={setCurrent}
+        label="Dyplomy i certyfikaty Hanny Nowotczyńskiej"
+        variant="light"
+      />
     </section>
   );
 }
