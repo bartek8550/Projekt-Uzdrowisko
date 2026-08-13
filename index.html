@@ -3,17 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4E342E" />
+    <!--seo:start-->
     <meta
       name="description"
       content="Uzdrowisko to gabinet fizjoterapii i terapii manualnej w Zielonce koło Marek. Skuteczna rehabilitacja, chiropraktyka i indywidualna opieka nad pacjentem."
     />
-    <meta
-      name="keywords"
-      content="fizjoterapia, rehabilitacja, masaż, terapia manualna, bóle kręgosłupa, Marki"
-    />
-    <meta name="author" content="Gabinet Fizjoterapii" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#4E342E" />
 
     <!-- Open Graph -->
     <meta
@@ -34,6 +30,8 @@
     <meta name="twitter:title" content="Uzdrowisko Marki - Fizjoterapia i terapia manualna" />
     <meta name="twitter:description" content="Uzdrowisko to gabinet fizjoterapii i terapii manualnej w Zielonce koło Marek." />
     <meta name="twitter:image" content="https://uzdrowisko-marki.pl/logo-Uzdrowisko-Marki.webp" />
+    <title>Uzdrowisko Marki - Fizjoterapia i terapia manualna</title>
+    <!--seo:end-->
 
     <!-- Structured data (Schema.org) -->
     <script type="application/ld+json">
@@ -112,10 +110,9 @@
       />
     </noscript>
 
-    <title>Uzdrowisko Marki - Fizjoterapia i terapia manualna</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root" data-ssr-outlet="true"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

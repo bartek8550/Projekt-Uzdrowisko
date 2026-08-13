@@ -76,7 +76,7 @@ export default function ImageGallery({ images, title }) {
       </Motion.button>
 
       {/* Lightbox / Karuzela na pełnym ekranie — renderowany przez portal */}
-      {createPortal(
+      {lightboxOpen && createPortal(
         <AnimatePresence>
           {lightboxOpen && (
             <Motion.div
@@ -164,7 +164,7 @@ export default function ImageGallery({ images, title }) {
             </Motion.div>
           )}
         </AnimatePresence>,
-        document.body
+        document.body,
       )}
     </>
   );

@@ -1,1 +1,4 @@
-/*    /index.html   200
+# Jeden kanoniczny host i protokół. Netlify zachowuje query string automatycznie.
+http://www.uzdrowisko-marki.pl/*  https://uzdrowisko-marki.pl/:splat  301!
+https://www.uzdrowisko-marki.pl/* https://uzdrowisko-marki.pl/:splat  301!
+http://uzdrowisko-marki.pl/*      https://uzdrowisko-marki.pl/:splat  301!

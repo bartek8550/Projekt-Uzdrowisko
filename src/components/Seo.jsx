@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
-
-const SITE_URL = 'https://uzdrowisko-marki.pl';
-const DEFAULT_IMAGE = `${SITE_URL}/logo-Uzdrowisko-Marki.webp`;
+import { useContext, useEffect } from 'react';
+import {
+  DEFAULT_IMAGE,
+  SeoCollectorContext,
+  SITE_URL,
+} from '../seoConfig.js';
 
 function setMeta(selector, key, value) {
   if (!value) return;
@@ -14,6 +16,10 @@ function setMeta(selector, key, value) {
   tag.setAttribute('content', value);
 }
 
+function removeMeta(selector, key) {
+  document.head.querySelector(`meta[${selector}="${key}"]`)?.remove();
+}
+
 function toAbsoluteUrl(url) {
   if (!url) return DEFAULT_IMAGE;
   if (/^https?:\/\//i.test(url)) return url;
@@ -21,16 +27,22 @@ function toAbsoluteUrl(url) {
 }
 
 function setCanonical(url) {
-  let link = document.head.querySelector('link[rel="canonical"]');
-  if (!link) {
-    link = document.createElement('link');
+  const existing = document.head.querySelector('link[rel="canonical"]');
+
+  if (!url) {
+    existing?.remove();
+    return;
+  }
+
+  const link = existing || document.createElement('link');
+  if (!existing) {
     link.setAttribute('rel', 'canonical');
     document.head.appendChild(link);
   }
   link.setAttribute('href', url);
 }
 
-export default function Seo({
+function normalizeSeo({
   title,
   description,
   path = '/',
@@ -38,27 +50,44 @@ export default function Seo({
   type = 'website',
   robots = 'index, follow',
 }) {
+  return {
+    title,
+    description,
+    canonical: path === null ? null : `${SITE_URL}${path}`,
+    image: toAbsoluteUrl(image),
+    type,
+    robots,
+  };
+}
+
+export default function Seo(props) {
+  const collectSeo = useContext(SeoCollectorContext);
+  const seo = normalizeSeo(props);
+
+  if (collectSeo) collectSeo(seo);
+
   useEffect(() => {
-    const canonical = `${SITE_URL}${path}`;
-    const ogImage = toAbsoluteUrl(image);
+    document.title = seo.title;
+    setCanonical(seo.canonical);
 
-    document.title = title;
-    setCanonical(canonical);
+    setMeta('name', 'description', seo.description);
+    setMeta('name', 'robots', seo.robots);
 
-    setMeta('name', 'description', description);
-    setMeta('name', 'robots', robots);
-
-    setMeta('property', 'og:title', title);
-    setMeta('property', 'og:description', description);
-    setMeta('property', 'og:type', type);
-    setMeta('property', 'og:url', canonical);
-    setMeta('property', 'og:image', ogImage);
+    setMeta('property', 'og:title', seo.title);
+    setMeta('property', 'og:description', seo.description);
+    setMeta('property', 'og:type', seo.type);
+    if (seo.canonical) {
+      setMeta('property', 'og:url', seo.canonical);
+    } else {
+      removeMeta('property', 'og:url');
+    }
+    setMeta('property', 'og:image', seo.image);
 
     setMeta('name', 'twitter:card', 'summary_large_image');
-    setMeta('name', 'twitter:title', title);
-    setMeta('name', 'twitter:description', description);
-    setMeta('name', 'twitter:image', ogImage);
-  }, [title, description, path, image, type, robots]);
+    setMeta('name', 'twitter:title', seo.title);
+    setMeta('name', 'twitter:description', seo.description);
+    setMeta('name', 'twitter:image', seo.image);
+  }, [seo.title, seo.description, seo.canonical, seo.image, seo.type, seo.robots]);
 
   return null;
 }

@@ -6,20 +6,19 @@ import Footer from "../components/Footer";
 import NewsDetails from "../components/news/NewsDetails";
 import { newsList } from '../components/news/newsData';
 import Seo from '../components/Seo';
+import NotFound from './NotFound';
 
 function NewsPage() {
   const { id } = useParams();
   const news = newsList.find((item) => item.id === id);
 
-  const title = news
-    ? `${news.title} | Aktualności | Uzdrowisko Marki`
-    : 'Aktualność | Uzdrowisko Marki';
+  if (!news) return <NotFound />;
 
-  const description = news?.excerpt
-    ? `${news.excerpt}`
-    : 'Szczegóły aktualności z gabinetu Uzdrowisko.';
+  const title = `${news.title} | Aktualności | Uzdrowisko Marki`;
 
-  const image = news?.image || '/logo-Uzdrowisko-Marki.webp';
+  const description = news.excerpt;
+
+  const image = news.image;
 
   return (
     <div className="bg-background text-gold font-cardo">
