@@ -1477,3 +1477,55 @@ Każdy poniższy punkt ma status **WYMAGA INFORMACJI OD WŁAŚCICIELA**:
 Projekt ma realną widoczność, rosnący popyt i publicznie widoczny w chwili testu profil lokalny, więc nie wymaga rebrandingu ani wymiany technologii. Największy wzrost powinien przyjść z połączenia trzech działań: skonsolidowania technicznych sygnałów URL i HTML, dopasowania trwałych stron do potwierdzonej intencji Zielonka/Marki oraz zbudowania weryfikowalnej encji Hanny i gabinetu w treści oraz schema.
 
 Na tym etapie raport nie wdraża żadnej rekomendacji. Każda później zatwierdzona zmiana powinna powstać jako mała, zweryfikowana jednostka z osobnym commitem.
+
+---
+
+# Status wdrożenia – 2026-08-13
+
+## Zakres i granica statusu
+
+Poniższa tabela aktualizuje stan bazowy opisany wyżej. Status `DONE` oznacza wykonanie i przetestowanie w lokalnym repozytorium, nie publikację na domenie. Zgodnie z poleceniem nie wykonano `git push` ani deployu. Końcowy test produkcji z 13.08.2026 około 20:00 CEST nadal pokazywał starą wersję: `https://www...` i dwa losowe nieistniejące URL-e zwracały 200. Wszystkie zmiany wymagają więc jeszcze deploy preview, wdrożenia i smoke testu produkcji.
+
+| ID | Status | Commit rozwiązujący / ograniczający problem | Test i wyjaśnienie | Pozostały blocker |
+| --- | --- | --- | --- | --- |
+| P1-01 | PARTIAL | `40e5af1`, `23517b2` | Reguły Netlify i Apache wymuszają HTTPS non-www, czyste URL-e bez `.html` i wybraną politykę bez trailing slash; build/test konfiguracji przechodzi. | Deploy i test jednego hopu z path/query; aktualizacja URL w GBP; produkcja nadal obsługuje `www` jako 200. |
+| P1-02 | DONE | `40e5af1`, `23517b2` | Build tworzy `404.html` z `noindex`, bez canonical i JSON-LD; brak fallbacku SPA; nieznany news trafia do NotFound; testy automatyczne przechodzą. | Wymaga deployu i potwierdzenia dwóch realnych odpowiedzi HTTP 404 na aktywnym hostingu. |
+| P1-03 | DONE | `40e5af1`, `61b1b78` | Osiem tras ma pełny initial HTML z title, description, canonical, jednym H1, treścią, linkami i jednym JSON-LD. Finalny test przeglądarkowy: 8/8 tras bez błędów hydracji. | Deploy i inspekcja URL w GSC/Bing. |
+| P1-04 | PARTIAL | `92b1d99` | Dodatkowe eksporty query→page pokazały homepage jako obecny i jedyny klikany landing w analizowanym wycinku; nie wykazano kanibalizacji uzasadniającej nowe URL-e. Homepage jasno rozróżnia gabinet w Zielonce i wizyty domowe w Markach; nie utworzono doorway pages. | Kontrola SERP/Local Pack i obserwacja GSC po konsolidacji hosta; oddzielne strony usług dopiero po dostarczeniu treści eksperckiej. |
+| P1-05 | DONE | `61b1b78`, `6f3dcf0` | Usunięto błędny typ `Physiotherapy`. Każda trasa ma spójny graf ze stabilnymi `@id`; `/onas` ma wymagane `ProfilePage.mainEntity`; 8/8 bloków parsuje się i ma unikalne identyfikatory. | `Service`, kwalifikacje i autorstwo pozostają celowo pominięte bez potwierdzonych danych. |
+| P1-06 | BLOCKED | `3948807` ogranicza część overclaimów | Uporządkowano semantykę i złagodzono część zbyt mocnych deklaracji. | **WYMAGA INFORMACJI OD WŁAŚCICIELA:** kwalifikacje, nazwy/organizatorzy/lata kursów, zakres kompetencji, źródło i zgody opinii, autorstwo i recenzja treści. |
+| P1-07 | DONE | `54ab63a`, `60dd428`, `9360116` | Usunięto blokowanie widoku preloadem zasobów below-the-fold, naprawiono ścieżki ikon, nadano priorytet LCP `/onas` i asynchronicznie ładowane fonty. Finalny Lighthouse mobile: home Performance 86/LCP 3,20 s; `/onas` 95/2,93 s. | Potrzebny pomiar po deployu; wynik lokalny nie jest CrUX. |
+| P1-08 | PARTIAL | `57c1202`, `9fde519` | Z bieżącej galerii i lokalnego publicznego drzewa usunięto siedem skanów w ramach redukcji ekspozycji, w tym skan z potwierdzoną pełną datą urodzenia; SW nie cache’uje skanów i usuwa stare cache. | Przed pushem pliki są nadal dostępne na aktualnym `origin/main` i produkcji; po pushu pozostaną w historii, forkach i cache. Potrzebne deploy, purge CDN i ewentualny history rewrite za osobną zgodą. Decyzja właścicielki o pozostałych identyfikatorach na obrazach 1/8/9/11/12. |
+| P2-01 | PARTIAL | `61b1b78`, `637c80c` | Artykuły mają właściwy H1, `<article>`, `<time>`, krótsze metadata i `Article` schema. | **WYMAGA INFORMACJI OD WŁAŚCICIELA:** autor, rzeczywista data publikacji/modyfikacji i wyjaśnienie relacji szkolenie/egzamin Toony. |
+| P2-02 | DONE | `1b43d7c`, `3948807`, `72e70ad` | Dodano landmarki, `<address>`, skip link, prawdziwe linki, kontrolę menu, reduced motion, cele dotykowe i wspólny natywny dialog. Test: menu Escape, galeria Escape/strzałki/focus restore, mobile 390×844 bez overflow. | Zalecany okresowy pełny audyt WCAG na produkcji, ale opisane defekty zostały naprawione w repo. |
+| P2-03 | BLOCKED | `cabc538` ujednolica linki w repo | NAP i zweryfikowany link Booksy są centralne i spójne w kodzie. | **WYMAGA DOSTĘPU/DECYZJI WŁAŚCICIELA:** synchronizacja URL, cen, usług, godzin i opisu w GBP, Booksy i Facebook. |
+| P2-04 | PARTIAL | `cabc538`, `72e70ad` | Wdrożono `tel:`, Booksy, link do trasy, czytelny adres i większe cele mobilne. | GA4/GTM/eventy/UTM wymagają decyzji o prywatności, cookies i narzędziu pomiarowym. |
+| P2-05 | DONE | `9fde519`, `46acf65`, `7e8b481`, `2c5ef1f` | Usunięto nieużywane zależności, zaktualizowano runtime/build, oba końcowe `npm audit` zwracają 0, SW cache’uje tylko hashowane assety, dodano cache policy i bazowe nagłówki. | Deploy i test nagłówków/CDN; CSP pozostaje celowo `Report-Only`; Cloudflare musi ominąć cache dla `/sw.js`. |
+| P2-06 | DONE | `40e5af1`, `61b1b78` | Route-specific OG/Twitter są w initial HTML, URL obrazu jest absolutny, a karta ma 1200×630. | Po deployu odświeżyć cache/testy Facebook, LinkedIn i X. Wszystkie trasy celowo korzystają z jednej spójnej karty. |
+| P2-07 | BLOCKED | `2c5ef1f` ogranicza techniczne źródła CSP | Zewnętrzne źródła są jawnie ograniczone w CSP Report-Only. | **WYMAGA DECYZJI PRAWNEJ/PRYWATNOŚCI:** polityka prywatności, Google Fonts/Maps, ewentualne click-to-load/CMP i analytics. |
+| P3-01 | DONE | `ad9784a`, `5adb6dc` | Usunięto zbędne metadata, sitemap/robots są zgodne z ośmioma canonicalami, dodano kompatybilne ikony PNG. | `lastmod` celowo nie dodano, ponieważ nie ma wiarygodnego, utrzymywanego źródła dat zmian dokumentów. |
+
+## Nowe dane query → page
+
+Przeanalizowano siedem dodatkowych eksportów z 13.08.2026: łącznie 4 kliknięcia i 2 418 wyświetleń. Grupa Zielonka miała 2/1 011, a Marki 2/1 407. Najważniejsze obserwacje:
+
+- `rehabilitacja zielonka`: 1/765, CTR 0,13%, pozycja 2,16;
+- `fizjoterapia zielonka`: 1/49, CTR 2,04%, pozycja 9,69;
+- `drenaż limfatyczny zielonka`: 0/124, pozycja 14,90;
+- `fizjoterapeuta zielonka`: 0/73, pozycja 10,93;
+- wszystkie kliknięcia w tym wycinku trafiły na homepage;
+- dane pokazują rozszczepienie host/protokół, ale nie uzasadniają tworzenia wielu stron miejscowość × usługa;
+- decyzja wdrożeniowa: homepage pozostaje właścicielem ogólnej intencji lokalnej, a osobne landingi usług mogą powstać dopiero z potwierdzoną ofertą i merytoryczną treścią Hanny.
+
+## Test końcowy stanu lokalnego
+
+- `npm run lint`: PASS;
+- `npm run build`: PASS;
+- testy Node/HTML/SW: 13/13 PASS;
+- `npm audit` i `npm audit --omit=dev`: 0 podatności;
+- 8/8 tras: poprawne title/description/canonical/H1/JSON-LD, brak błędów hydracji i konsoli aplikacji;
+- viewport 390×844: brak poziomego overflow;
+- finalny Lighthouse mobile: homepage 86/100 Performance, 100 Accessibility, 96 Best Practices, 100 SEO, LCP 3,20 s; `/onas` odpowiednio 95/100/96/100, LCP 2,93 s;
+- warning końcowy Lighthouse dotyczył wyłącznie odmowy skasowania tymczasowego profilu Chrome w Windows po poprawnym zapisaniu raportu; nie był błędem strony.
+
+Szczegółowy raport zmian, pełna historia commitów, blockery i instrukcja wdrożenia znajdują się w `WDROZENIE-SEO-AI.md`.
